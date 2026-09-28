@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-deep-teal: #009698;
+  --color-deep-teal-hover: #008183;
+  --color-deep-teal-dark: #005e60;
+  --color-deep-teal-50: #f0fafa;
+  --color-deep-teal-100: #d6f2f2;
+  --color-leaf-green: #7CB342;
+  --color-leaf-green-hover: #6ea237;
+  --color-leaf-green-dark: #558b2f;
+  --color-leaf-green-50: #f6fbf0;
+  --color-leaf-green-100: #eaf5dd;
+}
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar for modern industrial aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #009698;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #008183;
+}

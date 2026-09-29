@@ -1,60 +1,53 @@
 "use client";
 
 import React from "react";
-import { Translations } from "@/types/content";
-import { ArrowRight, PhoneCall, ShieldCheck, Mail } from "lucide-react";
+import { ArrowRight, PhoneCall, Mail, ShieldCheck } from "lucide-react";
+import { useProjectInquiry } from "./ProjectInquiryContext";
 
-interface CtaBannerProps {
-  t: Translations["ctaSection"];
-  onOpenModal: () => void;
-}
+export default function CtaBanner() {
+  const { openModal } = useProjectInquiry();
 
-export default function CtaBanner({ t, onOpenModal }: CtaBannerProps) {
   return (
-    <section id="contact" className="relative w-full py-16 lg:py-20 bg-slate-950 text-white overflow-hidden">
-      {/* Visual Accent Backdrops */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#009698]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#7CB342]/10 rounded-full blur-3xl pointer-events-none" />
-
-      {/* Standard desktop container: w-full max-w-7xl mx-auto px-4 */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="contact" className="relative w-full py-16 lg:py-24 bg-white border-b border-gray-200">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="rounded-2xl p-8 sm:p-12 lg:p-14 bg-gradient-to-r from-slate-900 to-slate-800/90 border border-slate-700/80 shadow-2xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div className="p-8 sm:p-12 lg:p-14 bg-gray-50 border border-gray-200 shadow-sm rounded-none flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           
           <div className="max-w-2xl">
-            <div className="inline-flex flex-row items-center gap-2 px-3 py-1 rounded-md bg-[#7CB342]/20 text-[#7CB342] text-xs font-semibold uppercase tracking-wider mb-4">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Turnkey Execution · In-Kingdom Mobilization</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#00A3A6]/10 text-[#00A3A6] text-xs font-bold uppercase tracking-wider mb-4 rounded-none">
+              <ShieldCheck className="w-4 h-4 text-[#74B743]" />
+              <span>جاهزية تنفيذ وطنية · استجابة سريعة</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-              {t.heading}
+            {/* Exact Arabic Heading from Copy Doc */}
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+              حدّثونا عن موقع العمل.
             </h2>
 
-            <p className="mt-3 text-slate-300 text-base sm:text-lg leading-relaxed">
-              {t.subheading}
+            {/* Exact Arabic Text from Copy Doc */}
+            <p className="mt-3 text-gray-700 text-base sm:text-lg leading-relaxed font-normal">
+              تواصلوا مع الفريق مباشرة، أو أرسلوا تفاصيل المشروع وسنعاود التواصل بخصوص النطاق والجدولة.
             </p>
 
-            <div className="mt-6 flex flex-wrap flex-row items-center gap-6 text-xs text-slate-400">
-              <div className="flex flex-row items-center gap-2">
-                <PhoneCall className="w-4 h-4 text-[#009698]" />
-                <span>+966 (11) 480-7799</span>
+            <div className="mt-6 flex flex-wrap items-center gap-6 text-xs sm:text-sm text-gray-700 font-semibold">
+              <div className="flex items-center gap-2">
+                <PhoneCall className="w-4 h-4 text-[#00A3A6]" />
+                <span dir="ltr" className="tabular-nums">+966 (11) 480-7799</span>
               </div>
-              <div className="flex flex-row items-center gap-2">
-                <Mail className="w-4 h-4 text-[#7CB342]" />
-                <span>projects@shourna.com</span>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-[#74B743]" />
+                <span>info@shourna.com</span>
               </div>
             </div>
           </div>
 
-          {/* Action Button - horizontal flex on desktop */}
-          <div className="shrink-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+          <div className="shrink-0 w-full sm:w-auto">
             <button
               type="button"
-              onClick={onOpenModal}
-              className="bg-[#009698] hover:bg-[#008183] text-white font-bold px-8 py-4 rounded-md inline-flex items-center justify-center gap-3 transition-all duration-200 shadow-lg shadow-[#009698]/30 hover:shadow-xl hover:shadow-[#009698]/40 cursor-pointer text-base"
+              onClick={() => openModal()}
+              className="w-full sm:w-auto bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold px-8 py-4 rounded-sm inline-flex items-center justify-center gap-3 transition-all shadow-md cursor-pointer text-base"
             >
-              <span>{t.buttonText}</span>
+              <span>ناقش مشروعك معنا</span>
               <ArrowRight className="w-5 h-5 rtl:rotate-180" />
             </button>
           </div>

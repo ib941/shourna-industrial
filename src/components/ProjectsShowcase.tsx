@@ -2,124 +2,114 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowUpRight, MapPin, Building, Wrench, Sprout, Factory } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, MapPin, Building, Sprout, Factory, ArrowRight } from "lucide-react";
+import { useProjectInquiry } from "./ProjectInquiryContext";
 
-interface ProjectsShowcaseProps {
-  onOpenModal: () => void;
-}
+export default function ProjectsShowcase() {
+  const { openModal } = useProjectInquiry();
 
-export default function ProjectsShowcase({ onOpenModal }: ProjectsShowcaseProps) {
   const sampleProjects = [
     {
-      title: "Riyadh Logistics Logistics Park - Steel Superstructures",
-      category: "Industrial Projects",
-      location: "Riyadh Industrial City",
+      title: "توسعة منشأة — نموذج مبدئي",
+      category: "صناعي",
+      location: "المدينة الصناعية الثانية، الرياض",
       image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
-      specs: "12,000 sqm heavy structural steel & civil foundation",
-      icon: <Factory className="w-4 h-4 text-[#009698]" />,
+      specs: "أعمال مدنية وإنشائية لتوسعة منشأة تصنيعية.",
+      icon: <Factory className="w-4 h-4 text-[#00A3A6]" />,
     },
     {
-      title: "Kingdom Commercial Tower - High-Rise Glass Facade",
-      category: "Facade Cleaning & BMU",
-      location: "Jeddah Corniche",
+      title: "برنامج صيانة واجهات برج — نموذج مبدئي",
+      category: "واجهات",
+      location: "طريق الملك فهد، الرياض",
       image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
-      specs: "42-storey curtain wall deep wash & sealant renewal",
-      icon: <Building className="w-4 h-4 text-[#009698]" />,
+      specs: "عقد استبدال كسوة وتنظيف بالحبال.",
+      icon: <Building className="w-4 h-4 text-[#00A3A6]" />,
     },
     {
-      title: "Agricultural Green Corridor & Smart Irrigation",
-      category: "Agriculture Services",
-      location: "Al-Qassim Region",
+      title: "ري عقار زراعي — نموذج مبدئي",
+      category: "زراعي",
+      location: "منطقة القصيم",
       image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80",
-      specs: "450,000 sqm laser grading & automated subsurface drip",
-      icon: <Sprout className="w-4 h-4 text-[#7CB342]" />,
-    },
-    {
-      title: "Corporate Headquarters - Cladding & Anchor Inspection",
-      category: "Facade Maintenance",
-      location: "Khobar / Eastern Province",
-      image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80",
-      specs: "Composite panel repair & structural compliance audit",
-      icon: <Wrench className="w-4 h-4 text-[#009698]" />,
+      specs: "تركيب شبكة ري لعقار زراعي تجاري.",
+      icon: <Sprout className="w-4 h-4 text-[#74B743]" />,
     },
   ];
 
   return (
-    <section id="projects" className="relative w-full py-20 lg:py-24 bg-slate-900 text-white">
-      {/* Standard desktop container: w-full max-w-7xl mx-auto px-4 */}
+    <section id="projects" className="relative w-full py-20 lg:py-28 bg-gray-900 text-white">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-14">
           <div>
-            <div className="inline-flex flex-row items-center gap-2 px-3 py-1 rounded-md bg-[#009698]/20 text-xs font-semibold text-[#009698] uppercase tracking-wider mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#7CB342]"></span>
-              <span>Track Record</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Selected Turnkey Deliveries Across the Kingdom
+            <span className="inline-block px-3 py-1 bg-[#00A3A6]/20 text-xs font-bold text-[#00A3A6] tracking-wider uppercase mb-3">
+              سجل الإنجاز الميداني
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+              نماذج من مشاريعنا بالمملكة
             </h2>
-            <p className="mt-2 text-slate-400 text-sm sm:text-base max-w-2xl">
-              Proven execution across industrial facilities, high-rise architectural facades, and commercial agricultural grounds.
+            <p className="mt-3 text-gray-400 text-sm sm:text-base max-w-2xl">
+              قدرات تنفيذية مثبتة في المنشآت الصناعية، واجهات الأبراج الشاهقة، والمشاريع الزراعية الواسعة.
             </p>
           </div>
 
-          <button
-            type="button"
-            onClick={onOpenModal}
-            className="shrink-0 px-5 py-2.5 rounded-md border border-slate-700 bg-slate-800 text-xs sm:text-sm font-semibold text-slate-200 hover:text-white hover:border-[#009698] hover:bg-slate-700/60 transition-colors cursor-pointer"
+          <Link
+            href="/projects"
+            className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-sm border border-gray-700 bg-gray-800 text-xs sm:text-sm font-bold text-gray-200 hover:text-white hover:border-[#00A3A6] hover:bg-gray-700 transition-colors"
           >
-            Request Full Project Portfolio
-          </button>
+            <span>استعراض كافة المشاريع</span>
+            <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+          </Link>
         </div>
 
-        {/* 4 Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 3 Project Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {sampleProjects.map((proj, idx) => (
             <div
               key={idx}
-              className="group rounded-xl overflow-hidden bg-slate-800/80 border border-slate-700/70 hover:border-[#009698] transition-all duration-300 flex flex-col justify-between"
+              className="group rounded-none overflow-hidden bg-gray-800 border border-gray-700 hover:border-[#00A3A6] transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="relative h-48 w-full overflow-hidden">
+                <div className="relative h-56 w-full overflow-hidden bg-gray-900">
                   <Image
                     src={proj.image}
                     alt={proj.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-85"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80" />
-                  <div className="absolute top-3 left-3 rtl:left-auto rtl:right-3">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-900/80 backdrop-blur-xs text-[11px] font-semibold text-white border border-slate-700">
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-80" />
+                  <div className="absolute top-4 right-4">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-gray-900/90 backdrop-blur-xs text-xs font-bold text-white border border-gray-700">
                       {proj.icon}
                       <span>{proj.category}</span>
                     </span>
                   </div>
                 </div>
 
-                <div className="p-5">
-                  <div className="flex flex-row items-center gap-1.5 text-xs text-slate-400 mb-2">
-                    <MapPin className="w-3.5 h-3.5 text-[#7CB342]" />
+                <div className="p-6">
+                  <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-2">
+                    <MapPin className="w-3.5 h-3.5 text-[#74B743]" />
                     <span>{proj.location}</span>
                   </div>
 
-                  <h3 className="text-base font-bold text-white group-hover:text-[#009698] transition-colors line-clamp-2">
+                  <h3 className="text-lg font-bold text-white group-hover:text-[#00A3A6] transition-colors leading-snug">
                     {proj.title}
                   </h3>
 
-                  <p className="mt-2 text-xs text-slate-400 line-clamp-2">
+                  <p className="mt-3 text-xs text-gray-300 leading-relaxed">
                     {proj.specs}
                   </p>
                 </div>
               </div>
 
-              <div className="p-5 pt-0">
+              <div className="p-6 pt-0">
                 <button
                   type="button"
-                  onClick={onOpenModal}
-                  className="w-full pt-3 border-t border-slate-700/60 flex flex-row items-center justify-between text-xs font-semibold text-[#009698] group-hover:text-white transition-colors cursor-pointer"
+                  onClick={() => openModal(proj.title)}
+                  className="w-full pt-4 border-t border-gray-700/70 flex items-center justify-between text-xs font-bold text-[#00A3A6] group-hover:text-white transition-colors cursor-pointer"
                 >
-                  <span>View Case Metrics</span>
+                  <span>طلب معاينة لمشروع مماثل</span>
                   <ArrowUpRight className="w-4 h-4 rtl:rotate-[-90deg]" />
                 </button>
               </div>

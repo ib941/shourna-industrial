@@ -1,21 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-deep-teal: #009698;
-  --color-deep-teal-hover: #008183;
-  --color-deep-teal-dark: #005e60;
-  --color-deep-teal-50: #f0fafa;
-  --color-deep-teal-100: #d6f2f2;
-  --color-leaf-green: #7CB342;
-  --color-leaf-green-hover: #6ea237;
-  --color-leaf-green-dark: #558b2f;
-  --color-leaf-green-50: #f6fbf0;
-  --color-leaf-green-100: #eaf5dd;
+  --color-deep-teal: #00A3A6;
+  --color-deep-teal-hover: #00878a;
+  --color-deep-teal-dark: #006e70;
+  --color-deep-teal-50: #f0fafb;
+  --color-deep-teal-100: #d6f2f3;
+  --color-light-blue: #8DD2EB;
+  --color-light-blue-hover: #75c5e2;
+  --color-light-blue-50: #f4fafe;
+  --color-leaf-green: #74B743;
+  --color-leaf-green-hover: #63a036;
+  --color-leaf-green-dark: #4f8029;
+  --color-leaf-green-50: #f6fbf2;
 }
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #ffffff;
+  --foreground: #111827;
 }
 
 html {
@@ -25,21 +27,26 @@ html {
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-family: var(--font-tajawal), "Tajawal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
   overflow-x: hidden;
 }
 
-/* Custom scrollbar for modern industrial aesthetic */
+/* Ensure all numbers render with sharp, aligned tabular digits */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Corporate clean scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #f3f4f6;
 }
 ::-webkit-scrollbar-thumb {
-  background: #009698;
-  border-radius: 4px;
+  background: #00A3A6;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #008183;
+  background: #00878a;
 }

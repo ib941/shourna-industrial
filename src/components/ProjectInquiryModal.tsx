@@ -1,29 +1,27 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Translations } from "@/types/content";
-import { X, CheckCircle, Send, Building, MapPin, Phone, Mail, User } from "lucide-react";
+import { X, CheckCircle, Send } from "lucide-react";
 
 interface ProjectInquiryModalProps {
   isOpen: boolean;
   onClose: () => void;
+  locale?: string;
   initialService?: string;
-  t: Translations["modal"];
 }
 
 export default function ProjectInquiryModal({
   isOpen,
   onClose,
-  initialService = "",
-  t,
+  initialService = "تنفيذ متكامل للمنشآت الصناعية",
 }: ProjectInquiryModalProps) {
   const [formData, setFormData] = useState({
     fullName: "",
     company: "",
     email: "",
     phone: "",
-    serviceLine: initialService || "Industrial Projects",
-    location: "Riyadh",
+    serviceLine: initialService,
+    location: "الرياض",
     scope: "",
   });
 
@@ -36,7 +34,6 @@ export default function ProjectInquiryModal({
     }
   }, [initialService]);
 
-  // Handle escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
@@ -55,195 +52,170 @@ export default function ProjectInquiryModal({
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-    }, 800);
-  };
-
-  const handleReset = () => {
-    setSubmitted(false);
-    onClose();
+    }, 700);
   };
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/70 backdrop-blur-xs animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/60 backdrop-blur-xs"
       role="dialog"
       aria-modal="true"
     >
-      <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden text-left rtl:text-right">
-        
-        {/* Header bar with Deep Teal highlight */}
-        <div className="bg-slate-900 text-white px-6 py-5 flex flex-row items-center justify-between border-b border-slate-800">
+      <div className="relative w-full max-w-2xl bg-white rounded-none border border-gray-300 shadow-2xl overflow-hidden text-right" dir="rtl">
+        {/* Header bar: Deep Teal with sharp corners */}
+        <div className="bg-[#00A3A6] text-white px-6 py-5 flex flex-row items-center justify-between">
           <div>
             <div className="flex flex-row items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#7CB342]"></span>
-              <span className="text-xs font-mono font-bold tracking-widest text-[#009698] uppercase">
-                SICS Technical RFP
+              <span className="w-2.5 h-2.5 bg-[#74B743]"></span>
+              <span className="text-xs font-mono font-bold tracking-widest text-white uppercase">
+                شركة شُرنة الصناعية · استشارة هندسية
               </span>
             </div>
-            <h3 className="text-xl font-bold text-white mt-1">{t.title}</h3>
+            <h3 className="text-xl font-bold text-white mt-1">
+              طلب دراسة ومناقشة مشروع
+            </h3>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
-            aria-label="Close dialog"
+            className="p-1.5 text-white hover:bg-white/20 transition-colors cursor-pointer rounded-none"
+            aria-label="إغلاق النافذة"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Content */}
-        <div className="p-6 sm:p-8">
+        <div className="p-6 sm:p-8 bg-white">
           {submitted ? (
-            <div className="py-12 text-center flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-[#7CB342]/20 text-[#7CB342] flex items-center justify-center mb-4">
-                <CheckCircle className="w-10 h-10" />
+            <div className="py-10 text-center flex flex-col items-center">
+              <div className="w-14 h-14 bg-gray-50 border border-gray-200 text-[#74B743] flex items-center justify-center mb-4 rounded-none">
+                <CheckCircle className="w-8 h-8" />
               </div>
-              <h4 className="text-2xl font-bold text-slate-900">
-                {t.successTitle}
+              <h4 className="text-2xl font-bold text-gray-900">
+                تم استلام طلب المشروع بنجاح
               </h4>
-              <p className="mt-2 text-slate-600 max-w-md">
-                {t.successMessage}
+              <p className="mt-2 text-gray-600 max-w-md text-sm leading-relaxed">
+                شكراً لتواصلكم مع شركة شُرنة الصناعية. سيقوم مهندس المشاريع المختص بالتواصل معكم خلال 24 ساعة لمناقشة نطاق العمل والجدولة.
               </p>
-              <div className="mt-6 p-4 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-500 font-mono">
-                Reference ID: SICS-RFP-{Math.floor(100000 + Math.random() * 900000)}
-              </div>
               <button
                 type="button"
-                onClick={handleReset}
-                className="mt-8 px-6 py-2.5 rounded-md bg-[#009698] hover:bg-[#008183] text-white font-semibold text-sm transition-colors cursor-pointer"
+                onClick={() => {
+                  setSubmitted(false);
+                  onClose();
+                }}
+                className="mt-6 px-8 py-2.5 bg-[#00A3A6] hover:bg-[#00878a] text-white font-semibold text-sm transition-colors cursor-pointer rounded-sm"
               >
-                {t.close}
+                إغلاق
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              <p className="text-xs sm:text-sm text-slate-600 mb-4">
-                {t.subtitle}
-              </p>
-
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    {t.fullName} *
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                    الاسم الكامل *
                   </label>
-                  <div className="relative">
-                    <input
-                      required
-                      type="text"
-                      value={formData.fullName}
-                      onChange={(e) =>
-                        setFormData({ ...formData, fullName: e.target.value })
-                      }
-                      placeholder="e.g. Eng. Khalid Al-Otaibi"
-                      className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm text-slate-900 focus:outline-hidden focus:border-[#009698] focus:ring-1 focus:ring-[#009698]"
-                    />
-                  </div>
+                  <input
+                    required
+                    type="text"
+                    value={formData.fullName}
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    placeholder="م. محمد السالم"
+                    className="w-full px-3.5 py-2.5 rounded-none border border-gray-300 text-sm text-gray-900 focus:outline-hidden focus:border-[#00A3A6]"
+                  />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    {t.company} *
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                    الشركة / المؤسسة *
                   </label>
                   <input
                     required
                     type="text"
                     value={formData.company}
-                    onChange={(e) =>
-                      setFormData({ ...formData, company: e.target.value })
-                    }
-                    placeholder="e.g. Saudi Aramco / Red Sea Global"
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm text-slate-900 focus:outline-hidden focus:border-[#009698] focus:ring-1 focus:ring-[#009698]"
+                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                    placeholder="اسم المنشأة أو الشركة"
+                    className="w-full px-3.5 py-2.5 rounded-none border border-gray-300 text-sm text-gray-900 focus:outline-hidden focus:border-[#00A3A6]"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    {t.email} *
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                    البريد الإلكتروني للعمل *
                   </label>
                   <input
                     required
                     type="email"
                     value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    placeholder="k.otaibi@company.sa"
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm text-slate-900 focus:outline-hidden focus:border-[#009698] focus:ring-1 focus:ring-[#009698]"
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="name@company.com"
+                    className="w-full px-3.5 py-2.5 rounded-none border border-gray-300 text-sm text-gray-900 focus:outline-hidden focus:border-[#00A3A6]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    {t.phone} *
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                    رقم الجوال (المملكة) *
                   </label>
                   <input
                     required
                     type="tel"
                     value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
-                    placeholder="+966 5X XXX XXXX"
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm text-slate-900 focus:outline-hidden focus:border-[#009698] focus:ring-1 focus:ring-[#009698]"
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    placeholder="05XXXXXXXX"
+                    className="w-full px-3.5 py-2.5 rounded-none border border-gray-300 text-sm text-gray-900 tabular-nums focus:outline-hidden focus:border-[#00A3A6]"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    {t.serviceLine}
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                    خط الخدمة المطلوب
                   </label>
                   <select
                     value={formData.serviceLine}
-                    onChange={(e) =>
-                      setFormData({ ...formData, serviceLine: e.target.value })
-                    }
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm text-slate-900 bg-white focus:outline-hidden focus:border-[#009698] focus:ring-1 focus:ring-[#009698]"
+                    onChange={(e) => setFormData({ ...formData, serviceLine: e.target.value })}
+                    className="w-full px-3.5 py-2.5 rounded-none border border-gray-300 text-sm text-gray-900 bg-white focus:outline-hidden focus:border-[#00A3A6]"
                   >
-                    <option value="Industrial Projects">Industrial Projects (Civil & Steel)</option>
-                    <option value="Facade Maintenance">Facade Maintenance & Sealant</option>
-                    <option value="Facade Cleaning">Facade Cleaning (Cleanova Standard & BMU)</option>
-                    <option value="Agriculture Services">Agriculture Services & Irrigation</option>
-                    <option value="Full Facility Contract">Integrated Industrial Facilities Contract</option>
+                    <option value="تنفيذ متكامل للمنشآت الصناعية">تنفيذ متكامل للمنشآت الصناعية</option>
+                    <option value="صيانة واجهات المباني">صيانة واجهات المباني</option>
+                    <option value="تنظيف واجهات المباني">تنظيف واجهات المباني</option>
+                    <option value="الخدمات الزراعية">الخدمات الزراعية</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    {t.location}
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                    موقع المشروع
                   </label>
                   <select
                     value={formData.location}
-                    onChange={(e) =>
-                      setFormData({ ...formData, location: e.target.value })
-                    }
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm text-slate-900 bg-white focus:outline-hidden focus:border-[#009698] focus:ring-1 focus:ring-[#009698]"
+                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                    className="w-full px-3.5 py-2.5 rounded-none border border-gray-300 text-sm text-gray-900 bg-white focus:outline-hidden focus:border-[#00A3A6]"
                   >
-                    <option value="Riyadh">Riyadh Region</option>
-                    <option value="Eastern Province">Eastern Province (Dammam / Khobar / Jubail)</option>
-                    <option value="Western Region">Western Region (Jeddah / Makkah / Yanbu)</option>
-                    <option value="NEOM / Tabuk">NEOM / Tabuk / Red Sea Project</option>
-                    <option value="Southern Region">Southern Region / Asir</option>
+                    <option value="الرياض">منطقة الرياض</option>
+                    <option value="المنطقة الشرقية">المنطقة الشرقية (الدمام / الجبيل)</option>
+                    <option value="المنطقة الغربية">المنطقة الغربية (جدة / ينبع)</option>
+                    <option value="نيوم / البحر الأحمر">نيوم / البحر الأحمر / تبوك</option>
+                    <option value="منطقة أخرى">منطقة أخرى بالمملكة</option>
                   </select>
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  {t.scope}
+                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  نبذة عن نطاق العمل والجدول الزمني
                 </label>
                 <textarea
                   rows={3}
                   value={formData.scope}
-                  onChange={(e) =>
-                    setFormData({ ...formData, scope: e.target.value })
-                  }
-                  placeholder="Outline dimensions, building height, steel tonnage, or target start date..."
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm text-slate-900 focus:outline-hidden focus:border-[#009698] focus:ring-1 focus:ring-[#009698]"
+                  onChange={(e) => setFormData({ ...formData, scope: e.target.value })}
+                  placeholder="المساحة التقريبية، الارتفاعات، نوع الأعمال، أو موعد البدء المستهدف..."
+                  className="w-full px-3.5 py-2.5 rounded-none border border-gray-300 text-sm text-gray-900 focus:outline-hidden focus:border-[#00A3A6]"
                 />
               </div>
 
@@ -251,21 +223,21 @@ export default function ProjectInquiryModal({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="w-full sm:w-auto px-5 py-2.5 rounded-lg border border-slate-300 text-xs sm:text-sm font-semibold text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-sm border border-gray-300 text-xs sm:text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer"
                 >
-                  Cancel
+                  إلغاء
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full sm:w-auto px-7 py-2.5 rounded-lg bg-[#009698] hover:bg-[#008183] text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-md shadow-[#009698]/30 transition-all cursor-pointer disabled:opacity-50"
+                  className="w-full sm:w-auto px-7 py-2.5 rounded-sm bg-[#00A3A6] hover:bg-[#00878a] text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-xs transition-colors cursor-pointer disabled:opacity-50"
                 >
                   {loading ? (
-                    <span>{t.submitting}</span>
+                    <span>جاري الإرسال...</span>
                   ) : (
                     <>
                       <Send className="w-4 h-4 rtl:rotate-180" />
-                      <span>{t.submit}</span>
+                      <span>إرسال بيانات المشروع</span>
                     </>
                   )}
                 </button>

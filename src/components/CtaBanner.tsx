@@ -30,14 +30,20 @@ export default function CtaBanner() {
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-6 text-xs sm:text-sm text-gray-700 font-semibold">
-              <div className="flex items-center gap-2">
-                <PhoneCall className="w-4 h-4 text-[#00A3A6]" />
+              <a
+                href={`tel:${t.cta.phone.replace(/[^0-9+]/g, '')}`}
+                className="flex items-center gap-2 hover:text-[#00A3A6] transition-colors group"
+              >
+                <PhoneCall className="w-4 h-4 text-[#00A3A6] group-hover:scale-110 transition-transform" />
                 <span dir="ltr" className="tabular-nums">{t.cta.phone}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#74B743]" />
+              </a>
+              <a
+                href={`mailto:${t.cta.email}`}
+                className="flex items-center gap-2 hover:text-[#00A3A6] transition-colors group"
+              >
+                <Mail className="w-4 h-4 text-[#74B743] group-hover:scale-110 transition-transform" />
                 <span>{t.cta.email}</span>
-              </div>
+              </a>
             </div>
           </div>
 

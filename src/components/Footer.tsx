@@ -88,22 +88,22 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
-                <Link href="/services#industrial" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
+                <Link href="/services/facade-cleaning" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
                   {t.footer.service1}
                 </Link>
               </li>
               <li>
-                <Link href="/services#facade-maintenance" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
+                <Link href="/services/industrial" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
                   {t.footer.service2}
                 </Link>
               </li>
               <li>
-                <Link href="/services#facade-cleaning" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
+                <Link href="/services/facade-maintenance" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
                   {t.footer.service3}
                 </Link>
               </li>
               <li>
-                <Link href="/services#agriculture" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
+                <Link href="/services/agriculture" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
                   {t.footer.service4}
                 </Link>
               </li>
@@ -120,14 +120,20 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 text-[#74B743] shrink-0 mt-0.5" />
                 <span>{t.footer.address}</span>
               </div>
-              <div className="flex flex-row items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#00A3A6] shrink-0" />
+              <a
+                href={`tel:${t.footer.phone.replace(/[^0-9+]/g, '')}`}
+                className="flex flex-row items-center gap-2.5 hover:text-[#00A3A6] transition-colors group"
+              >
+                <Phone className="w-4 h-4 text-[#00A3A6] shrink-0 group-hover:scale-110 transition-transform" />
                 <span dir="ltr" className="tabular-nums">{t.footer.phone}</span>
-              </div>
-              <div className="flex flex-row items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#00A3A6] shrink-0" />
+              </a>
+              <a
+                href={`mailto:${t.footer.email}`}
+                className="flex flex-row items-center gap-2.5 hover:text-[#00A3A6] transition-colors group"
+              >
+                <Mail className="w-4 h-4 text-[#00A3A6] shrink-0 group-hover:scale-110 transition-transform" />
                 <span>{t.footer.email}</span>
-              </div>
+              </a>
               <div className="pt-2">
                 <button
                   type="button"

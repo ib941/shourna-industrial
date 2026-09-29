@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Factory, Wrench, Sparkles, Sprout, CheckCircle2, ArrowRight, Shield, Clock, FileCheck } from "lucide-react";
 import { useProjectInquiry } from "@/components/ProjectInquiryContext";
 import { useLanguage } from "@/components/LanguageContext";
@@ -96,10 +97,12 @@ export default function ServicesPage() {
                     
                     {/* Visual Media Column */}
                     <div className={`lg:col-span-5 relative min-h-[300px] lg:min-h-full bg-gray-900 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
-                      <img
+                      <Image
                         src={svc.image}
                         alt={svc.title}
-                        className="w-full h-full object-cover object-center opacity-85 hover:scale-105 transition-transform duration-700"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 40vw"
+                        className="object-cover object-center opacity-90 hover:scale-105 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-transparent lg:hidden" />
                       
@@ -117,9 +120,11 @@ export default function ServicesPage() {
                           {getIcon(svc.id)}
                         </div>
 
-                        {/* Heading */}
+                        {/* Heading linking directly to independent page */}
                         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#00A3A6] tracking-tight mb-4">
-                          {svc.title}
+                          <Link href={`/services/${svc.id}`} className="hover:text-[#00878a] transition-colors">
+                            {svc.title}
+                          </Link>
                         </h2>
 
                         {/* Description */}
@@ -145,20 +150,20 @@ export default function ServicesPage() {
 
                       {/* Action footer */}
                       <div className="mt-10 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <Link
+                          href={`/services/${svc.id}`}
+                          className="px-7 py-3.5 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-sm transition-all shadow-xs hover:shadow-md inline-flex items-center justify-center gap-2 rounded-sm"
+                        >
+                          <span>{isRTL ? "استعراض كامل تفاصيل الخدمة" : "View Independent Service Page"}</span>
+                          <ArrowRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-180" : ""}`} />
+                        </Link>
                         <button
                           type="button"
                           onClick={() => openModal(svc.title)}
-                          className="px-7 py-3.5 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-sm transition-all shadow-xs hover:shadow-md cursor-pointer inline-flex items-center justify-center gap-2 rounded-sm"
+                          className="px-6 py-3.5 border border-gray-300 text-gray-700 hover:border-[#00A3A6] hover:text-[#00A3A6] text-sm font-semibold transition-colors inline-flex items-center justify-center rounded-sm cursor-pointer"
                         >
-                          <span>{t.servicesPage.ctaCardButton}</span>
-                          <ArrowRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-180" : ""}`} />
+                          {t.servicesPage.ctaCardButton}
                         </button>
-                        <Link
-                          href="/contact"
-                          className="px-6 py-3.5 border border-gray-300 text-gray-700 hover:border-[#00A3A6] hover:text-[#00A3A6] text-sm font-semibold transition-colors inline-flex items-center justify-center rounded-sm"
-                        >
-                          {t.servicesPage.siteSurveyButton}
-                        </Link>
                       </div>
 
                     </div>

@@ -209,25 +209,31 @@ export default function AboutPage() {
                 </p>
 
                 <div className="space-y-4 text-sm text-gray-800">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 bg-[#00A3A6]/10 text-[#00A3A6] flex items-center justify-center shrink-0">
+                  <a
+                    href={`tel:${t.aboutPage.directPhone.replace(/[^0-9+]/g, '')}`}
+                    className="flex items-center gap-3 group hover:text-[#00A3A6] transition-colors"
+                  >
+                    <div className="w-9 h-9 bg-[#00A3A6]/10 text-[#00A3A6] flex items-center justify-center shrink-0 group-hover:bg-[#00A3A6] group-hover:text-white transition-colors">
                       <Phone className="w-4 h-4" />
                     </div>
                     <div>
                       <span className="block text-xs text-gray-500 font-bold">{t.aboutPage.directPhoneLabel}</span>
-                      <span dir="ltr" className="text-base font-bold tabular-nums text-gray-900">{t.aboutPage.directPhone}</span>
+                      <span dir="ltr" className="text-base font-bold tabular-nums text-gray-900 group-hover:text-[#00A3A6] transition-colors">{t.aboutPage.directPhone}</span>
                     </div>
-                  </div>
+                  </a>
 
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 bg-[#74B743]/10 text-[#74B743] flex items-center justify-center shrink-0">
+                  <a
+                    href={`mailto:${t.aboutPage.directEmail}`}
+                    className="flex items-center gap-3 group hover:text-[#74B743] transition-colors"
+                  >
+                    <div className="w-9 h-9 bg-[#74B743]/10 text-[#74B743] flex items-center justify-center shrink-0 group-hover:bg-[#74B743] group-hover:text-white transition-colors">
                       <Mail className="w-4 h-4" />
                     </div>
                     <div>
                       <span className="block text-xs text-gray-500 font-bold">{t.aboutPage.directEmailLabel}</span>
-                      <span className="text-base font-bold text-gray-900">{t.aboutPage.directEmail}</span>
+                      <span className="text-base font-bold text-gray-900 group-hover:text-[#74B743] transition-colors">{t.aboutPage.directEmail}</span>
                     </div>
-                  </div>
+                  </a>
 
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 bg-[#00A3A6]/10 text-[#00A3A6] flex items-center justify-center shrink-0">

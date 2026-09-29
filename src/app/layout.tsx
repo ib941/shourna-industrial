@@ -3,6 +3,7 @@ import { Tajawal } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import { ProjectInquiryProvider } from "@/components/ProjectInquiryContext";
 
 import { LanguageProvider } from "@/components/LanguageContext";
@@ -43,6 +44,9 @@ export default function RootLayout({
 
             {/* Persistent Footer across all pages */}
             <Footer />
+
+            {/* Global Floating WhatsApp Button */}
+            <WhatsAppButton />
           </ProjectInquiryProvider>
         </LanguageProvider>
       </body>

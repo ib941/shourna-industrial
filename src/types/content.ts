@@ -11,6 +11,8 @@ export interface Translations {
     contact: string;
     discussProject: string;
     switchLang: string;
+    servicesDropdownTitle?: string;
+    allServices?: string;
   };
   hero: {
     eyebrow: string;
@@ -152,6 +154,8 @@ export interface Translations {
     bottomHeading: string;
     bottomDesc: string;
     bottomButton: string;
+    otherServicesHeading?: string;
+    backToServices?: string;
     items: Array<{
       id: string;
       num: string;
@@ -281,9 +285,11 @@ export const content: Record<Locale, Translations> = {
       contact: "تواصل معنا",
       discussProject: "ناقش مشروعك معنا",
       switchLang: "English",
+      servicesDropdownTitle: "الخدمات التخصصية",
+      allServices: "استعراض كافة الخدمات",
     },
     hero: {
-      eyebrow: "مشاريع صناعية · صيانة واجهات · تنظيف واجهات · خدمات زراعية",
+      eyebrow: "تنظيف واجهات المباني · تنفيذ متكامل للمنشآت الصناعية · صيانة واجهات المباني · الخدمات الزراعية",
       headline: "نبني على أساس متين.",
       subheading:
         "تقدّم شركة شُرنة الصناعية تنفيذ المشاريع الصناعية، وصيانة وتنظيف الواجهات، والخدمات الزراعية في مختلف مناطق المملكة — بجودة تنفيذ تدوم، وجدولة تحافظ على استمرارية العمل.",
@@ -314,32 +320,32 @@ export const content: Record<Locale, Translations> = {
       detailsLink: "تفاصيل الخدمة ونطاق العمل",
       cards: [
         {
-          id: "industrial",
+          id: "facade-cleaning",
           num: "01",
+          title: "تنظيف واجهات المباني",
+          desc: "تنظيف دوري وحسب الطلب لواجهات المباني المرتفعة والأرضية — الزجاج والحجر والكسوة واللافتات — بواسطة فرق مدربة على العمل بالحبال ووحدات الصيانة المعلقة.",
+          href: "/services/facade-cleaning",
+        },
+        {
+          id: "industrial",
+          num: "02",
           title: "تنفيذ متكامل للمنشآت الصناعية",
-          desc: "من الأعمال المدنية والإنشاءات الفولاذية إلى التركيبات الميكانيكية والتشغيل التجريبي.",
-          href: "/services#industrial",
+          desc: "من الأعمال المدنية والإنشاءات الفولاذية إلى التركيبات الميكانيكية والتشغيل التجريبي للمنشآت والمصانع الكبرى.",
+          href: "/services/industrial",
         },
         {
           id: "facade-maintenance",
-          num: "02",
+          num: "03",
           title: "صيانة واجهات المباني",
           desc: "صيانة إنشائية ومادية مستمرة لواجهات المباني، للحفاظ على الكسوة والزجاج والمواد العازلة آمنة وعازلة للمياه ومطابقة للمعايير.",
-          href: "/services#facade-maintenance",
-        },
-        {
-          id: "facade-cleaning",
-          num: "03",
-          title: "تنظيف واجهات المباني",
-          desc: "تنظيف دوري وحسب الطلب لواجهات المباني المرتفعة والأرضية — الزجاج والحجر والكسوة واللافتات — بواسطة فرق مدربة على العمل بالحبال ووحدات الصيانة المعلقة.",
-          href: "/services#facade-cleaning",
+          href: "/services/facade-maintenance",
         },
         {
           id: "agriculture",
           num: "04",
-          title: "الخدمات الزراعية وشبكات الري",
+          title: "الخدمات الزراعية",
           desc: "تجهيز الأراضي، وإنشاء شبكات الري، والدعم الزراعي المستمر للمزارع التجارية والعقارات الزراعية الكبرى.",
-          href: "/services#agriculture",
+          href: "/services/agriculture",
         },
       ],
     },
@@ -395,7 +401,7 @@ export const content: Record<Locale, Translations> = {
       badge: "جاهزية تنفيذ وطنية · استجابة سريعة",
       heading: "حدّثونا عن موقع العمل.",
       subheading: "تواصلوا مع الفريق مباشرة، أو أرسلوا تفاصيل المشروع وسنعاود التواصل بخصوص النطاق والجدولة.",
-      phone: "+966 (11) 480-7799",
+      phone: "+966 57 452 5139",
       email: "info@shourna.com",
       button: "ناقش مشروعك معنا",
     },
@@ -410,7 +416,7 @@ export const content: Record<Locale, Translations> = {
       contactTitle: "المقر الرئيسي والتواصل",
       rights: "شركة شُرنة الصناعية. جميع الحقوق محفوظة.",
       address: "الرياض، المملكة العربية السعودية · المدينة الصناعية الثانية",
-      phone: "+966 (11) 480-7799",
+      phone: "+966 57 452 5139",
       email: "info@shourna.com",
       requestSurvey: "طلب معاينة ميدانية",
       country: "المملكة العربية السعودية",
@@ -421,10 +427,10 @@ export const content: Record<Locale, Translations> = {
       about: "عن شركة شُرنة",
       projects: "المشاريع المنجزة",
       contact: "تواصل معنا",
-      service1: "تنفيذ متكامل للمنشآت الصناعية",
-      service2: "صيانة واجهات المباني",
-      service3: "تنظيف واجهات المباني (IRATA / BMU)",
-      service4: "الخدمات الزراعية وشبكات الري",
+      service1: "تنظيف واجهات المباني",
+      service2: "تنفيذ متكامل للمنشآت الصناعية",
+      service3: "صيانة واجهات المباني",
+      service4: "الخدمات الزراعية",
     },
     modal: {
       badge: "شركة شُرنة الصناعية · استشارة هندسية",
@@ -439,9 +445,9 @@ export const content: Record<Locale, Translations> = {
       phonePlaceholder: "05XXXXXXXX",
       serviceLine: "خط الخدمة المطلوب",
       serviceOptions: [
+        "تنظيف واجهات المباني",
         "تنفيذ متكامل للمنشآت الصناعية",
         "صيانة واجهات المباني",
-        "تنظيف واجهات المباني",
         "الخدمات الزراعية",
       ],
       location: "موقع المشروع",
@@ -477,34 +483,12 @@ export const content: Record<Locale, Translations> = {
       bottomHeading: "هل تحتاج إلى استشارة هندسية أو نطاق عمل مخصص؟",
       bottomDesc: "يقوم مهندسونا بزيارة الموقع ودراسة المتطلبات الإنشائية أو شروط صيانة وتنظيف الواجهات، وتقديم تقرير تسعير وجدولة متكامل.",
       bottomButton: "ناقش مشروعك معنا",
+      otherServicesHeading: "خدمات تخصصية أخرى",
+      backToServices: "العودة إلى كافة الخدمات",
       items: [
         {
-          id: "industrial",
-          num: "01",
-          title: "تنفيذ متكامل للمنشآت الصناعية",
-          description: "من الأعمال المدنية والإنشاءات الفولاذية إلى التركيبات الميكانيكية والتشغيل التجريبي.",
-          bullets: [
-            "أعمال الموقع والإنشاءات الفولاذية",
-            "تركيب الأنظمة الميكانيكية والأنابيب",
-            "التشغيل التجريبي والتسليم",
-          ],
-          image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
-          id: "facade-maintenance",
-          num: "02",
-          title: "صيانة واجهات المباني",
-          description: "صيانة إنشائية ومادية مستمرة لواجهات المباني، للحفاظ على الكسوة والزجاج والمواد العازلة آمنة وعازلة للمياه ومطابقة للمعايير.",
-          bullets: [
-            "إصلاح الواجهات والزجاج",
-            "تجديد المواد العازلة وموانع التسرب",
-            "فحص الواجهات وتقارير المطابقة",
-          ],
-          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
           id: "facade-cleaning",
-          num: "03",
+          num: "01",
           title: "تنظيف واجهات المباني",
           description: "تنظيف دوري وحسب الطلب لواجهات المباني المرتفعة والأرضية — الزجاج والحجر والكسوة واللافتات — بواسطة فرق مدربة على العمل بالحبال ووحدات الصيانة المعلقة والغسيل بالضغط.",
           bullets: [
@@ -514,6 +498,30 @@ export const content: Record<Locale, Translations> = {
             "عقود تنظيف دورية",
           ],
           image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
+        },
+        {
+          id: "industrial",
+          num: "02",
+          title: "تنفيذ متكامل للمنشآت الصناعية",
+          description: "من الأعمال المدنية والإنشاءات الفولاذية إلى التركيبات الميكانيكية والتشغيل التجريبي للمنشآت والمصانع الكبرى.",
+          bullets: [
+            "أعمال الموقع والإنشاءات الفولاذية",
+            "تركيب الأنظمة الميكانيكية والأنابيب",
+            "التشغيل التجريبي والتسليم",
+          ],
+          image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80",
+        },
+        {
+          id: "facade-maintenance",
+          num: "03",
+          title: "صيانة واجهات المباني",
+          description: "صيانة إنشائية ومادية مستمرة لواجهات المباني، للحفاظ على الكسوة والزجاج والمواد العازلة آمنة وعازلة للمياه ومطابقة للمعايير.",
+          bullets: [
+            "إصلاح الواجهات والزجاج",
+            "تجديد المواد العازلة وموانع التسرب",
+            "فحص الواجهات وتقارير المطابقة",
+          ],
+          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
         },
         {
           id: "agriculture",
@@ -554,7 +562,7 @@ export const content: Record<Locale, Translations> = {
       contactHeading: "حدّثونا عن موقع العمل.",
       contactBody: "تواصلوا مع الفريق مباشرة، أو أرسلوا تفاصيل المشروع وسنعاود التواصل بخصوص النطاق والجدولة.",
       directPhoneLabel: "الهاتف المباشر",
-      directPhone: "+966 (11) 480-7799",
+      directPhone: "+966 57 452 5139",
       directEmailLabel: "البريد الإلكتروني",
       directEmail: "info@shourna.com",
       officeLabel: "المكتب والمقر",
@@ -658,7 +666,7 @@ export const content: Record<Locale, Translations> = {
       infoHeading: "فريق هندسي متكامل في خدمتكم",
       infoDesc: "تتواجد طواقمنا الهندسية وإدارات المشاريع الميدانية لتقديم الدعم الفني، وجدولة المعاينات، وإعداد خطط تنفيذ شاملة في كافة مناطق المملكة.",
       phoneLabel: "الاتصال المباشر",
-      phone: "+966 (11) 480-7799",
+      phone: "+966 57 452 5139",
       emailLabel: "البريد الإلكتروني المعتمد",
       email: "info@shourna.com",
       addressLabel: "المقر الرئيسي",
@@ -680,10 +688,10 @@ export const content: Record<Locale, Translations> = {
       phonePlaceholder: "05XXXXXXXX",
       serviceLine: "خط الخدمة المطلوب",
       serviceOptions: [
+        "تنظيف واجهات المباني",
         "تنفيذ متكامل للمنشآت الصناعية",
         "صيانة واجهات المباني",
-        "تنظيف واجهات المباني",
-        "الخدمات الزراعية وشبكات الري",
+        "الخدمات الزراعية",
       ],
       location: "موقع المشروع",
       locationOptions: [
@@ -713,9 +721,11 @@ export const content: Record<Locale, Translations> = {
       contact: "Contact",
       discussProject: "Discuss a project",
       switchLang: "العربية",
+      servicesDropdownTitle: "Engineering Disciplines",
+      allServices: "Explore All Services",
     },
     hero: {
-      eyebrow: "Industrial Projects · Facade Maintenance · Facade Cleaning · Agriculture Services",
+      eyebrow: "Building Facades Cleaning · Integrated Industrial Execution · Facades Maintenance · Agricultural Services",
       headline: "Built for the ground it stands on.",
       subheading:
         "Shourna Industrial Company delivers industrial project execution, facade maintenance and cleaning, and agricultural services across the Kingdom — engineered for durability, scheduled for uptime.",
@@ -746,32 +756,32 @@ export const content: Record<Locale, Translations> = {
       detailsLink: "Service Details & Scope",
       cards: [
         {
-          id: "industrial",
+          id: "facade-cleaning",
           num: "01",
-          title: "Industrial Projects",
+          title: "Building Facades Cleaning",
+          desc: "Scheduled and one-off cleaning for high-rise and ground-level facades — glass, stone, cladding and signage — using rope access and BMU.",
+          href: "/services/facade-cleaning",
+        },
+        {
+          id: "industrial",
+          num: "02",
+          title: "Integrated Execution for Industrial Facilities",
           desc: "End-to-end execution for industrial facilities — from civil works and structural steel to mechanical installation and commissioning.",
-          href: "/services#industrial",
+          href: "/services/industrial",
         },
         {
           id: "facade-maintenance",
-          num: "02",
-          title: "Facade Maintenance",
-          desc: "Ongoing structural and material upkeep for building envelopes — keeping cladding, glazing and sealants safe, weatherproof and compliant.",
-          href: "/services#facade-maintenance",
-        },
-        {
-          id: "facade-cleaning",
           num: "03",
-          title: "Facade Cleaning",
-          desc: "Scheduled and one-off cleaning for high-rise and ground-level facades — glass, stone, cladding and signage — using rope access and BMU.",
-          href: "/services#facade-cleaning",
+          title: "Building Facades Maintenance",
+          desc: "Ongoing structural and material upkeep for building envelopes — keeping cladding, glazing and sealants safe, weatherproof and compliant.",
+          href: "/services/facade-maintenance",
         },
         {
           id: "agriculture",
           num: "04",
-          title: "Agriculture Services",
+          title: "Agricultural Services",
           desc: "Land preparation, irrigation infrastructure and ongoing agronomic support for commercial and estate-scale farming operations.",
-          href: "/services#agriculture",
+          href: "/services/agriculture",
         },
       ],
     },
@@ -827,7 +837,7 @@ export const content: Record<Locale, Translations> = {
       badge: "National Execution · Rapid Mobilization",
       heading: "Tell us about the site.",
       subheading: "Reach the team directly, or send project details and we'll follow up with scope and scheduling.",
-      phone: "+966 (11) 480-7799",
+      phone: "+966 57 452 5139",
       email: "info@shourna.com",
       button: "Discuss a project",
     },
@@ -842,7 +852,7 @@ export const content: Record<Locale, Translations> = {
       contactTitle: "Headquarters & Inquiries",
       rights: "Shourna Industrial Company. All rights reserved.",
       address: "Industrial City 2, Riyadh, Kingdom of Saudi Arabia",
-      phone: "+966 (11) 480-7799",
+      phone: "+966 57 452 5139",
       email: "info@shourna.com",
       requestSurvey: "Request Site Survey",
       country: "Kingdom of Saudi Arabia",
@@ -853,10 +863,10 @@ export const content: Record<Locale, Translations> = {
       about: "About Us",
       projects: "Delivered Projects",
       contact: "Contact Us",
-      service1: "Industrial EPC Projects",
-      service2: "Facade Maintenance",
-      service3: "Facade Cleaning (IRATA / BMU)",
-      service4: "Agriculture Services & Irrigation",
+      service1: "Building Facades Cleaning",
+      service2: "Integrated Execution for Industrial Facilities",
+      service3: "Building Facades Maintenance",
+      service4: "Agricultural Services",
     },
     modal: {
       badge: "SICS Technical Consultation",
@@ -871,10 +881,10 @@ export const content: Record<Locale, Translations> = {
       phonePlaceholder: "05XXXXXXXX",
       serviceLine: "Primary Service Line",
       serviceOptions: [
-        "Industrial Projects (Civil & Steel)",
-        "Facade Maintenance & Restoration",
-        "Facade Cleaning (IRATA & BMU)",
-        "Agriculture Services & Irrigation",
+        "Building Facades Cleaning",
+        "Integrated Execution for Industrial Facilities",
+        "Building Facades Maintenance",
+        "Agricultural Services",
       ],
       location: "Project Location",
       locationOptions: [
@@ -909,35 +919,13 @@ export const content: Record<Locale, Translations> = {
       bottomHeading: "Need an engineering consultation or custom scope?",
       bottomDesc: "Our engineers conduct site surveys, assess structural requirements or facade maintenance specifications, and provide comprehensive pricing and scheduling proposals.",
       bottomButton: "Discuss a project",
+      otherServicesHeading: "Other Engineering Disciplines",
+      backToServices: "Back to All Services",
       items: [
         {
-          id: "industrial",
-          num: "01",
-          title: "Industrial Projects",
-          description: "End-to-end execution for industrial facilities — from civil works and structural steel to mechanical installation and commissioning.",
-          bullets: [
-            "Site works & structural steel",
-            "Mechanical & piping installation",
-            "Commissioning & handover",
-          ],
-          image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
-          id: "facade-maintenance",
-          num: "02",
-          title: "Facade Maintenance",
-          description: "Ongoing structural and material upkeep for building envelopes — keeping cladding, glazing and sealants safe, weatherproof and compliant.",
-          bullets: [
-            "Cladding & glazing repair",
-            "Sealant & waterproofing renewal",
-            "Facade inspection & compliance reports",
-          ],
-          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
           id: "facade-cleaning",
-          num: "03",
-          title: "Facade Cleaning",
+          num: "01",
+          title: "Building Facades Cleaning",
           description: "Scheduled and one-off cleaning for high-rise and ground-level facades — glass, stone, cladding and signage — using rope access, BMU and pressure-washing crews trained for height work.",
           bullets: [
             "High-rise glass & window cleaning",
@@ -948,9 +936,33 @@ export const content: Record<Locale, Translations> = {
           image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
         },
         {
+          id: "industrial",
+          num: "02",
+          title: "Integrated Execution for Industrial Facilities",
+          description: "End-to-end execution for industrial facilities — from civil works and structural steel to mechanical installation and commissioning.",
+          bullets: [
+            "Site works & structural steel",
+            "Mechanical & piping installation",
+            "Commissioning & handover",
+          ],
+          image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80",
+        },
+        {
+          id: "facade-maintenance",
+          num: "03",
+          title: "Building Facades Maintenance",
+          description: "Ongoing structural and material upkeep for building envelopes — keeping cladding, glazing and sealants safe, weatherproof and compliant.",
+          bullets: [
+            "Cladding & glazing repair",
+            "Sealant & waterproofing renewal",
+            "Facade inspection & compliance reports",
+          ],
+          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+        },
+        {
           id: "agriculture",
           num: "04",
-          title: "Agriculture Services",
+          title: "Agricultural Services",
           description: "Land preparation, irrigation infrastructure and ongoing agronomic support for commercial and estate-scale farming operations.",
           bullets: [
             "Land grading & irrigation networks",
@@ -986,7 +998,7 @@ export const content: Record<Locale, Translations> = {
       contactHeading: "Tell us about the site.",
       contactBody: "Reach the team directly, or send project details and we'll follow up with scope and scheduling.",
       directPhoneLabel: "Direct Hotline",
-      directPhone: "+966 (11) 480-7799",
+      directPhone: "+966 57 452 5139",
       directEmailLabel: "Corporate Email",
       directEmail: "info@shourna.com",
       officeLabel: "Headquarters",
@@ -1090,7 +1102,7 @@ export const content: Record<Locale, Translations> = {
       infoHeading: "Dedicated Engineering Team at Your Service",
       infoDesc: "Our engineering and field project managers are mobilized across the Kingdom to provide technical consultation, site surveys, and turnkey execution.",
       phoneLabel: "Direct Phone",
-      phone: "+966 (11) 480-7799",
+      phone: "+966 57 452 5139",
       emailLabel: "Corporate Email",
       email: "info@shourna.com",
       addressLabel: "Kingdom Headquarters",
@@ -1112,10 +1124,10 @@ export const content: Record<Locale, Translations> = {
       phonePlaceholder: "05XXXXXXXX",
       serviceLine: "Primary Service Line",
       serviceOptions: [
-        "Industrial Projects (Civil & Steel)",
-        "Facade Maintenance & Restoration",
-        "Facade Cleaning (IRATA & BMU)",
-        "Agriculture Services & Irrigation",
+        "Building Facades Cleaning",
+        "Integrated Execution for Industrial Facilities",
+        "Building Facades Maintenance",
+        "Agricultural Services",
       ],
       location: "Project Location",
       locationOptions: [

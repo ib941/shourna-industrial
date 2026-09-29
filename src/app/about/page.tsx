@@ -4,36 +4,25 @@ import React from "react";
 import Link from "next/link";
 import { HardHat, ShieldCheck, MapPin, UserCheck, Phone, Mail, Building, ArrowRight, CheckCircle2 } from "lucide-react";
 import { useProjectInquiry } from "@/components/ProjectInquiryContext";
+import { useLanguage } from "@/components/LanguageContext";
 
 export default function AboutPage() {
   const { openModal } = useProjectInquiry();
+  const { t, isRTL } = useLanguage();
 
-  const corePillars = [
-    {
-      title: "تنفيذ بقيادة هندسية",
-      desc: "كل نطاق عمل يخطّط من قِبل من نفّذوا أعمالاً مماثلة فعلياً، لا من قام بتسعيرها فقط.",
-      icon: <HardHat className="w-7 h-7 text-[#00A3A6]" />,
-      num: "01",
-    },
-    {
-      title: "السلامة والالتزام",
-      desc: "إجراءات السلامة المهنية وتصاريح العمل مطبّقة في كل موقع وكل وردية.",
-      icon: <ShieldCheck className="w-7 h-7 text-[#74B743]" />,
-      num: "02",
-    },
-    {
-      title: "تغطية إقليمية",
-      desc: "طواقم ومعدات جاهزة للتحرك في مختلف مناطق المملكة خلال وقت قصير.",
-      icon: <MapPin className="w-7 h-7 text-[#00A3A6]" />,
-      num: "03",
-    },
-    {
-      title: "جهة تواصل واحدة",
-      desc: "مسؤول مشروع واحد يتابع العمل من التسعير حتى الإغلاق النهائي.",
-      icon: <UserCheck className="w-7 h-7 text-[#74B743]" />,
-      num: "04",
-    },
-  ];
+  const getPillarIcon = (num: string) => {
+    switch (num) {
+      case "01":
+        return <HardHat className="w-7 h-7 text-[#00A3A6]" />;
+      case "02":
+        return <ShieldCheck className="w-7 h-7 text-[#74B743]" />;
+      case "03":
+        return <MapPin className="w-7 h-7 text-[#00A3A6]" />;
+      case "04":
+      default:
+        return <UserCheck className="w-7 h-7 text-[#74B743]" />;
+    }
+  };
 
   return (
     <div className="w-full bg-white text-gray-900">
@@ -51,26 +40,26 @@ export default function AboutPage() {
         <div className="absolute bottom-10 left-10 w-80 h-80 bg-[#74B743]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl text-start">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-xs text-gray-400 mb-6 font-mono">
               <Link href="/" className="hover:text-[#00A3A6] transition-colors">
-                الرئيسية
+                {t.aboutPage.breadcrumbHome}
               </Link>
               <span>/</span>
-              <span className="text-[#00A3A6] font-semibold">عن الشركة</span>
+              <span className="text-[#00A3A6] font-semibold">{t.aboutPage.breadcrumbCurrent}</span>
             </div>
 
             <span className="text-[#74B743] font-bold text-xs sm:text-sm tracking-wider uppercase">
-              التميز التشغيلي والهندسي
+              {t.aboutPage.eyebrow}
             </span>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mt-2 leading-tight">
-              عن شركة شُرنة الصناعية
+              {t.aboutPage.heroHeading}
             </h1>
 
             <p className="mt-6 text-xl sm:text-2xl text-gray-200 leading-relaxed font-light">
-              تأسست شركة شُرنة الصناعية لسد الفجوة بين التصميم والتنفيذ الفعلي على الأرض — بمتابعة المشروع من أول حفرية حتى آخر معاينة، والبقاء كفريق يحافظ على أداء المباني والأراضي بعد التسليم.
+              {t.aboutPage.heroDescription}
             </p>
           </div>
         </div>
@@ -82,21 +71,21 @@ export default function AboutPage() {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-6 space-y-6 text-start">
               <div className="inline-block px-3 py-1 bg-[#00A3A6]/10 text-[#00A3A6] text-xs font-bold uppercase tracking-wider">
-                منهجية العمل الميداني
+                {t.aboutPage.narrativeBadge}
               </div>
               
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
-                سد الفجوة بين المخططات والواقع التنفيذي
+                {t.aboutPage.narrativeHeading}
               </h2>
 
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-                تأسست شركة شُرنة الصناعية لسد الفجوة بين التصميم والتنفيذ الفعلي على الأرض — بمتابعة المشروع من أول حفرية حتى آخر معاينة، والبقاء كفريق يحافظ على أداء المباني والأراضي بعد التسليم.
+                {t.aboutPage.narrativeP1}
               </p>
 
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                نحن نؤمن بأن المنشآت الصناعية وواجهات المباني المعمارية لا تتطلب فقط حلولاً هندسية نظرية، بل تتطلب قيادة ميدانية حازمة، وتطبيقاً دقيقاً لمعايير كود البناء السعودي (SBC)، وبروتوكولات الوصول بالحبال (IRATA)، ومواصفات Cleanova الاستثنائية للواجهات.
+                {t.aboutPage.narrativeP2}
               </p>
 
               <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
@@ -105,14 +94,14 @@ export default function AboutPage() {
                   onClick={() => openModal()}
                   className="px-8 py-3.5 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-sm transition-all shadow-xs rounded-sm inline-flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <span>ناقش مشروعك مع خبرائنا</span>
-                  <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+                  <span>{t.aboutPage.discussButton}</span>
+                  <ArrowRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-180" : ""}`} />
                 </button>
                 <Link
                   href="/services"
                   className="px-6 py-3.5 border border-gray-300 text-gray-700 hover:border-[#00A3A6] hover:text-[#00A3A6] font-semibold text-sm transition-colors rounded-sm inline-flex items-center justify-center"
                 >
-                  استعراض الخدمات
+                  {t.aboutPage.servicesButton}
                 </Link>
               </div>
             </div>
@@ -121,22 +110,22 @@ export default function AboutPage() {
               <div className="relative border border-gray-200 bg-gray-900 shadow-xl overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80"
-                  alt="تنفيذ هندسي ميداني لشركة شُرنة الصناعية"
+                  alt={t.aboutPage.heroHeading}
                   className="w-full h-[420px] object-cover object-center opacity-85"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-transparent" />
                 
-                <div className="absolute bottom-0 inset-x-0 p-6 sm:p-8 bg-gray-900/90 backdrop-blur-md border-t border-gray-800">
+                <div className="absolute bottom-0 inset-x-0 p-6 sm:p-8 bg-gray-900/90 backdrop-blur-md border-t border-gray-800 text-start">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-mono font-bold text-[#74B743] tracking-widest uppercase">
-                      Saudi Vision 2030 Aligned
+                      {t.aboutPage.metricTag}
                     </span>
                     <span className="text-xs text-gray-400">
-                      معايير وطنية معتمدة
+                      {t.corporate.standardsTag}
                     </span>
                   </div>
                   <h3 className="text-lg font-bold text-white mt-1">
-                    التزام مطلق بالسلامة وسرعة الجاهزية التشغيلية
+                    {t.aboutPage.metricHeading}
                   </h3>
                 </div>
               </div>
@@ -153,26 +142,26 @@ export default function AboutPage() {
           
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[#00A3A6] font-bold text-xs uppercase tracking-wider">
-              ركائز العمل
+              {t.aboutPage.pillarsBadge}
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">
-              القيم التشغيلية لشركة شُرنة الصناعية
+              {t.aboutPage.pillarsHeading}
             </h2>
             <p className="mt-3 text-base text-gray-600">
-              المبادئ الأربعة الراسخة التي تحكم كل موقع مشروع ووردية عمل في كافة أرجاء المملكة.
+              {t.aboutPage.pillarsSubheading}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {corePillars.map((pillar) => (
+            {t.aboutPage.pillars.map((pillar) => (
               <div
                 key={pillar.num}
-                className="bg-white border border-gray-200 p-8 sm:p-10 shadow-sm hover:border-[#00A3A6] hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                className="bg-white border border-gray-200 p-8 sm:p-10 shadow-sm hover:border-[#00A3A6] hover:shadow-md transition-all duration-200 flex flex-col justify-between text-start"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <div className="w-14 h-14 bg-gray-50 border border-gray-200 flex items-center justify-center">
-                      {pillar.icon}
+                      {getPillarIcon(pillar.num)}
                     </div>
                     <span className="font-mono text-2xl font-black text-gray-300">
                       {pillar.num}
@@ -190,7 +179,7 @@ export default function AboutPage() {
 
                 <div className="mt-8 pt-5 border-t border-gray-100 flex items-center gap-2 text-xs font-bold text-[#00A3A6]">
                   <CheckCircle2 className="w-4 h-4 text-[#74B743]" />
-                  <span>معيار تشغيلي إلزامي</span>
+                  <span>{t.aboutPage.mandatoryStandard}</span>
                 </div>
               </div>
             ))}
@@ -206,19 +195,17 @@ export default function AboutPage() {
           <div className="bg-gradient-to-br from-gray-50 via-white to-gray-50 border border-gray-200 p-8 sm:p-12 lg:p-16 shadow-lg">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
-              <div className="lg:col-span-7">
+              <div className="lg:col-span-7 text-start">
                 <span className="text-[#00A3A6] font-bold text-xs uppercase tracking-wider">
-                  التواصل المباشر
+                  {t.aboutPage.contactBadge}
                 </span>
                 
-                {/* Exact Arabic Heading from Copy Doc */}
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2 mb-4">
-                  حدّثونا عن موقع العمل.
+                  {t.aboutPage.contactHeading}
                 </h2>
 
-                {/* Exact Arabic Text from Copy Doc */}
                 <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-8">
-                  تواصلوا مع الفريق مباشرة، أو أرسلوا تفاصيل المشروع وسنعاود التواصل بخصوص النطاق والجدولة.
+                  {t.aboutPage.contactBody}
                 </p>
 
                 <div className="space-y-4 text-sm text-gray-800">
@@ -227,8 +214,8 @@ export default function AboutPage() {
                       <Phone className="w-4 h-4" />
                     </div>
                     <div>
-                      <span className="block text-xs text-gray-500 font-bold">الهاتف المباشر</span>
-                      <span dir="ltr" className="text-base font-bold tabular-nums text-gray-900">+966 (11) 480-7799</span>
+                      <span className="block text-xs text-gray-500 font-bold">{t.aboutPage.directPhoneLabel}</span>
+                      <span dir="ltr" className="text-base font-bold tabular-nums text-gray-900">{t.aboutPage.directPhone}</span>
                     </div>
                   </div>
 
@@ -237,8 +224,8 @@ export default function AboutPage() {
                       <Mail className="w-4 h-4" />
                     </div>
                     <div>
-                      <span className="block text-xs text-gray-500 font-bold">البريد الإلكتروني</span>
-                      <span className="text-base font-bold text-gray-900">info@shourna.com</span>
+                      <span className="block text-xs text-gray-500 font-bold">{t.aboutPage.directEmailLabel}</span>
+                      <span className="text-base font-bold text-gray-900">{t.aboutPage.directEmail}</span>
                     </div>
                   </div>
 
@@ -247,8 +234,8 @@ export default function AboutPage() {
                       <Building className="w-4 h-4" />
                     </div>
                     <div>
-                      <span className="block text-xs text-gray-500 font-bold">المكتب والمقر</span>
-                      <span className="text-base font-bold text-gray-900">الرياض، المملكة العربية السعودية</span>
+                      <span className="block text-xs text-gray-500 font-bold">{t.aboutPage.officeLabel}</span>
+                      <span className="text-base font-bold text-gray-900">{t.aboutPage.officeAddress}</span>
                     </div>
                   </div>
                 </div>
@@ -256,17 +243,17 @@ export default function AboutPage() {
 
               <div className="lg:col-span-5 bg-white p-6 sm:p-8 border border-gray-200 shadow-sm text-center">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  هل ترغب ببدء العمل على الفور؟
+                  {t.aboutPage.instantStartTitle}
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed mb-6">
-                  سجل بيانات مشروعك واطلب زيارة ميدانية فورية من أحد مهندسينا المختصين.
+                  {t.aboutPage.instantStartDesc}
                 </p>
                 <button
                   type="button"
                   onClick={() => openModal()}
                   className="w-full py-4 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-base transition-colors shadow-md cursor-pointer rounded-sm"
                 >
-                  إرسال تفاصيل المشروع الآن
+                  {t.aboutPage.instantStartButton}
                 </button>
               </div>
 

@@ -5,6 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ProjectInquiryProvider } from "@/components/ProjectInquiryContext";
 
+import { LanguageProvider } from "@/components/LanguageContext";
+
 const tajawal = Tajawal({
   subsets: ["arabic", "latin"],
   weight: ["300", "400", "500", "700", "800", "900"],
@@ -29,18 +31,20 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className={`${tajawal.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-white text-gray-900 font-sans tabular-nums selection:bg-[#00A3A6] selection:text-white">
-        <ProjectInquiryProvider>
-          {/* Persistent Navbar across all pages */}
-          <Navbar />
-          
-          {/* Main content body */}
-          <main className="flex-1 w-full">
-            {children}
-          </main>
+        <LanguageProvider>
+          <ProjectInquiryProvider>
+            {/* Persistent Navbar across all pages */}
+            <Navbar />
+            
+            {/* Main content body */}
+            <main className="flex-1 w-full">
+              {children}
+            </main>
 
-          {/* Persistent Footer across all pages */}
-          <Footer />
-        </ProjectInquiryProvider>
+            {/* Persistent Footer across all pages */}
+            <Footer />
+          </ProjectInquiryProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

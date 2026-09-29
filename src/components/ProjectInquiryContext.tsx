@@ -35,7 +35,6 @@ export function ProjectInquiryProvider({ children }: { children: React.ReactNode
         isOpen={isOpen}
         onClose={closeModal}
         initialService={selectedService}
-        locale="ar"
       />
     </ProjectInquiryContext.Provider>
   );

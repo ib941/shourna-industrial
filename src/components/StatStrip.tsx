@@ -2,25 +2,28 @@
 
 import React from "react";
 import { Layers, Building2, Clock } from "lucide-react";
+import { useLanguage } from "./LanguageContext";
 
 export default function StatStrip() {
+  const { t } = useLanguage();
+
   const stats = [
     {
-      num: "4",
-      title: "4 خطوط خدمة رئيسية",
-      desc: "المشاريع الصناعية، هندسة الواجهات، والبنية التحتية الزراعية",
+      num: t.stats.stat1Number,
+      title: t.stats.stat1Title,
+      desc: t.stats.stat1Desc,
       icon: <Layers className="w-6 h-6 text-[#00A3A6]" />,
     },
     {
-      num: "+20",
-      title: "20+ مشروعًا منجزًا (نموذجي)",
-      desc: "مشاريع تم تسليمها في المدن الصناعية والمعالم الكبرى",
+      num: t.stats.stat2Number,
+      title: t.stats.stat2Title,
+      desc: t.stats.stat2Desc,
       icon: <Building2 className="w-6 h-6 text-[#00A3A6]" />,
     },
     {
-      num: "24/7",
-      title: "24/7 استجابة الصيانة (نموذجي)",
-      desc: "استجابة صيانة فورية ودعم تشغيلي متواصل على مدار الساعة",
+      num: t.stats.stat3Number,
+      title: t.stats.stat3Title,
+      desc: t.stats.stat3Desc,
       icon: <Clock className="w-6 h-6 text-[#00A3A6]" />,
     },
   ];

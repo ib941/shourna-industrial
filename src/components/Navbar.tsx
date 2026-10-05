@@ -11,7 +11,6 @@ import {
   ChevronDown,
   Sparkles,
   Factory,
-  Wrench,
   Sprout,
   ArrowRight,
 } from "lucide-react";
@@ -80,13 +79,13 @@ export default function Navbar() {
               <img
                 src="/logo.svg"
                 alt={t.nav.brand}
-                className="h-11 sm:h-12 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+                className="h-14 sm:h-16 w-auto object-contain transition-transform scale-110 group-hover:scale-105"
               />
               <div className="flex flex-col">
                 <span className="text-base sm:text-lg font-bold tracking-tight text-[#00A3A6]">
                   {t.nav.brand}
                 </span>
-                <span className="text-[10px] text-gray-500 font-mono tracking-wider">
+                <span className="text-[10px] text-gray-500 font-sans font-medium tracking-wide">
                   {t.nav.brandTag}
                 </span>
               </div>
@@ -150,15 +149,23 @@ export default function Navbar() {
 
                     <div className="space-y-1">
                       {t.servicesPage.items.map((svc) => {
-                        const isCurrentActive = pathname === `/services/${svc.id}`;
+                        const isUnderConstruction =
+                          svc.id === "industrial" ||
+                          svc.id === "agriculture" ||
+                          svc.title === "تنفيذ متكامل للمنشآت الصناعية" ||
+                          svc.title === "الخدمات الزراعية";
+                        const href = isUnderConstruction ? "#under-construction" : `/services/${svc.id}`;
+                        const isCurrentActive = pathname === href;
                         return (
                           <Link
                             key={svc.id}
-                            href={`/services/${svc.id}`}
+                            href={href}
                             className={`group flex items-start gap-3.5 p-2.5 rounded-sm transition-colors ${
-                              isCurrentActive
-                                ? "bg-[#00A3A6]/10 text-[#00A3A6]"
-                                : "hover:bg-gray-50 text-gray-900 hover:text-[#00A3A6]"
+                              isUnderConstruction 
+                                ? "opacity-50 cursor-not-allowed pointer-events-none" 
+                                : isCurrentActive
+                                  ? "bg-[#00A3A6]/10 text-[#00A3A6]"
+                                  : "hover:bg-gray-50 text-gray-900 hover:text-[#00A3A6]"
                             }`}
                             role="menuitem"
                           >
@@ -294,26 +301,43 @@ export default function Navbar() {
 
               {mobileServicesOpen && (
                 <div className="px-3 pb-3 space-y-1.5 border-t border-gray-100 pt-2 bg-white">
-                  {t.servicesPage.items.map((svc) => (
-                    <Link
-                      key={svc.id}
-                      href={`/services/${svc.id}`}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={`flex items-center gap-3 p-2 rounded-sm text-sm text-start transition-colors ${
-                        pathname === `/services/${svc.id}`
-                          ? "bg-[#00A3A6]/10 text-[#00A3A6] font-bold"
-                          : "text-gray-700 hover:bg-gray-50 hover:text-[#00A3A6]"
-                      }`}
-                    >
-                      <div className="w-7 h-7 rounded-xs bg-gray-50 border border-gray-200 flex items-center justify-center shrink-0">
-                        {getServiceIcon(svc.id)}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <span className="block truncate font-medium">{svc.title}</span>
-                      </div>
-                      <span className="font-mono text-xs text-gray-400 shrink-0">{svc.num}</span>
-                    </Link>
-                  ))}
+                  {t.servicesPage.items.map((svc) => {
+                    const isUnderConstruction =
+                      svc.id === "industrial" ||
+                      svc.id === "agriculture" ||
+                      svc.title === "تنفيذ متكامل للمنشآت الصناعية" ||
+                      svc.title === "الخدمات الزراعية";
+                    const href = isUnderConstruction ? "#under-construction" : `/services/${svc.id}`;
+
+                    return (
+                      <Link
+                        key={svc.id}
+                        href={href}
+                        onClick={(e) => {
+                          if (isUnderConstruction) {
+                            e.preventDefault();
+                          } else {
+                            setMobileMenuOpen(false);
+                          }
+                        }}
+                        className={`flex items-center gap-3 p-2 rounded-sm text-sm text-start transition-colors ${
+                          isUnderConstruction 
+                            ? "opacity-50 cursor-not-allowed pointer-events-none" 
+                            : pathname === `/services/${svc.id}`
+                              ? "bg-[#00A3A6]/10 text-[#00A3A6] font-bold"
+                              : "text-gray-700 hover:bg-gray-50 hover:text-[#00A3A6]"
+                        }`}
+                      >
+                        <div className="w-7 h-7 rounded-xs bg-gray-50 border border-gray-200 flex items-center justify-center shrink-0">
+                          {getServiceIcon(svc.id)}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <span className="block truncate font-medium">{svc.title}</span>
+                        </div>
+                        <span className="font-mono text-xs text-gray-400 shrink-0">{svc.num}</span>
+                      </Link>
+                    );
+                  })}
 
                   <Link
                     href="/services"
@@ -375,4 +399,3 @@ export default function Navbar() {
     </header>
   );
 }
-

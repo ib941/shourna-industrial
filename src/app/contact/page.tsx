@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from "lucide-react";
+import { Phone, MessageCircle, Send, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/components/LanguageContext";
 
 export default function ContactPage() {
@@ -10,11 +10,7 @@ export default function ContactPage() {
 
   const [formData, setFormData] = useState({
     fullName: "",
-    company: "",
-    email: "",
     phone: "",
-    serviceLine: "",
-    location: "",
     scope: "",
   });
 
@@ -78,23 +74,11 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
             {/* Left Info Column */}
-            <div className="lg:col-span-5 space-y-8 text-start">
-              <div>
-                <span className="inline-block px-3 py-1 bg-[#00A3A6]/10 text-xs font-bold text-[#00A3A6] tracking-wider uppercase mb-3">
-                  {t.contactPage.infoBadge}
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-                  {t.contactPage.infoHeading}
-                </h2>
-                <p className="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed">
-                  {t.contactPage.infoDesc}
-                </p>
-              </div>
-
+            <div className="lg:col-span-5 space-y-8 text-start mt-6">
               {/* Contact Cards */}
               <div className="space-y-4">
                 <a
-                  href={`tel:${t.contactPage.phone.replace(/[^0-9+]/g, '')}`}
+                  href="tel:0544740936"
                   className="flex items-center gap-4 p-5 bg-white border border-gray-200 shadow-xs hover:border-[#00A3A6] transition-colors group"
                 >
                   <div className="w-12 h-12 bg-gray-50 border border-gray-200 flex items-center justify-center shrink-0 group-hover:bg-[#00A3A6]/10 transition-colors">
@@ -102,71 +86,32 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="block text-xs font-bold text-gray-500 uppercase tracking-wider">
-                      {t.contactPage.phoneLabel}
+                      {isRTL ? "الاتصال المباشر" : "Direct Contact"}
                     </span>
                     <span dir="ltr" className="text-lg font-bold text-gray-900 tabular-nums">
-                      {t.contactPage.phone}
+                      0544740936
                     </span>
                   </div>
                 </a>
 
                 <a
-                  href={`mailto:${t.contactPage.email}`}
-                  className="flex items-center gap-4 p-5 bg-white border border-gray-200 shadow-xs hover:border-[#00A3A6] transition-colors group"
+                  href="https://wa.me/966544740936"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-5 bg-white border border-gray-200 shadow-xs hover:border-[#74B743] transition-colors group"
                 >
                   <div className="w-12 h-12 bg-gray-50 border border-gray-200 flex items-center justify-center shrink-0 group-hover:bg-[#74B743]/15 transition-colors">
-                    <Mail className="w-5 h-5 text-[#74B743]" />
+                    <MessageCircle className="w-5 h-5 text-[#74B743]" />
                   </div>
                   <div>
                     <span className="block text-xs font-bold text-gray-500 uppercase tracking-wider">
-                      {t.contactPage.emailLabel}
+                      {isRTL ? "واتساب" : "WhatsApp"}
                     </span>
-                    <span className="text-base font-bold text-gray-900">
-                      {t.contactPage.email}
+                    <span dir="ltr" className="text-lg font-bold text-gray-900 tabular-nums">
+                      0544740936
                     </span>
                   </div>
                 </a>
-
-                <div className="flex items-start gap-4 p-5 bg-white border border-gray-200 shadow-xs">
-                  <div className="w-12 h-12 bg-gray-50 border border-gray-200 flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5 text-[#00A3A6]" />
-                  </div>
-                  <div>
-                    <span className="block text-xs font-bold text-gray-500 uppercase tracking-wider">
-                      {t.contactPage.addressLabel}
-                    </span>
-                    <span className="text-sm font-bold text-gray-900 leading-relaxed block mt-0.5">
-                      {t.contactPage.address}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4 p-5 bg-white border border-gray-200 shadow-xs">
-                  <div className="w-12 h-12 bg-gray-50 border border-gray-200 flex items-center justify-center shrink-0">
-                    <Clock className="w-5 h-5 text-[#74B743]" />
-                  </div>
-                  <div>
-                    <span className="block text-xs font-bold text-gray-500 uppercase tracking-wider">
-                      {t.contactPage.hoursLabel}
-                    </span>
-                    <span className="text-sm font-bold text-gray-900">
-                      {t.contactPage.hours}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Protocol Badges */}
-              <div className="pt-4 flex flex-wrap gap-2">
-                <span className="text-xs font-bold text-gray-700 px-3 py-1.5 bg-white border border-gray-300">
-                  {t.contactPage.sbcBadge}
-                </span>
-                <span className="text-xs font-bold text-[#74B743] px-3 py-1.5 bg-white border border-gray-300">
-                  {t.contactPage.irataBadge}
-                </span>
-                <span className="text-xs font-bold text-[#00A3A6] px-3 py-1.5 bg-white border border-gray-300">
-                  {t.contactPage.cleanovaBadge}
-                </span>
               </div>
             </div>
 
@@ -174,11 +119,8 @@ export default function ContactPage() {
             <div className="lg:col-span-7 bg-white border border-gray-200 shadow-md p-8 sm:p-10 lg:p-12 text-start">
               <div className="border-b border-gray-100 pb-6 mb-6">
                 <h3 className="text-2xl font-bold text-gray-900">
-                  {t.contactPage.formTitle}
+                  {isRTL ? "تفاصيل واستفسار المشروع" : "Project Details & Inquiry"}
                 </h3>
-                <p className="mt-1.5 text-xs sm:text-sm text-gray-600">
-                  {t.contactPage.formSubtitle}
-                </p>
               </div>
 
               {submitted ? (
@@ -198,11 +140,7 @@ export default function ContactPage() {
                       setSubmitted(false);
                       setFormData({
                         fullName: "",
-                        company: "",
-                        email: "",
                         phone: "",
-                        serviceLine: "",
-                        location: "",
                         scope: "",
                       });
                     }}
@@ -216,108 +154,39 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                        {t.contactPage.fullName} *
+                        {isRTL ? "الاسم الكامل" : "Full Name"} *
                       </label>
                       <input
                         required
                         type="text"
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                        placeholder={t.contactPage.fullNamePlaceholder}
                         className="w-full px-4 py-3 rounded-none border border-gray-300 text-sm text-gray-900 focus:outline-hidden focus:border-[#00A3A6]"
                       />
                     </div>
 
                     <div>
                       <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                        {t.contactPage.company} *
-                      </label>
-                      <input
-                        required
-                        type="text"
-                        value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        placeholder={t.contactPage.companyPlaceholder}
-                        className="w-full px-4 py-3 rounded-none border border-gray-300 text-sm text-gray-900 focus:outline-hidden focus:border-[#00A3A6]"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                        {t.contactPage.emailInput} *
-                      </label>
-                      <input
-                        required
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder={t.contactPage.emailPlaceholder}
-                        className="w-full px-4 py-3 rounded-none border border-gray-300 text-sm text-gray-900 focus:outline-hidden focus:border-[#00A3A6]"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                        {t.contactPage.phoneInput} *
+                        {isRTL ? "رقم الجوال" : "Phone Number"} *
                       </label>
                       <input
                         required
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder={t.contactPage.phonePlaceholder}
                         className="w-full px-4 py-3 rounded-none border border-gray-300 text-sm text-gray-900 tabular-nums focus:outline-hidden focus:border-[#00A3A6]"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                        {t.contactPage.serviceLine}
-                      </label>
-                      <select
-                        value={formData.serviceLine || t.contactPage.serviceOptions[0]}
-                        onChange={(e) => setFormData({ ...formData, serviceLine: e.target.value })}
-                        className="w-full px-4 py-3 rounded-none border border-gray-300 text-sm text-gray-900 bg-white focus:outline-hidden focus:border-[#00A3A6]"
-                      >
-                        {t.contactPage.serviceOptions.map((opt, oIdx) => (
-                          <option key={oIdx} value={opt}>
-                            {opt}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                        {t.contactPage.location}
-                      </label>
-                      <select
-                        value={formData.location || t.contactPage.locationOptions[0]}
-                        onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                        className="w-full px-4 py-3 rounded-none border border-gray-300 text-sm text-gray-900 bg-white focus:outline-hidden focus:border-[#00A3A6]"
-                      >
-                        {t.contactPage.locationOptions.map((loc, lIdx) => (
-                          <option key={lIdx} value={loc}>
-                            {loc}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
                   <div>
                     <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                      {t.contactPage.scope}
+                      {isRTL ? "تفاصيل المشروع" : "Project Details"}
                     </label>
                     <textarea
                       rows={4}
                       value={formData.scope}
                       onChange={(e) => setFormData({ ...formData, scope: e.target.value })}
-                      placeholder={t.contactPage.scopePlaceholder}
                       className="w-full px-4 py-3 rounded-none border border-gray-300 text-sm text-gray-900 focus:outline-hidden focus:border-[#00A3A6]"
                     />
                   </div>

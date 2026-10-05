@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, HardHat, Award, ArrowRight } from "lucide-react";
+import { ShieldCheck, Award, ArrowRight } from "lucide-react";
 import { useLanguage } from "./LanguageContext";
 
 export default function CorporateSection() {
@@ -24,27 +24,15 @@ export default function CorporateSection() {
               {t.corporate.heading}
             </h2>
 
-            <p className="mt-4 text-base sm:text-lg text-gray-700 leading-relaxed font-normal">
-              {t.corporate.p1}
-            </p>
-
-            <p className="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
-              {t.corporate.p2}
-            </p>
-
-            {/* Corporate Spec Highlights */}
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {/* Corporate Spec Highlights - Adjusted to 2 columns after deletion */}
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="p-5 bg-gray-50 border border-gray-200 rounded-none">
                 <ShieldCheck className="w-6 h-6 text-[#00A3A6] mb-2" />
                 <h4 className="text-sm font-bold text-gray-900">{t.corporate.pillar1Title}</h4>
                 <p className="text-xs text-gray-600 mt-1 leading-relaxed">{t.corporate.pillar1Desc}</p>
               </div>
 
-              <div className="p-5 bg-gray-50 border border-gray-200 rounded-none">
-                <HardHat className="w-6 h-6 text-[#74B743] mb-2" />
-                <h4 className="text-sm font-bold text-gray-900">{t.corporate.pillar2Title}</h4>
-                <p className="text-xs text-gray-600 mt-1 leading-relaxed">{t.corporate.pillar2Desc}</p>
-              </div>
+              {/* pillar2 (تنفيذ بقيادة هندسية) completely removed as requested */}
 
               <div className="p-5 bg-gray-50 border border-gray-200 rounded-none">
                 <Award className="w-6 h-6 text-[#00A3A6] mb-2" />

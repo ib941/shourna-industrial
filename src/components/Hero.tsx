@@ -23,26 +23,62 @@ export default function Hero() {
           {t.nav.brand} - {t.hero.headline}
         </h1>
 
+        {/* Client's Hardcoded Text Block - Bilingual Support */}
+        <div className="mb-10 max-w-4xl border-l-4 border-[#00A3A6] pl-4 rtl:pl-0 rtl:border-l-0 rtl:border-r-4 rtl:pr-4">
+          <p className="text-lg sm:text-xl text-gray-900 leading-relaxed font-bold mb-4">
+            {isRTL 
+              ? "حلول متكاملة لتنظيف وصيانة واجهات المباني بمختلف أنواعها، لضمان استدامتها ومظهرها المتميز." 
+              : "Integrated solutions for cleaning and maintaining building facades of all types, ensuring their sustainability and distinctive appearance."}
+          </p>
+          <p className="text-base text-gray-700 mb-3 font-medium">
+            {isRTL 
+              ? "تقدم شركة شاورنا الصناعية خدمات نظافة واجهات شاملة تغطي:" 
+              : "Shourna Industrial Company offers comprehensive facade cleaning services covering:"}
+          </p>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-6 text-gray-600 text-sm">
+            {[
+              isRTL ? "نظافة الواجهات الزجاجية" : "Glass facade cleaning",
+              isRTL ? "نظافة واجهات المباني والأبراج" : "Building and tower facade cleaning",
+              isRTL ? "نظافة واجهات الكلادينج" : "Cladding facade cleaning",
+              isRTL ? "نظافة واجهات الحجر" : "Stone facade cleaning",
+              isRTL ? "نظافة واجهات الرخام" : "Marble facade cleaning",
+              isRTL ? "تنظيف عميق للمباني السكنية والتجارية" : "Deep cleaning for residential and commercial buildings"
+            ].map((bullet, idx) => (
+              <li key={idx} className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-[#00A3A6] rounded-none shrink-0"></span> 
+                {bullet}
+              </li>
+            ))}
+          </ul>
+        </div>
+
         {/* 3-Column Responsive Architectural Grid (1 col on mobile, 3 cols on desktop) */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => {
             const imageSrc =
               PLACEHOLDER_IMAGES[index] ||
               `/images/service-placeholder-${index + 1}.jpg`;
+            
+            // Explicitly disable the Industrial and Agriculture cards as requested
+            const isIdle = service.id === "industrial" || service.id === "agriculture" || service.title === "تنفيذ متكامل للمنشآت الصناعية" || service.title === "الخدمات الزراعية";
 
             return (
               <Link
                 key={service.id}
-                href={service.href}
-                className="group block bg-white border border-gray-300 hover:border-[#00A3A6] transition-colors duration-200 rounded-none shadow-none flex flex-col h-full overflow-hidden focus:outline-hidden focus:ring-1 focus:ring-[#00A3A6]"
+                href={isIdle ? "#" : service.href}
+                className={`group block bg-white border border-gray-300 transition-colors duration-200 rounded-none flex flex-col h-full overflow-hidden ${
+                  isIdle 
+                    ? "opacity-60 grayscale cursor-not-allowed pointer-events-none" 
+                    : "hover:border-[#00A3A6] focus:outline-hidden focus:ring-1 focus:ring-[#00A3A6] shadow-none"
+                }`}
               >
                 {/* Top Half: Image Placeholder with object-fit cover */}
-                <div className="relative w-full aspect-16/10 sm:aspect-4/3 md:aspect-16/10 lg:aspect-4/3 overflow-hidden bg-gray-200 border-b border-gray-300 rounded-none">
+                <div className={`relative w-full aspect-16/10 sm:aspect-4/3 md:aspect-16/10 lg:aspect-4/3 overflow-hidden bg-gray-200 border-b border-gray-300 rounded-none ${isIdle ? "opacity-80" : ""}`}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={imageSrc}
                     alt={service.title}
-                    className="w-full h-full object-cover rounded-none transition-transform duration-500 group-hover:scale-102"
+                    className={`w-full h-full object-cover rounded-none transition-transform duration-500 ${isIdle ? "" : "group-hover:scale-102"}`}
                   />
                 </div>
 
@@ -55,7 +91,7 @@ export default function Hero() {
                       </span>
                     </div>
 
-                    <h2 className="text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-[#00A3A6] transition-colors leading-snug tracking-tight mb-3">
+                    <h2 className={`text-xl lg:text-2xl font-bold transition-colors leading-snug tracking-tight mb-3 ${isIdle ? "text-gray-500" : "text-gray-900 group-hover:text-[#00A3A6]"}`}>
                       {service.title}
                     </h2>
 
@@ -66,26 +102,28 @@ export default function Hero() {
 
                   {/* Link indicator row with minimal straight-edged arrow icon */}
                   <div className="mt-8 pt-5 border-t border-gray-200 flex items-center justify-between">
-                    <span className="text-xs font-bold uppercase tracking-wider text-gray-900 group-hover:text-[#00A3A6] transition-colors">
-                      {isRTL ? "عرض تفاصيل الخدمة" : "Explore Discipline"}
+                    <span className={`text-xs font-bold uppercase tracking-wider transition-colors ${isIdle ? "text-gray-400" : "text-gray-900 group-hover:text-[#00A3A6]"}`}>
+                      {isIdle ? (isRTL ? "قريباً" : "Coming Soon") : (isRTL ? "عرض تفاصيل الخدمة" : "Explore Discipline")}
                     </span>
-                    <svg
-                      className={`w-4 h-4 text-gray-900 group-hover:text-[#00A3A6] transition-all duration-200 shrink-0 ${
-                        isRTL
-                          ? "rotate-180 group-hover:-translate-x-1"
-                          : "group-hover:translate-x-1"
-                      }`}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="square"
-                      strokeLinejoin="miter"
-                      aria-hidden="true"
-                    >
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="12 5 19 12 12 19" />
-                    </svg>
+                    {!isIdle && (
+                      <svg
+                        className={`w-4 h-4 text-gray-900 group-hover:text-[#00A3A6] transition-all duration-200 shrink-0 ${
+                          isRTL
+                            ? "rotate-180 group-hover:-translate-x-1"
+                            : "group-hover:translate-x-1"
+                        }`}
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="square"
+                        strokeLinejoin="miter"
+                        aria-hidden="true"
+                      >
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                      </svg>
+                    )}
                   </div>
                 </div>
               </Link>

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useLanguage } from "./LanguageContext";
 
 const PLACEHOLDER_IMAGES = [
-  "/images/service-placeholder-1.jpg",
+  "/images/facade-cleaning.jpg",
   "/images/service-placeholder-2.jpg",
   "/images/service-placeholder-3.jpg",
 ];

@@ -433,7 +433,7 @@ export const content: Record<Locale, Translations> = {
           title: "برنامج صيانة واجهات برج — نموذج مبدئي",
           category: "واجهات",
           location: "طريق الملك فهد، الرياض",
-          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+          image: "/images/facade-cleaning.jpg",
           specs: "عقد استبدال كسوة وتنظيف بالحبال.",
         },
         {
@@ -561,7 +561,7 @@ export const content: Record<Locale, Translations> = {
             "تجديد فواصل السيليكون والمواد العازلة وموانع التسرب",
             "عقود تنظيف وصيانة دورية وتقارير فحص ومطابقة معتمدة",
           ],
-          image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
+          image: "/images/facade-cleaning.jpg",
           tagline: "حلول هندسية متكاملة لتنظيف وصيانة واجهات المباني، إعادة التأهيل الإنشائي، وتقنيات الوصول بالحبال",
           extendedSummary: "تجمع شركة شاورنا الصناعية بين تقنيات تنظيف الواجهات المتقدمة وبرامج الصيانة الإنشائية والوقائية المتكاملة لواجهات المباني والأبراج الشاهقة. نعتمد على أحدث أنظمة الوصول بالحبال (IRATA) ووحدات صيانة المباني الميكانيكية (BMU)، مع تقديم خدمات غسيل الزجاج بالماء النقي المنزوع الأيونات، واستبدال ألواح الزجاج المزدوج المتصدعة، وتجديد فواصل التمدد والعوازل الهيكلية، وتثبيت وتدعيم ألواح الكسوة (Cladding). نلتزم بأعلى معايير كود البناء السعودي (SBC) ومواصفات Cleanova لضمان استدامة الأصول وحمايتها ومظهرها المتميز.",
           pillars: [
@@ -610,9 +610,9 @@ export const content: Record<Locale, Translations> = {
           ],
           gallery: [
             {
-              url: "https://images.unsplash.com/photo-1527018606412-036172c0c042?auto=format&fit=crop&w=1200&q=80",
-              title: "تنفيذ الوصول بالحبال للواجهات الشاهقة",
-              caption: "طواقم IRATA متخصصة أثناء العمل على واجهة زجاجية لبرج تجاري بارتفاع 40 طابقاً.",
+              url: "/images/facade-cleaning.jpg",
+              title: "معدات الرافعة المتخصصة وغسيل واجهات المباني",
+              caption: "شاحنة رافعة هيدروليكية مجهزة بأحدث معدات التنظيف الميداني للواجهات الزجاجية.",
             },
             {
               url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
@@ -934,7 +934,7 @@ export const content: Record<Locale, Translations> = {
             "أطقم نزول بالحبال معتمدة من IRATA ووحدات BMU",
           ],
           location: "طريق الملك فهد، الرياض",
-          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+          image: "/images/facade-cleaning.jpg",
         },
         {
           id: "estate-irrigation",
@@ -1109,7 +1109,7 @@ export const content: Record<Locale, Translations> = {
           title: "Tower Facade Program — Placeholder",
           category: "Facade",
           location: "King Fahd Road, Riyadh",
-          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+          image: "/images/facade-cleaning.jpg",
           specs: "Cladding replacement and rope-access cleaning contract.",
         },
         {
@@ -1237,7 +1237,7 @@ export const content: Record<Locale, Translations> = {
             "Joint resealing, weatherproofing & structural silicone restoration",
             "Scheduled maintenance contracts & certified compliance inspection reports",
           ],
-          image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
+          image: "/images/facade-cleaning.jpg",
           tagline: "Turnkey High-Rise Facade Cleaning, Structural Envelope Maintenance & Rope Access Engineering",
           extendedSummary: "Shourna Industrial Company combines advanced facade cleaning technologies with comprehensive structural and preventive maintenance programs for building envelopes and high-rise towers. Operating under certified IRATA rope access standards and Building Maintenance Units (BMU), we deliver DI/RO pure-water window washing, replacement of cracked insulated glass units (IGUs), renewal of structural silicone weather seals, and anchoring of architectural cladding panels. All operations comply with the Saudi Building Code (SBC) and Cleanova standards, ensuring asset longevity, architectural luster, and uncompromising occupant safety.",
           pillars: [
@@ -1286,9 +1286,9 @@ export const content: Record<Locale, Translations> = {
           ],
           gallery: [
             {
-              url: "https://images.unsplash.com/photo-1527018606412-036172c0c042?auto=format&fit=crop&w=1200&q=80",
-              title: "Rope Access Deployment on High-Rise Towers",
-              caption: "Certified IRATA technicians operating on a 40-story commercial tower envelope.",
+              url: "/images/facade-cleaning.jpg",
+              title: "Specialized Boom Truck & Facade Window Cleaning",
+              caption: "Hydraulic crane truck equipped with certified safety basket and high-reach window cleaning systems.",
             },
             {
               url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
@@ -1610,7 +1610,7 @@ export const content: Record<Locale, Translations> = {
             "IRATA rope access & BMU cradle operations",
           ],
           location: "King Fahd Road, Riyadh",
-          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+          image: "/images/facade-cleaning.jpg",
         },
         {
           id: "estate-irrigation",

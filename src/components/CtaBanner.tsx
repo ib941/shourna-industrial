@@ -1,12 +1,11 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { ArrowRight, PhoneCall, Mail, ShieldCheck } from "lucide-react";
-import { useProjectInquiry } from "./ProjectInquiryContext";
 import { useLanguage } from "./LanguageContext";
 
 export default function CtaBanner() {
-  const { openModal } = useProjectInquiry();
   const { t, isRTL } = useLanguage();
 
   return (
@@ -48,14 +47,13 @@ export default function CtaBanner() {
           </div>
 
           <div className="shrink-0 w-full sm:w-auto">
-            <button
-              type="button"
-              onClick={() => openModal()}
+            <Link
+              href="/contact"
               className="w-full sm:w-auto bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold px-8 py-4 rounded-sm inline-flex items-center justify-center gap-3 transition-all shadow-md cursor-pointer text-base"
             >
               <span>{t.cta.button}</span>
               <ArrowRight className={`w-5 h-5 ${isRTL ? "rtl:rotate-180" : ""}`} />
-            </button>
+            </Link>
           </div>
 
         </div>

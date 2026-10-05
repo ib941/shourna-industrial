@@ -3,11 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import { MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
-import { useProjectInquiry } from "./ProjectInquiryContext";
 import { useLanguage } from "./LanguageContext";
 
 export default function Footer() {
-  const { openModal } = useProjectInquiry();
   const { t, isRTL } = useLanguage();
 
   return (
@@ -69,11 +67,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/projects" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
-                  {t.footer.projects}
-                </Link>
-              </li>
-              <li>
                 <Link href="/contact" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
                   {t.footer.contact}
                 </Link>
@@ -88,7 +81,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
-                <Link href="/services/facade-cleaning" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
+                <Link href="/services/facade-cleaning-maintenance" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
                   {t.footer.service1}
                 </Link>
               </li>
@@ -98,13 +91,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services/facade-maintenance" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
-                  {t.footer.service3}
-                </Link>
-              </li>
-              <li>
                 <Link href="/services/agriculture" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
-                  {t.footer.service4}
+                  {t.footer.service3}
                 </Link>
               </li>
             </ul>
@@ -135,14 +123,13 @@ export default function Footer() {
                 <span>{t.footer.email}</span>
               </a>
               <div className="pt-2">
-                <button
-                  type="button"
-                  onClick={() => openModal()}
+                <Link
+                  href="/contact"
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-[#00A3A6]/20 border border-[#00A3A6]/40 text-[#00A3A6] hover:bg-[#00A3A6] hover:text-white transition-all text-xs font-bold cursor-pointer"
                 >
                   <span>{t.footer.requestSurvey}</span>
                   <ArrowUpRight className={`w-3.5 h-3.5 ${isRTL ? "rtl:rotate-[-90deg]" : ""}`} />
-                </button>
+                </Link>
               </div>
             </div>
           </div>

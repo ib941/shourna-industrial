@@ -2,9 +2,8 @@ import { notFound } from "next/navigation";
 import ServiceDetailView from "@/components/ServiceDetailView";
 
 const VALID_SLUGS = [
-  "facade-cleaning",
+  "facade-cleaning-maintenance",
   "industrial",
-  "facade-maintenance",
   "agriculture",
 ];
 

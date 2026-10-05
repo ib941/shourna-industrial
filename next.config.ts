@@ -25,6 +25,16 @@ const nextConfig: NextConfig = {
         destination: "/:path*",
         permanent: false,
       },
+      {
+        source: "/services/facade-cleaning",
+        destination: "/services/facade-cleaning-maintenance",
+        permanent: false,
+      },
+      {
+        source: "/services/facade-maintenance",
+        destination: "/services/facade-cleaning-maintenance",
+        permanent: false,
+      },
     ];
   },
 };

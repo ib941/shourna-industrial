@@ -3,12 +3,10 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, MapPin, Building, Sprout, Factory, ArrowRight } from "lucide-react";
-import { useProjectInquiry } from "./ProjectInquiryContext";
+import { ArrowUpRight, MapPin, Building, Sprout, Factory } from "lucide-react";
 import { useLanguage } from "./LanguageContext";
 
 export default function ProjectsShowcase() {
-  const { openModal } = useProjectInquiry();
   const { t, isRTL } = useLanguage();
 
   const getIcon = (idx: number) => {
@@ -34,14 +32,6 @@ export default function ProjectsShowcase() {
               {t.projectsShowcase.subheading}
             </p>
           </div>
-
-          <Link
-            href="/projects"
-            className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-sm border border-gray-700 bg-gray-800 text-xs sm:text-sm font-bold text-gray-200 hover:text-white hover:border-[#00A3A6] hover:bg-gray-700 transition-colors"
-          >
-            <span>{t.projectsShowcase.exploreAll}</span>
-            <ArrowRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-180" : ""}`} />
-          </Link>
         </div>
 
         {/* 3 Project Cards Grid */}
@@ -86,14 +76,13 @@ export default function ProjectsShowcase() {
               </div>
 
               <div className="p-6 pt-0">
-                <button
-                  type="button"
-                  onClick={() => openModal(proj.title)}
+                <Link
+                  href="/contact"
                   className="w-full pt-4 border-t border-gray-700/70 flex items-center justify-between text-xs font-bold text-[#00A3A6] group-hover:text-white transition-colors cursor-pointer"
                 >
                   <span>{t.projectsShowcase.requestSimilar}</span>
                   <ArrowUpRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-[-90deg]" : ""}`} />
-                </button>
+                </Link>
               </div>
             </div>
           ))}

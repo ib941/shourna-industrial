@@ -4,8 +4,6 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { ProjectInquiryProvider } from "@/components/ProjectInquiryContext";
-
 import { LanguageProvider } from "@/components/LanguageContext";
 
 const tajawal = Tajawal({
@@ -16,9 +14,9 @@ const tajawal = Tajawal({
 });
 
 export const metadata: Metadata = {
-  title: "شركة شُرنة الصناعية | Shourna Industrial Company (SICS)",
+  title: "شركة شاورنا الصناعية | Shourna Industrial Company (SICS)",
   description:
-    "تقدّم شركة شُرنة الصناعية تنفيذ المشاريع الصناعية، وصيانة وتنظيف الواجهات، والخدمات الزراعية في مختلف مناطق المملكة — بجودة تنفيذ تدوم، وجدولة تحافظ على استمرارية العمل.",
+    "تقدّم شركة شاورنا الصناعية تنفيذ المشاريع الصناعية، وصيانة وتنظيف الواجهات، والخدمات الزراعية في مختلف مناطق المملكة — بجودة تنفيذ تدوم، وجدولة تحافظ على استمرارية العمل.",
   icons: {
     icon: "/logo.svg",
   },
@@ -33,21 +31,19 @@ export default function RootLayout({
     <html lang="ar" dir="rtl" className={`${tajawal.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-white text-gray-900 font-sans tabular-nums selection:bg-[#00A3A6] selection:text-white">
         <LanguageProvider>
-          <ProjectInquiryProvider>
-            {/* Persistent Navbar across all pages */}
-            <Navbar />
-            
-            {/* Main content body */}
-            <main className="flex-1 w-full">
-              {children}
-            </main>
+          {/* Persistent Navbar across all pages */}
+          <Navbar />
+          
+          {/* Main content body */}
+          <main className="flex-1 w-full">
+            {children}
+          </main>
 
-            {/* Persistent Footer across all pages */}
-            <Footer />
+          {/* Persistent Footer across all pages */}
+          <Footer />
 
-            {/* Global Floating WhatsApp Button */}
-            <WhatsAppButton />
-          </ProjectInquiryProvider>
+          {/* Global Floating WhatsApp Button */}
+          <WhatsAppButton />
         </LanguageProvider>
       </body>
     </html>

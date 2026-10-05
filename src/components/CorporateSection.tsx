@@ -4,11 +4,9 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ShieldCheck, HardHat, Award, ArrowRight } from "lucide-react";
-import { useProjectInquiry } from "./ProjectInquiryContext";
 import { useLanguage } from "./LanguageContext";
 
 export default function CorporateSection() {
-  const { openModal } = useProjectInquiry();
   const { t, isRTL } = useLanguage();
 
   return (
@@ -63,13 +61,12 @@ export default function CorporateSection() {
                 <span>{t.corporate.readMore}</span>
                 <ArrowRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-180" : ""}`} />
               </Link>
-              <button
-                type="button"
-                onClick={() => openModal()}
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-2 px-6 py-3.5 border border-gray-300 text-gray-700 hover:border-[#00A3A6] hover:text-[#00A3A6] text-sm font-semibold transition-colors rounded-sm cursor-pointer"
               >
                 {t.corporate.requestConsultation}
-              </button>
+              </Link>
             </div>
           </div>
 

@@ -3,11 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import { HardHat, ShieldCheck, MapPin, UserCheck, Phone, Mail, Building, ArrowRight, CheckCircle2 } from "lucide-react";
-import { useProjectInquiry } from "@/components/ProjectInquiryContext";
 import { useLanguage } from "@/components/LanguageContext";
 
 export default function AboutPage() {
-  const { openModal } = useProjectInquiry();
   const { t, isRTL } = useLanguage();
 
   const getPillarIcon = (num: string) => {
@@ -89,14 +87,13 @@ export default function AboutPage() {
               </p>
 
               <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <button
-                  type="button"
-                  onClick={() => openModal()}
+                <Link
+                  href="/contact"
                   className="px-8 py-3.5 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-sm transition-all shadow-xs rounded-sm inline-flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>{t.aboutPage.discussButton}</span>
                   <ArrowRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-180" : ""}`} />
-                </button>
+                </Link>
                 <Link
                   href="/services"
                   className="px-6 py-3.5 border border-gray-300 text-gray-700 hover:border-[#00A3A6] hover:text-[#00A3A6] font-semibold text-sm transition-colors rounded-sm inline-flex items-center justify-center"
@@ -254,13 +251,12 @@ export default function AboutPage() {
                 <p className="text-xs text-gray-600 leading-relaxed mb-6">
                   {t.aboutPage.instantStartDesc}
                 </p>
-                <button
-                  type="button"
-                  onClick={() => openModal()}
-                  className="w-full py-4 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-base transition-colors shadow-md cursor-pointer rounded-sm"
+                <Link
+                  href="/contact"
+                  className="w-full py-4 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-base transition-colors shadow-md cursor-pointer rounded-sm inline-flex items-center justify-center"
                 >
                   {t.aboutPage.instantStartButton}
-                </button>
+                </Link>
               </div>
 
             </div>

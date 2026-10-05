@@ -26,7 +26,6 @@ import {
   HelpCircle,
 } from "lucide-react";
 import { useLanguage } from "./LanguageContext";
-import { useProjectInquiry } from "./ProjectInquiryContext";
 
 interface ServiceDetailViewProps {
   slug: string;
@@ -34,7 +33,6 @@ interface ServiceDetailViewProps {
 
 export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
   const { t, isRTL } = useLanguage();
-  const { openModal } = useProjectInquiry();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   // Find the requested service by slug (id)
@@ -48,11 +46,11 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
   const getServiceIcon = (id: string, className = "w-7 h-7 text-[#00A3A6]") => {
     switch (id) {
       case "facade-cleaning":
+      case "facade-maintenance":
+      case "facade-cleaning-maintenance":
         return <Sparkles className={className} />;
       case "industrial":
         return <Factory className={className} />;
-      case "facade-maintenance":
-        return <Wrench className={className} />;
       case "agriculture":
         return <Sprout className={className} />;
       default:
@@ -137,14 +135,13 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
 
             {/* Action Buttons */}
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <button
-                type="button"
-                onClick={() => openModal(currentService.title)}
+              <Link
+                href="/contact"
                 className="px-8 py-4 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-sm sm:text-base rounded-sm inline-flex items-center justify-center gap-2 transition-all shadow-md shadow-[#00A3A6]/25 cursor-pointer"
               >
                 <span>{t.servicesPage.ctaCardButton}</span>
                 <ArrowRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-180" : ""}`} />
-              </button>
+              </Link>
 
               <Link
                 href="/services"
@@ -209,13 +206,12 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
             </a>
           </div>
 
-          <button
-            type="button"
-            onClick={() => openModal(currentService.title)}
-            className="px-4 py-2 bg-[#00A3A6] hover:bg-[#00878a] text-white text-xs font-bold rounded-xs transition-colors cursor-pointer"
+          <Link
+            href="/contact"
+            className="px-4 py-2 bg-[#00A3A6] hover:bg-[#00878a] text-white text-xs font-bold rounded-xs transition-colors cursor-pointer inline-flex items-center"
           >
             {t.servicesPage.ctaCardButton}
-          </button>
+          </Link>
         </div>
       </nav>
 
@@ -289,14 +285,13 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
 
                 {/* Instant Site Survey / Contact Trigger */}
                 <div className="mt-10 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                  <button
-                    type="button"
-                    onClick={() => openModal(currentService.title)}
+                  <Link
+                    href="/contact"
                     className="px-7 py-3.5 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-sm transition-all shadow-xs hover:shadow-md cursor-pointer inline-flex items-center justify-center gap-2 rounded-sm"
                   >
                     <span>{t.servicesPage.ctaCardButton}</span>
                     <ArrowRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-180" : ""}`} />
-                  </button>
+                  </Link>
 
                   <Link
                     href="/contact"
@@ -428,7 +423,7 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                 {t.servicesPage.galleryHeading || (isRTL ? "شواهد من بيئة العمل والمعدات المتقدمة" : "Operational Environment & Technical Fleet")}
               </h2>
               <p className="mt-3 text-base text-gray-600 leading-relaxed">
-                {t.servicesPage.gallerySubheading || (isRTL ? "لقطات توثيقية حية تبرز جاهزية طواقم شُرنة والتقنيات الهندسية المستخدمة في مواقع العمل بالمملكة." : "High-resolution photographic documentation highlighting Shourna's specialized teams and modern equipment across Saudi job sites.")}
+                {t.servicesPage.gallerySubheading || (isRTL ? "لقطات توثيقية حية تبرز جاهزية طواقم شاورنا والتقنيات الهندسية المستخدمة في مواقع العمل بالمملكة." : "High-resolution photographic documentation highlighting Shourna's specialized teams and modern equipment across Saudi job sites.")}
               </p>
             </div>
 
@@ -586,8 +581,8 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
             </Link>
           </div>
 
-          {/* Cards for the other 3 services */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Cards for the other 2 services */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {otherServices.map((svc) => (
               <Link
                 key={svc.id}
@@ -651,13 +646,12 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
               </div>
             </div>
             <div className="shrink-0 w-full sm:w-auto">
-              <button
-                type="button"
-                onClick={() => openModal(currentService.title)}
-                className="w-full sm:w-auto px-8 py-4 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-base transition-colors shadow-lg cursor-pointer rounded-sm"
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto px-8 py-4 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-base transition-colors shadow-lg cursor-pointer rounded-sm inline-flex items-center justify-center"
               >
                 <span>{t.servicesPage.bottomButton}</span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

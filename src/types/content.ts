@@ -157,7 +157,7 @@ export interface Translations {
     service1: string;
     service2: string;
     service3: string;
-    service4: string;
+    service4?: string;
   };
   modal: {
     badge: string;
@@ -331,7 +331,7 @@ export interface Translations {
 export const content: Record<Locale, Translations> = {
   ar: {
     nav: {
-      brand: "شركة شُرنة الصناعية",
+      brand: "شركة شاورنا الصناعية",
       brandTag: "SHOURNA INDUSTRIAL CO.",
       home: "الرئيسية",
       services: "الخدمات",
@@ -344,10 +344,10 @@ export const content: Record<Locale, Translations> = {
       allServices: "استعراض كافة الخدمات",
     },
     hero: {
-      eyebrow: "تنظيف واجهات المباني · تنفيذ متكامل للمنشآت الصناعية · صيانة واجهات المباني · الخدمات الزراعية",
+      eyebrow: "تنظيف وصيانة واجهات المباني · تنفيذ متكامل للمنشآت الصناعية · الخدمات الزراعية",
       headline: "نبني على أساس متين.",
       subheading:
-        "تقدّم شركة شُرنة الصناعية تنفيذ المشاريع الصناعية، وصيانة وتنظيف الواجهات، والخدمات الزراعية في مختلف مناطق المملكة — بجودة تنفيذ تدوم، وجدولة تحافظ على استمرارية العمل.",
+        "تقدّم شركة شاورنا الصناعية تنفيذ المشاريع الصناعية، وصيانة وتنظيف الواجهات، والخدمات الزراعية في مختلف مناطق المملكة — بجودة تنفيذ تدوم، وجدولة تحافظ على استمرارية العمل.",
       ctaPrimary: "ناقش مشروعك معنا",
       ctaSecondary: "استكشف خدماتنا",
       locationBadge: "المملكة العربية السعودية · تنفيذ وطني شامل",
@@ -356,8 +356,8 @@ export const content: Record<Locale, Translations> = {
       cleanovaBadge: "معايير Cleanova للواجهات",
     },
     stats: {
-      stat1Number: "4",
-      stat1Title: "4 خطوط خدمة رئيسية",
+      stat1Number: "3",
+      stat1Title: "3 خطوط خدمة رئيسية",
       stat1Desc: "المشاريع الصناعية، هندسة الواجهات، والبنية التحتية الزراعية",
       stat2Number: "+20",
       stat2Title: "20+ مشروعًا منجزًا (نموذجي)",
@@ -375,11 +375,11 @@ export const content: Record<Locale, Translations> = {
       detailsLink: "تفاصيل الخدمة ونطاق العمل",
       cards: [
         {
-          id: "facade-cleaning",
+          id: "facade-cleaning-maintenance",
           num: "01",
-          title: "تنظيف واجهات المباني",
-          desc: "تنظيف دوري وحسب الطلب لواجهات المباني المرتفعة والأرضية — الزجاج والحجر والكسوة واللافتات — بواسطة فرق مدربة على العمل بالحبال ووحدات الصيانة المعلقة.",
-          href: "/services/facade-cleaning",
+          title: "تنظيف وصيانة واجهات المباني",
+          desc: "حلول متكاملة لتنظيف وصيانة واجهات المباني بمختلف أنواعها لضمان استدامتها ومظهرها.",
+          href: "/services/facade-cleaning-maintenance",
         },
         {
           id: "industrial",
@@ -389,15 +389,8 @@ export const content: Record<Locale, Translations> = {
           href: "/services/industrial",
         },
         {
-          id: "facade-maintenance",
-          num: "03",
-          title: "صيانة واجهات المباني",
-          desc: "صيانة إنشائية ومادية مستمرة لواجهات المباني، للحفاظ على الكسوة والزجاج والمواد العازلة آمنة وعازلة للمياه ومطابقة للمعايير.",
-          href: "/services/facade-maintenance",
-        },
-        {
           id: "agriculture",
-          num: "04",
+          num: "03",
           title: "الخدمات الزراعية",
           desc: "تجهيز الأراضي، وإنشاء شبكات الري، والدعم الزراعي المستمر للمزارع التجارية والعقارات الزراعية الكبرى.",
           href: "/services/agriculture",
@@ -407,7 +400,7 @@ export const content: Record<Locale, Translations> = {
     corporate: {
       badge: "المعايير التشغيلية",
       heading: "بنية تحتية هندسية راسخة وموثوقية تشغيلية",
-      p1: "تأسست شركة شُرنة الصناعية لسد الفجوة بين التصميم والتنفيذ الفعلي على الأرض — بمتابعة المشروع من أول حفرية حتى آخر معاينة، والبقاء كفريق يحافظ على أداء المباني والأراضي بعد التسليم.",
+      p1: "تأسست شركة شاورنا الصناعية لسد الفجوة بين التصميم والتنفيذ الفعلي على الأرض — بمتابعة المشروع من أول حفرية حتى آخر معاينة، والبقاء كفريق يحافظ على أداء المباني والأراضي بعد التسليم.",
       p2: "وفق كود البناء السعودي (SBC) وتوجيهات IRATA ومعايير Cleanova لتنظيف وصيانة الواجهات، نضمن استدامة الأصول وحمايتها دون أي مساومة على معايير السلامة.",
       pillar1Title: "السلامة والالتزام",
       pillar1Desc: "إجراءات السلامة المهنية وتصاريح العمل في كل موقع.",
@@ -417,7 +410,7 @@ export const content: Record<Locale, Translations> = {
       pillar3Desc: "طواقم ومعدات جاهزة للتحرك في مختلف مناطق المملكة.",
       readMore: "اقرأ المزيد عن الشركة",
       requestConsultation: "طلب استشارة فنية",
-      brandCaption: "شركة شُرنة الصناعية",
+      brandCaption: "شركة شاورنا الصناعية",
       locationCaption: "المملكة العربية السعودية",
       standardsTag: "معايير SBC و IRATA",
     },
@@ -462,14 +455,14 @@ export const content: Record<Locale, Translations> = {
     },
     footer: {
       description:
-        "تقدّم شركة شُرنة الصناعية تنفيذ المشاريع الصناعية، وصيانة وتنظيف الواجهات، والخدمات الزراعية في مختلف مناطق المملكة — بجودة تنفيذ تدوم، وجدولة تحافظ على استمرارية العمل.",
+        "تقدّم شركة شاورنا الصناعية تنفيذ المشاريع الصناعية، وصيانة وتنظيف الواجهات، والخدمات الزراعية في مختلف مناطق المملكة — بجودة تنفيذ تدوم، وجدولة تحافظ على استمرارية العمل.",
       sbcBadge: "كود البناء السعودي (SBC)",
       irataBadge: "معايير IRATA",
       cleanovaBadge: "معايير Cleanova للواجهات",
       quickLinksTitle: "روابط الموقع",
       servicesTitle: "الخدمات التخصصية",
       contactTitle: "المقر الرئيسي والتواصل",
-      rights: "شركة شُرنة الصناعية. جميع الحقوق محفوظة.",
+      rights: "شركة شاورنا الصناعية. جميع الحقوق محفوظة.",
       address: "الرياض، المملكة العربية السعودية · المدينة الصناعية الثانية",
       phone: "+966 57 452 5139",
       email: "info@shourna.com",
@@ -479,16 +472,15 @@ export const content: Record<Locale, Translations> = {
       vision: "رؤية المملكة 2030",
       home: "الرئيسية",
       services: "خدمات الشركة",
-      about: "عن شركة شُرنة",
+      about: "عن شركة شاورنا",
       projects: "المشاريع المنجزة",
       contact: "تواصل معنا",
-      service1: "تنظيف واجهات المباني",
+      service1: "تنظيف وصيانة واجهات المباني",
       service2: "تنفيذ متكامل للمنشآت الصناعية",
-      service3: "صيانة واجهات المباني",
-      service4: "الخدمات الزراعية",
+      service3: "الخدمات الزراعية",
     },
     modal: {
-      badge: "شركة شُرنة الصناعية · استشارة هندسية",
+      badge: "شركة شاورنا الصناعية · استشارة هندسية",
       title: "طلب دراسة ومناقشة مشروع",
       fullName: "الاسم الكامل *",
       fullNamePlaceholder: "م. محمد السالم",
@@ -500,9 +492,8 @@ export const content: Record<Locale, Translations> = {
       phonePlaceholder: "05XXXXXXXX",
       serviceLine: "خط الخدمة المطلوب",
       serviceOptions: [
-        "تنظيف واجهات المباني",
+        "تنظيف وصيانة واجهات المباني",
         "تنفيذ متكامل للمنشآت الصناعية",
-        "صيانة واجهات المباني",
         "الخدمات الزراعية",
       ],
       location: "موقع المشروع",
@@ -519,13 +510,13 @@ export const content: Record<Locale, Translations> = {
       submit: "إرسال بيانات المشروع",
       submitting: "جاري الإرسال...",
       successTitle: "تم استلام طلب المشروع بنجاح",
-      successMessage: "شكراً لتواصلكم مع شركة شُرنة الصناعية. سيقوم مهندس المشاريع المختص بالتواصل معكم خلال 24 ساعة لمناقشة نطاق العمل والجدولة.",
+      successMessage: "شكراً لتواصلكم مع شركة شاورنا الصناعية. سيقوم مهندس المشاريع المختص بالتواصل معكم خلال 24 ساعة لمناقشة نطاق العمل والجدولة.",
       close: "إغلاق",
     },
     servicesPage: {
       breadcrumbHome: "الرئيسية",
       breadcrumbCurrent: "الخدمات التخصصية",
-      heroHeading: "خدمات شركة شُرنة الصناعية",
+      heroHeading: "خدمات شركة شاورنا الصناعية",
       heroSubheading:
         "قدرات تنفيذية متكاملة مصممة لتلبية الجداول الزمنية الدقيقة والمعايير الهندسية المعتمدة في المملكة العربية السعودية — هندسة للاستدامة، وجدولة لأقصى جاهزية تشغيلية.",
       sbcBadge: "كود البناء السعودي (SBC)",
@@ -553,26 +544,26 @@ export const content: Record<Locale, Translations> = {
       pillarsHeading: "الركائز التشغيلية والتنفيذية",
       galleryBadge: "التوثيق الميداني",
       galleryHeading: "شواهد من بيئة العمل والمعدات المتقدمة",
-      gallerySubheading: "لقطات توثيقية حية تبرز جاهزية طواقم شُرنة والتقنيات الهندسية المستخدمة في مواقع العمل بالمملكة.",
+      gallerySubheading: "لقطات توثيقية حية تبرز جاهزية طواقم شاورنا والتقنيات الهندسية المستخدمة في مواقع العمل بالمملكة.",
       specsBadge: "المعايير المعتمدة",
       specsHeading: "مصفوفة المواصفات والامتثال التنظيمي",
       faqBadge: "استفسارات العملاء",
       faqHeading: "الأسئلة الفنية المتكررة",
       items: [
         {
-          id: "facade-cleaning",
+          id: "facade-cleaning-maintenance",
           num: "01",
-          title: "تنظيف واجهات المباني",
-          description: "تنظيف دوري وحسب الطلب لواجهات المباني المرتفعة والأرضية — الزجاج والحجر والكسوة واللافتات — بواسطة فرق مدربة على العمل بالحبال ووحدات الصيانة المعلقة والغسيل بالضغط.",
+          title: "تنظيف وصيانة واجهات المباني",
+          description: "حلول متكاملة لتنظيف وصيانة واجهات المباني بمختلف أنواعها لضمان استدامتها ومظهرها.",
           bullets: [
-            "تنظيف الزجاج والنوافذ للمباني المرتفعة",
-            "التنظيف بالحبال ووحدات الصيانة المعلقة",
-            "تنظيف الحجر والكسوة واللافتات",
-            "عقود تنظيف دورية",
+            "تنظيف الزجاج والواجهات الشاهقة بالحبال ووحدات BMU",
+            "صيانة واستبدال الزجاج المزدوج والألواح والكسوة الخارجية",
+            "تجديد فواصل السيليكون والمواد العازلة وموانع التسرب",
+            "عقود تنظيف وصيانة دورية وتقارير فحص ومطابقة معتمدة",
           ],
           image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
-          tagline: "تقنيات الوصول بالحبال والغسيل الهيدروليكي فائق الدقة للأبراج والمباني الشاهقة",
-          extendedSummary: "تعتمد شركة شُرنة الصناعية في تنفيذ عمليات تنظيف الواجهات على أحدث أنظمة الوصول بالحبال (IRATA) ووحدات صيانة المباني الميكانيكية (BMU)، مع استخدام أنظمة تنقية المياه بالتناضح العكسي وتقنيات إزالة الرواسب الكلسية والتلوث البيئي دون التأثير على معالجات الزجاج العاكس أو فواصل السيليكون الهيكلي. نوفر حلولاً مخصصة للأبراج الإدارية، المجمعات التجارية، والمراكز الحكومية، مع تطبيق معايير السلامة المهنية الصارمة وضمان استمرارية تشغيل المبنى دون أي تعطيل للمرتادين.",
+          tagline: "حلول هندسية متكاملة لتنظيف وصيانة واجهات المباني، إعادة التأهيل الإنشائي، وتقنيات الوصول بالحبال",
+          extendedSummary: "تجمع شركة شاورنا الصناعية بين تقنيات تنظيف الواجهات المتقدمة وبرامج الصيانة الإنشائية والوقائية المتكاملة لواجهات المباني والأبراج الشاهقة. نعتمد على أحدث أنظمة الوصول بالحبال (IRATA) ووحدات صيانة المباني الميكانيكية (BMU)، مع تقديم خدمات غسيل الزجاج بالماء النقي المنزوع الأيونات، واستبدال ألواح الزجاج المزدوج المتصدعة، وتجديد فواصل التمدد والعوازل الهيكلية، وتثبيت وتدعيم ألواح الكسوة (Cladding). نلتزم بأعلى معايير كود البناء السعودي (SBC) ومواصفات Cleanova لضمان استدامة الأصول وحمايتها ومظهرها المتميز.",
           pillars: [
             {
               title: "الوصول بالحبال المعتمد من IRATA ووحدات BMU",
@@ -580,9 +571,9 @@ export const content: Record<Locale, Translations> = {
               metric: "IRATA Levels 1-3",
             },
             {
-              title: "معالجة الزجاج المعماري والكسوة الخارجية",
-              desc: "إزالة الترسبات الكلسية وأكسدة الألومنيوم باستخدام محاليل كيميائية محايدة متوافقة مع مواصفات Cleanova للواجهات.",
-              metric: "Non-Abrasive Formula",
+              title: "استبدال الزجاج الهيكلي وتجديد العوازل (Weatherproofing)",
+              desc: "استبدال آمن للزجاج المتضرر وحقن سيليكون إنشائي مرن عالي التحمل لمقاومة تسرب الهواء والأمطار وحرارة المناخ القاسي.",
+              metric: "10-Year Seal Integrity",
             },
             {
               title: "الغسيل بالماء النقي المنزوع الأيونات (DI/RO)",
@@ -591,7 +582,7 @@ export const content: Record<Locale, Translations> = {
             },
             {
               title: "عقود صيانة دورية واتفاقيات مستوى الخدمة (SLA)",
-              desc: "برامج تنظيف ربع سنوية ونصف سنوية مجدولة مسبقاً، مع تقارير تصوير رقمية وتوثيق دوري لحالة الألواح والزجاج.",
+              desc: "برامج تنظيف وصيانة دورية مجدولة، مع تقارير تصوير رقمية وتوثيق هندسي دوري لسلامة الألواح والواجهات.",
               metric: "Corporate SLA Tier",
             },
           ],
@@ -599,7 +590,7 @@ export const content: Record<Locale, Translations> = {
             {
               step: "01",
               title: "المعاينة الهندسية وفحص نقاط التثبيت",
-              desc: "فحص أولي لأسطح المبنى، واختبار نقاط الربط الميكانيكية (Anchor Points) واعتماد مسارات النزول الآمن.",
+              desc: "فحص أولي لأسطح المبنى، واختبار نقاط الربط الميكانيكية (Anchor Points) وفحص حالة الكسوة والزجاج.",
             },
             {
               step: "02",
@@ -608,13 +599,13 @@ export const content: Record<Locale, Translations> = {
             },
             {
               step: "03",
-              title: "التنفيذ المتخصص ومعالجة الواجهات",
-              desc: "تنفيذ عمليات الغسيل المتتابع للزجاج والألواح المعدنية باستخدام المياه المقطرة ومعدات الضغط المنضبط.",
+              title: "التنفيذ المتخصص والصيانة الإنشائية",
+              desc: "تنفيذ عمليات الغسيل الدقيق ومعالجة الزجاج واستبدال الألواح التالفة وتجديد موانع التسرب بأعلى دقة.",
             },
             {
               step: "04",
               title: "الفحص النهائي وتسليم التقرير الرقمي",
-              desc: "مراجعة الجودة بعد الجفاف وتقديم تقرير تسليم فوتوغرافي مفصل للإدارة التنفيذية للمبنى.",
+              desc: "مراجعة الجودة الشاملة وتقديم تقرير تسليم فوتوغرافي وهندسي مفصل يثبت سلامة ومظهر الواجهة.",
             },
           ],
           gallery: [
@@ -624,31 +615,35 @@ export const content: Record<Locale, Translations> = {
               caption: "طواقم IRATA متخصصة أثناء العمل على واجهة زجاجية لبرج تجاري بارتفاع 40 طابقاً.",
             },
             {
+              url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+              title: "صيانة وتجديد كسوة الواجهات المعمارية",
+              caption: "إعادة ضبط وتثبيت الألواح المركبة وفواصل السيليكون الإنشائي لحماية واجهة المبنى.",
+            },
+            {
               url: "https://images.unsplash.com/photo-1506158669146-619067261a76?auto=format&fit=crop&w=1200&q=80",
               title: "نقاء تام للواجهات الزجاجية المعمارية",
               caption: "نتائج الغسيل بالماء النقي الخالي من الأملاح على واجهات الكيرتن وول (Curtain Wall).",
             },
-            {
-              url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80",
-              title: "تنظيف ألواح الألمنيوم والكسوة الخارجية",
-              caption: "إزالة الغبار والأتربة المترسبة وحماية الطبقات السطحية من التأكسد والعوامل الجوية.",
-            },
           ],
           specs: [
-            { label: "معايير الاعتماد والسلامة", value: "IRATA الدولية · معايير Cleanova · كود SBC 201" },
+            { label: "معايير الاعتماد والسلامة", value: "IRATA الدولية · معايير Cleanova · كود SBC 201/301" },
             { label: "قدرة الارتفاع الميداني", value: "تغطية حتى ارتفاع +300 متر (أنظمة حبال غير مقيدة بالارتفاع)" },
-            { label: "المواد والمنظفات المستخدمة", value: "مياه مقطرة 100% بدون شوائب · محاليل عضوية صديقة للبيئة" },
+            { label: "المواد والتقنيات المستخدمة", value: "مياه مقطرة 100% · سيليكون هيكلي متعادل · روافع شفط هيدروليكية" },
             { label: "إجراءات السلامة المهنية", value: "نظام حبال مزدوج مستقل 100% · تأمين محيط العمل الأرضي" },
-            { label: "جاهزية الاستجابة والانتشار", value: "استجابة خلال 24 - 48 ساعة في الرياض والمدن الرئيسية" },
+            { label: "جاهزية الاستجابة والانتشار", value: "استجابة دورية وطوارئ 24/7 في الرياض والمدن الرئيسية" },
           ],
           faq: [
             {
-              q: "كيف تضمنون عدم إلحاق أي ضرر بالزجاج المعالج أو العوازل أثناء الغسيل؟",
-              a: "نستخدم فرش تنظيف ناعمة مخصصة للواجهات ومياه منزوعة الأيونات بالكامل بدون كيماويات حمضية أو قلوية كاشطة، مما يضمن الحفاظ التام على طبقات الطلاء العاكس وفواصل السيليكون.",
+              q: "كيف تضمنون سلامة الزجاج والعوازل أثناء عمليات التنظيف والصيانة؟",
+              a: "نستخدم فرش تنظيف ناعمة مخصصة ومياه منزوعة الأيونات بالكامل بدون كيماويات كاشطة، مع تطبيق سيليكون إنشائي متوافق مع مواصفات الزجاج المعماري.",
             },
             {
-              q: "هل تؤثر عمليات التنظيف على حركة الدخول والخروج في المجمع أو البرج؟",
-              a: "نضع حواجز أمان أرضية وتنسيقاً مسبقاً لمناطق الهبوط، مع إمكانية جدولة الأعمال في الصباح الباكر أو خلال عطلات نهاية الأسبوع لضمان انسيابية حركة المبنى.",
+              q: "كيف تتعاملون مع الحالات الطارئة مثل سقوط أو تصدع زجاج الواجهة؟",
+              a: "تمتلك شركة شاورنا فريق استجابة سريعة للطوارئ مدرباً على الوصول الفوري وتأمين المنطقة وعمل تدعيم مؤقت للزجاج المكسور قبل تصنيع واستبدال اللوح الدائم.",
+            },
+            {
+              q: "هل يمكن دمج عقود التنظيف والصيانة الدورية في عقد واحد؟",
+              a: "نعم، نقدم عقود صيانة وتشغيل موحدة تشمل جداول التنظيف الدوري مع الفحص الوقائي المستمر لفواصل السيليكون والكسوة، مما يوفر تكلفة تشغيلية ويمنع التسربات مبكراً.",
             },
           ],
         },
@@ -664,7 +659,7 @@ export const content: Record<Locale, Translations> = {
           ],
           image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80",
           tagline: "حلول هندسية متكاملة للمصانع، الهياكل الفولاذية، وأنظمة البنية التحتية الميكانيكية",
-          extendedSummary: "تقدم شركة شُرنة الصناعية قدرات مقاولات متكاملة تغطي كافة مراحل تنفيذ المنشآت الصناعية والمستودعات اللوجستية ومرافق المعالجة. من صب القواعد والخرسانات سابقة الإجهاد إلى تصنيع وتركيب الهياكل المعدنية الثقيلة، وتمديد شبكات الأنابيب عالية الضغط، والتكامل الكهروميكانيكي (MEP). نلتزم بأعلى معايير كود البناء السعودي (SBC) ومتطلبات الهيئة السعودية للمدن الصناعية ومناطق التقنية (مدن)، مع تطبيق إجراءات مراقبة الجودة (QA/QC) لضمان تسليم منشآت صناعية جاهزة للتشغيل وفق الجداول الزمنية المحددة.",
+          extendedSummary: "تقدم شركة شاورنا الصناعية قدرات مقاولات متكاملة تغطي كافة مراحل تنفيذ المنشآت الصناعية والمستودعات اللوجستية ومرافق المعالجة. من صب القواعد والخرسانات سابقة الإجهاد إلى تصنيع وتركيب الهياكل المعدنية الثقيلة، وتمديد شبكات الأنابيب عالية الضغط، والتكامل الكهروميكانيكي (MEP). نلتزم بأعلى معايير كود البناء السعودي (SBC) ومتطلبات الهيئة السعودية للمدن الصناعية ومناطق التقنية (مدن)، مع تطبيق إجراءات مراقبة الجودة (QA/QC) لضمان تسليم منشآت صناعية جاهزة للتشغيل وفق الجداول الزمنية المحددة.",
           pillars: [
             {
               title: "الهياكل الفولاذية والأعمال المدنية الثقيلة",
@@ -723,7 +718,7 @@ export const content: Record<Locale, Translations> = {
             {
               url: "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1200&q=80",
               title: "الإشراف الهندسي الميداني المستمر",
-              caption: "مهندسو شُرنة يشرفون على مراحل التركيب والتفتيش الميداني في المدن الصناعية بالمملكة.",
+              caption: "مهندسو شاورنا يشرفون على مراحل التركيب والتفتيش الميداني في المدن الصناعية بالمملكة.",
             },
           ],
           specs: [
@@ -735,7 +730,7 @@ export const content: Record<Locale, Translations> = {
           ],
           faq: [
             {
-              q: "هل تقدم شركة شُرنة خدمات التنفيذ بنظام تسليم المفتاح (Turnkey EPC)؟",
+              q: "هل تقدم شركة شاورنا خدمات التنفيذ بنظام تسليم المفتاح (Turnkey EPC)؟",
               a: "نعم، نتولى دور المقاول العام المتكامل بدءاً من دراسة الموقع وتجهيز التربة حتى التركيبات الميكانيكية والتشغيل التجريبي واستخراج التراخيص اللازمة.",
             },
             {
@@ -745,100 +740,8 @@ export const content: Record<Locale, Translations> = {
           ],
         },
         {
-          id: "facade-maintenance",
-          num: "03",
-          title: "صيانة واجهات المباني",
-          description: "صيانة إنشائية ومادية مستمرة لواجهات المباني، للحفاظ على الكسوة والزجاج والمواد العازلة آمنة وعازلة للمياه ومطابقة للمعايير.",
-          bullets: [
-            "إصلاح الواجهات والزجاج",
-            "تجديد المواد العازلة وموانع التسرب",
-            "فحص الواجهات وتقارير المطابقة",
-          ],
-          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
-          tagline: "إعادة التأهيل الإنشائي، استبدال الزجاج المتضرر، وحلول العزل الهيكلي للواجهات المعمارية",
-          extendedSummary: "تتطلب واجهات الأبراج والمباني الحديثة صيانة وقائية وعلاجية دورية لضمان سلامتها الإنشائية وحمايتها من تقلبات المناخ الصحراوي القاسي في المملكة. تتخصص شركة شُرنة الصناعية في فحص واستبدال ألواح الزجاج المزدوج المتصدعة، وإعادة حقن فواصل التمدد بمواد سيليكون هيكلية مقاومة للأشعة فوق البنفسجية والحرارة العالية، وتثبيت وتعديل ألواح الكسوة (Cladding) المرتخية. نقدم تقارير سلامة إنشائية هندسية معتمدة تدعم متطلبات التأمين وتطيل العمر الافتراضي لأصولكم العقارية.",
-          pillars: [
-            {
-              title: "استبدال الزجاج الهيكلي والوحدات المزدوجة (IGUs)",
-              desc: "استبدال آمن لألواح الزجاج المكسور أو الفاقد لغاز العزل الحراري على الارتفاعات باستخدام روافع شفط هيدروليكية متطورة.",
-              metric: "Heavy-Drop Glazing Rig",
-            },
-            {
-              title: "تجديد العوازل وفواصل التمدد (Weatherproofing)",
-              desc: "إزالة السدادات القديمة وحقن سيليكون إنشائي مرن عالي التحمل لمقاومة تسرب الهواء والحرارة والأمطار والعواصف الترابية.",
-              metric: "10-Year Seal Integrity",
-            },
-            {
-              title: "التشخيص الحراري والفحص غير الإتلافي (NDT)",
-              desc: "كشف التسريبات الهوائية والمائية ونقاط الإجهاد الميكانيكي في الألومنيوم والزجاج عبر كاميرات التصوير الحراري المعتمدة.",
-              metric: "Advanced Diagnostic NDT",
-            },
-            {
-              title: "تدعيم الكسوة وألواح الألمنيوم المركبة (ACP)",
-              desc: "فحص وتثبيت مقاطع الكسوة المتخلخلة وتجديد مشابك التثبيت لتوافق كود البناء السعودي ومتطلبات السلامة ضد الحريق.",
-              metric: "SBC & Civil Defense Compliant",
-            },
-          ],
-          workflow: [
-            {
-              step: "01",
-              title: "المسح الشامل والتشخيص الرقمي",
-              desc: "فحص ميداني وتوثيق مرئي وحراري لكافة الفواصل والألواح والزجاج وتحديد نقاط الضعف الإنشائي.",
-            },
-            {
-              step: "02",
-              title: "تحديد المواصفات واختبار المواد",
-              desc: "اختبار توافق مواد السيليكون والزجاج والبراغي البديلة مع الهيكل القائم لمنع التآكل الجلفاني.",
-            },
-            {
-              step: "03",
-              title: "التنفيذ الدقيق على الارتفاعات",
-              desc: "فك الأجزاء التالفة بأمان وتركيب البدائل المطابقة مع تثبيت العوازل واختبار مقاومة ضغط الماء.",
-            },
-            {
-              step: "04",
-              title: "إصدار تقرير السلامة الإنشائية",
-              desc: "تسليم تقرير هندسي نهائي معتمد يثبت سلامة الواجهة ومطابقتها للمعايير مع ضمان رسمي على الأعمال المنفذة.",
-            },
-          ],
-          gallery: [
-            {
-              url: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=80",
-              title: "فحص وتجديد كسوة الواجهات المعمارية",
-              caption: "إعادة ضبط وتثبيت الألواح المركبة المعرضة لرياح العواصف على ارتفاعات الأبراج.",
-            },
-            {
-              url: "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1200&q=80",
-              title: "صيانة الزجاج الهيكلي وفواصل التمدد",
-              caption: "تجديد فواصل السيليكون الإنشائي لمنع تسرب المياه والهواء وحماية تكييف المبنى.",
-            },
-            {
-              url: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
-              title: "استبدال الألواح والزجاج المزدوج",
-              caption: "استبدال ألواح الزجاج المزدوج المتصدعة بأنظمة زجاج عازل حرارياً عالي الكفاءة.",
-            },
-          ],
-          specs: [
-            { label: "المعايير المرجعية", value: "كود SBC 201/301 · مواصفات ASTM C1193 للسيليكون الإنشائي" },
-            { label: "مواصفات مواد منع التسرب", value: "سيليكون هيكلي متعادل العلاج بمرونة حركة تصل إلى +/- 50%" },
-            { label: "تقنيات الفحص الميداني", value: "كاميرات حرارية FLIR · طائرات درون للمسح · اختبارات الضغط المائي" },
-            { label: "القدرات الهندسية لرفع الزجاج", value: "روافع هيدروليكية للزجاج حتى وزن 600 كجم للوح الواحد" },
-            { label: "طوارئ الواجهات والكسوة", value: "طوارئ 24/7 للتدخل الفوري وتأمين الألواح المتخلخلة والزجاج المكسور" },
-          ],
-          faq: [
-            {
-              q: "كيف تتعاملون مع الحالات الطارئة مثل سقوط أو تصدع زجاج الواجهة؟",
-              a: "تمتلك شركة شُرنة فريق استجابة سريعة للطوارئ مدرباً على الوصول الفوري وتأمين المنطقة وعمل تدعيم مؤقت للزجاج المكسور قبل تصنيع واستبدال اللوح الدائم.",
-            },
-            {
-              q: "ما أهمية إعادة تجديد فواصل السيليكون بشكل دوري للواجهات؟",
-              a: "الأشعة فوق البنفسجية والحرارة الشديدة تؤدي إلى جفاف السيليكون وتشققه بعد سنوات، مما يتسبب في تسرب مياه الأمطار وفقدان برودة التكييف وزيادة فواتير الطاقة.",
-            },
-          ],
-        },
-        {
           id: "agriculture",
-          num: "04",
+          num: "03",
           title: "الخدمات الزراعية",
           description: "تجهيز الأراضي، وإنشاء شبكات الري، والدعم الزراعي المستمر للمزارع التجارية والعقارات الزراعية الكبرى.",
           bullets: [
@@ -848,7 +751,7 @@ export const content: Record<Locale, Translations> = {
           ],
           image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1200&q=80",
           tagline: "تسوية الأراضي بالليزر، هندسة شبكات الري الحديثة، وبرامج التطوير الزراعي المستدام",
-          extendedSummary: "توفر شركة شُرنة الصناعية حلولاً هندسية متقدمة للمزارع الإنتاجية والمشاريع الزراعية الواسعة والمشاريع البيئية في مختلف مناطق المملكة. نجمع بين الخبرة الميدانية والمعدات الثقيلة المتخصصة لتنفيذ أعمال تسوية الأراضي بنظام توجيه الليزر والـ GPS، وتصميم وتركيب شبكات الري بالتنقيط والري المحوري الموفرة للمياه، وبناء محطات الضخ وخزانات التجميع الاستراتيجية. نعمل على تحسين خواص التربة ورفع كفاءة الإنتاج الزراعي بما يتكامل مع أهداف التنمية الزراعية المستدامة ومبادرة السعودية الخضراء.",
+          extendedSummary: "توفر شركة شاورنا الصناعية حلولاً هندسية متقدمة للمزارع الإنتاجية والمشاريع الزراعية الواسعة والمشاريع البيئية في مختلف مناطق المملكة. نجمع بين الخبرة الميدانية والمعدات الثقيلة المتخصصة لتنفيذ أعمال تسوية الأراضي بنظام توجيه الليزر والـ GPS، وتصميم وتركيب شبكات الري بالتنقيط والري المحوري الموفرة للمياه، وبناء محطات الضخ وخزانات التجميع الاستراتيجية. نعمل على تحسين خواص التربة ورفع كفاءة الإنتاج الزراعي بما يتكامل مع أهداف التنمية الزراعية المستدامة ومبادرة السعودية الخضراء.",
           pillars: [
             {
               title: "تسوية الأراضي بالليزر وأنظمة GPS ثلاثية الأبعاد",
@@ -934,13 +837,13 @@ export const content: Record<Locale, Translations> = {
       breadcrumbHome: "الرئيسية",
       breadcrumbCurrent: "عن الشركة",
       eyebrow: "التميز التشغيلي والهندسي",
-      heroHeading: "عن شركة شُرنة الصناعية",
+      heroHeading: "عن شركة شاورنا الصناعية",
       heroDescription:
-        "تأسست شركة شُرنة الصناعية لسد الفجوة بين التصميم والتنفيذ الفعلي على الأرض — بمتابعة المشروع من أول حفرية حتى آخر معاينة، والبقاء كفريق يحافظ على أداء المباني والأراضي بعد التسليم.",
+        "تأسست شركة شاورنا الصناعية لسد الفجوة بين التصميم والتنفيذ الفعلي على الأرض — بمتابعة المشروع من أول حفرية حتى آخر معاينة، والبقاء كفريق يحافظ على أداء المباني والأراضي بعد التسليم.",
       narrativeBadge: "منهجية العمل الميداني",
       narrativeHeading: "سد الفجوة بين المخططات والواقع التنفيذي",
       narrativeP1:
-        "تأسست شركة شُرنة الصناعية لسد الفجوة بين التصميم والتنفيذ الفعلي على الأرض — بمتابعة المشروع من أول حفرية حتى آخر معاينة، والبقاء كفريق يحافظ على أداء المباني والأراضي بعد التسليم.",
+        "تأسست شركة شاورنا الصناعية لسد الفجوة بين التصميم والتنفيذ الفعلي على الأرض — بمتابعة المشروع من أول حفرية حتى آخر معاينة، والبقاء كفريق يحافظ على أداء المباني والأراضي بعد التسليم.",
       narrativeP2:
         "نحن نؤمن بأن المنشآت الصناعية وواجهات المباني المعمارية لا تتطلب فقط حلولاً هندسية نظرية، بل تتطلب قيادة ميدانية حازمة، وتطبيقاً دقيقاً لمعايير كود البناء السعودي (SBC)، وبروتوكولات الوصول بالحبال (IRATA)، ومواصفات Cleanova الاستثنائية للواجهات.",
       discussButton: "ناقش مشروعك مع خبرائنا",
@@ -948,7 +851,7 @@ export const content: Record<Locale, Translations> = {
       metricTag: "متوافق مع رؤية المملكة 2030",
       metricHeading: "التزام مطلق بالسلامة وسرعة الجاهزية التشغيلية",
       pillarsBadge: "ركائز العمل",
-      pillarsHeading: "القيم التشغيلية لشركة شُرنة الصناعية",
+      pillarsHeading: "القيم التشغيلية لشركة شاورنا الصناعية",
       pillarsSubheading: "المبادئ الأربعة الراسخة التي تحكم كل موقع مشروع ووردية عمل في كافة أرجاء المملكة.",
       mandatoryStandard: "معيار تشغيلي إلزامي",
       contactBadge: "التواصل المباشر",
@@ -990,7 +893,7 @@ export const content: Record<Locale, Translations> = {
       breadcrumbHome: "الرئيسية",
       breadcrumbCurrent: "المشاريع",
       eyebrow: "سجل الإنجاز والقدرات الميدانية",
-      heroHeading: "مشاريع شركة شُرنة الصناعية",
+      heroHeading: "مشاريع شركة شاورنا الصناعية",
       heroSubheading:
         "نماذج توضح نطاق الأعمال والقدرات التنفيذية في مشاريع الإنشاءات الصناعية، وهندسة وصيانة الواجهات، والخدمات الزراعية عبر مناطق المملكة.",
       placeholderNotice: "ملاحظة: استبدلوا هذه النماذج بأسماء المشاريع الفعلية والصور والأرقام عند الجاهزية.",
@@ -1081,9 +984,8 @@ export const content: Record<Locale, Translations> = {
       phonePlaceholder: "05XXXXXXXX",
       serviceLine: "خط الخدمة المطلوب",
       serviceOptions: [
-        "تنظيف واجهات المباني",
+        "تنظيف وصيانة واجهات المباني",
         "تنفيذ متكامل للمنشآت الصناعية",
-        "صيانة واجهات المباني",
         "الخدمات الزراعية",
       ],
       location: "موقع المشروع",
@@ -1099,7 +1001,7 @@ export const content: Record<Locale, Translations> = {
       submit: "إرسال تفاصيل المشروع للمهندس المختص",
       submitting: "جاري الإرسال...",
       successTitle: "تم استلام تفاصيل المشروع بنجاح",
-      successMessage: "شكراً لتواصلكم مع شركة شُرنة الصناعية. سنقوم بمراجعة نطاق العمل والتواصل معكم خلال 24 ساعة لترتيب المعاينة والجدولة.",
+      successMessage: "شكراً لتواصلكم مع شركة شاورنا الصناعية. سنقوم بمراجعة نطاق العمل والتواصل معكم خلال 24 ساعة لترتيب المعاينة والجدولة.",
       another: "إرسال استفسار آخر",
     },
   },
@@ -1118,7 +1020,7 @@ export const content: Record<Locale, Translations> = {
       allServices: "Explore All Services",
     },
     hero: {
-      eyebrow: "Building Facades Cleaning · Integrated Industrial Execution · Facades Maintenance · Agricultural Services",
+      eyebrow: "Facade Cleaning & Maintenance · Integrated Industrial Execution · Agricultural Services",
       headline: "Built for the ground it stands on.",
       subheading:
         "Shourna Industrial Company delivers industrial project execution, facade maintenance and cleaning, and agricultural services across the Kingdom — engineered for durability, scheduled for uptime.",
@@ -1130,8 +1032,8 @@ export const content: Record<Locale, Translations> = {
       cleanovaBadge: "Cleanova Standard Alignment",
     },
     stats: {
-      stat1Number: "4",
-      stat1Title: "4 core service lines",
+      stat1Number: "3",
+      stat1Title: "3 core service lines",
       stat1Desc: "Industrial civil works, building envelope engineering, and agricultural infrastructure.",
       stat2Number: "20+",
       stat2Title: "20+ projects delivered (Placeholder)",
@@ -1149,11 +1051,11 @@ export const content: Record<Locale, Translations> = {
       detailsLink: "Service Details & Scope",
       cards: [
         {
-          id: "facade-cleaning",
+          id: "facade-cleaning-maintenance",
           num: "01",
-          title: "Building Facades Cleaning",
-          desc: "Scheduled and one-off cleaning for high-rise and ground-level facades — glass, stone, cladding and signage — using rope access and BMU.",
-          href: "/services/facade-cleaning",
+          title: "Facade Cleaning & Maintenance",
+          desc: "Comprehensive cleaning and maintenance solutions for all building facades to ensure durability and appearance.",
+          href: "/services/facade-cleaning-maintenance",
         },
         {
           id: "industrial",
@@ -1163,15 +1065,8 @@ export const content: Record<Locale, Translations> = {
           href: "/services/industrial",
         },
         {
-          id: "facade-maintenance",
-          num: "03",
-          title: "Building Facades Maintenance",
-          desc: "Ongoing structural and material upkeep for building envelopes — keeping cladding, glazing and sealants safe, weatherproof and compliant.",
-          href: "/services/facade-maintenance",
-        },
-        {
           id: "agriculture",
-          num: "04",
+          num: "03",
           title: "Agricultural Services",
           desc: "Land preparation, irrigation infrastructure and ongoing agronomic support for commercial and estate-scale farming operations.",
           href: "/services/agriculture",
@@ -1256,10 +1151,9 @@ export const content: Record<Locale, Translations> = {
       about: "About Us",
       projects: "Delivered Projects",
       contact: "Contact Us",
-      service1: "Building Facades Cleaning",
+      service1: "Facade Cleaning & Maintenance",
       service2: "Integrated Execution for Industrial Facilities",
-      service3: "Building Facades Maintenance",
-      service4: "Agricultural Services",
+      service3: "Agricultural Services",
     },
     modal: {
       badge: "SICS Technical Consultation",
@@ -1274,9 +1168,8 @@ export const content: Record<Locale, Translations> = {
       phonePlaceholder: "05XXXXXXXX",
       serviceLine: "Primary Service Line",
       serviceOptions: [
-        "Building Facades Cleaning",
+        "Facade Cleaning & Maintenance",
         "Integrated Execution for Industrial Facilities",
-        "Building Facades Maintenance",
         "Agricultural Services",
       ],
       location: "Project Location",
@@ -1334,38 +1227,38 @@ export const content: Record<Locale, Translations> = {
       faqHeading: "Frequently Asked Technical Questions",
       items: [
         {
-          id: "facade-cleaning",
+          id: "facade-cleaning-maintenance",
           num: "01",
-          title: "Building Facades Cleaning",
-          description: "Scheduled and one-off cleaning for high-rise and ground-level facades — glass, stone, cladding and signage — using rope access, BMU and pressure-washing crews trained for height work.",
+          title: "Facade Cleaning & Maintenance",
+          description: "Comprehensive cleaning and maintenance solutions for all building facades to ensure durability and appearance.",
           bullets: [
-            "High-rise glass & window cleaning",
-            "Rope access & BMU cleaning",
-            "Stone, cladding & signage cleaning",
-            "Scheduled cleaning contracts",
+            "High-rise glass & window cleaning via IRATA rope access & BMU",
+            "Structural glazing replacement, double-glazed units & cladding repairs",
+            "Joint resealing, weatherproofing & structural silicone restoration",
+            "Scheduled maintenance contracts & certified compliance inspection reports",
           ],
           image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
-          tagline: "Advanced Rope Access & Precision Hydro-Washing for High-Rise Architectural Towers",
-          extendedSummary: "Shourna Industrial executes high-level architectural facade cleaning deploying certified IRATA rope access technicians and Building Maintenance Units (BMU). Utilizing de-ionized reverse osmosis water purification and non-abrasive eco-compliant agents, we remove stubborn environmental buildup, sand scaling, and pollution without compromising reflective coatings or structural glazing silicone. We deliver turnkey maintenance programs for commercial skyscrapers, government complexes, and mixed-use developments with zero site interruption.",
+          tagline: "Turnkey High-Rise Facade Cleaning, Structural Envelope Maintenance & Rope Access Engineering",
+          extendedSummary: "Shourna Industrial Company combines advanced facade cleaning technologies with comprehensive structural and preventive maintenance programs for building envelopes and high-rise towers. Operating under certified IRATA rope access standards and Building Maintenance Units (BMU), we deliver DI/RO pure-water window washing, replacement of cracked insulated glass units (IGUs), renewal of structural silicone weather seals, and anchoring of architectural cladding panels. All operations comply with the Saudi Building Code (SBC) and Cleanova standards, ensuring asset longevity, architectural luster, and uncompromising occupant safety.",
           pillars: [
             {
-              title: "IRATA Rope Access & BMU Deployment",
-              desc: "IRATA-certified industrial rope access specialists (Level 1–3) engineered to access complex architectural angles, domes, and supertall facades safely.",
+              title: "IRATA Certified Rope Access & BMU Systems",
+              desc: "Industrial abseiling crews licensed for IRATA Levels 1-3 accessing complex architectural heights safely.",
               metric: "IRATA Levels 1-3",
             },
             {
-              title: "Architectural Glass & Cladding Care",
-              desc: "Elimination of mineral calcification and cladding oxidation utilizing pH-neutral formulas compliant with Cleanova facade specifications.",
-              metric: "Non-Abrasive Formula",
+              title: "Structural Glazing & Weatherproofing Restoration",
+              desc: "Safe replacement of damaged IGUs and high-performance silicone sealant injection resisting UV and desert sandstorms.",
+              metric: "10-Year Seal Integrity",
             },
             {
-              title: "De-ionized Pure Water Hydro-Washing",
-              desc: "Mobile reverse osmosis and de-ionization units providing mineral-free water for a spot-free, streak-free crystalline finish.",
+              title: "Pure Deionized Water Washing (DI/RO)",
+              desc: "Mobile filtration systems producing 100% mineral-free water for streakless, residue-free architectural glass clarity.",
               metric: "100% Spot-Free",
             },
             {
-              title: "Corporate SLA & Preventative Programs",
-              desc: "Scheduled quarterly and biannual maintenance contracts with photographic audit reporting and priority weather dispatch.",
+              title: "Scheduled SLA Programs & Structural Compliance",
+              desc: "Structured quarterly and annual service agreements accompanied by photographic inspection sign-offs.",
               metric: "Corporate SLA Tier",
             },
           ],
@@ -1373,56 +1266,60 @@ export const content: Record<Locale, Translations> = {
             {
               step: "01",
               title: "Engineering Survey & Anchor Testing",
-              desc: "Comprehensive roof audit, structural pull-testing on fall arrest anchors, and safe descent line certification.",
+              desc: "Roof-level rigging inspection, mechanical anchor load testing, and hazard mapping before deployment.",
             },
             {
               step: "02",
-              title: "Risk Assessment & High-Altitude Permitting",
-              desc: "Formal Method Statement, Job Safety Analysis (JSA), and regulatory high-altitude work permits.",
+              title: "Safety Protocol & High-Risk Permits",
+              desc: "Comprehensive method statements and height permits-to-work coordinated with facility safety management.",
             },
             {
               step: "03",
-              title: "Precision Hydro-Washing Execution",
-              desc: "Systematic multi-tier washing of glazed panels, louvers, and composite cladding using calibrated pure-water rigs.",
+              title: "Specialized Cleaning & Envelope Restoration",
+              desc: "Sequential pure-water washing, sealant renewal, and glass panel replacement with hydraulic vacuum lifters.",
             },
             {
               step: "04",
-              title: "Quality Audit & Digital Handover",
-              desc: "Post-drying QA inspection with high-resolution photographic before-and-after reports submitted to facility management.",
+              title: "Final QA Audit & Digital Sign-off",
+              desc: "Post-work quality verification and delivery of a documented engineering condition report.",
             },
           ],
           gallery: [
             {
               url: "https://images.unsplash.com/photo-1527018606412-036172c0c042?auto=format&fit=crop&w=1200&q=80",
-              title: "High-Rise Rope Access Deployment",
-              caption: "IRATA certified technicians executing vertical window cleaning on a 40-story commercial tower.",
+              title: "Rope Access Deployment on High-Rise Towers",
+              caption: "Certified IRATA technicians operating on a 40-story commercial tower envelope.",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+              title: "Architectural Cladding & Glazing Maintenance",
+              caption: "Structural joint resealing and replacement of exterior architectural panels.",
             },
             {
               url: "https://images.unsplash.com/photo-1506158669146-619067261a76?auto=format&fit=crop&w=1200&q=80",
-              title: "Crystalline Architectural Glazing",
-              caption: "Pure de-ionized wash outcome restoring optical transparency on curtain wall facades.",
-            },
-            {
-              url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80",
-              title: "Cladding & Louver Restoration",
-              caption: "Deep cleansing of composite aluminum cladding and louvers preserving coating integrity against dust storms.",
+              title: "Pristine Architectural Curtain Wall Care",
+              caption: "Spot-free deionized water cleaning results on curtain wall facades.",
             },
           ],
           specs: [
-            { label: "Accreditation & Standards", value: "IRATA International · Cleanova Standard · SBC 201" },
-            { label: "Vertical Operational Reach", value: "Up to 300+ Meters (Unlimited Vertical Drop Capability)" },
-            { label: "Cleaning Formulations", value: "100% De-ionized Pure Water · Biodegradable pH-Neutral Agents" },
-            { label: "HSE Protocols", value: "Dual-Rope Redundancy · Ground Exclusionary Barricade Zones" },
-            { label: "Mobilization SLA", value: "24–48 Hour Mobilization across Riyadh & Major Regions" },
+            { label: "Safety & Compliance Standards", value: "IRATA International · Cleanova Protocol · SBC 201/301 Code" },
+            { label: "Height Operational Reach", value: "Up to +300m elevation (unrestricted rope access rigging)" },
+            { label: "Materials & Equipment", value: "100% Deionized Pure Water · Neutral Structural Silicone · Vacuum Lifters" },
+            { label: "HSE Risk Controls", value: "Dual independent rope systems · Ground perimeter exclusion zone · NDT inspection" },
+            { label: "Mobilization & Emergency Readiness", value: "24/7 rapid deployment for urgent glazing damage across KSA" },
           ],
           faq: [
             {
-              q: "How do you protect reflective coatings and structural silicone gaskets?",
-              a: "We employ architectural-grade non-abrasive brushes and de-ionized pure water without harsh acids or caustics, preserving UV coatings, Low-E glass, and structural seals.",
+              q: "How do you ensure treated architectural glass and seals are protected during cleaning and repairs?",
+              a: "We utilize soft-bristle facade brushes, pure deionized water free of abrasive chemicals, and neutral-cure structural silicones fully compatible with low-E glass coatings.",
             },
             {
-              q: "Does cleaning disrupt daily building operations and tenant traffic?",
-              a: "All operations incorporate ground safety exclusionary zones, with work schedulable during off-peak hours, early mornings, or weekends to prevent tenant disruption.",
+              q: "How does Shourna handle urgent facade emergencies like loose panels or shattered glass?",
+              a: "Our 24/7 rapid response team mobilizes immediately to cordon the ground area, secure broken panels with temporary bracing, and measure for permanent replacement.",
+            },
+            {
+              q: "Can cleaning and structural maintenance be bundled into a single contract?",
+              a: "Yes, combining routine cleaning with scheduled sealant and cladding inspections provides significant cost savings and prevents minor seal failures from escalating into interior water damage.",
             },
           ],
         },
@@ -1519,100 +1416,8 @@ export const content: Record<Locale, Translations> = {
           ],
         },
         {
-          id: "facade-maintenance",
-          num: "03",
-          title: "Building Facades Maintenance",
-          description: "Ongoing structural and material upkeep for building envelopes — keeping cladding, glazing and sealants safe, weatherproof and compliant.",
-          bullets: [
-            "Cladding & glazing repair",
-            "Sealant & waterproofing renewal",
-            "Facade inspection & compliance reports",
-          ],
-          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
-          tagline: "Structural Facade Rehabilitation, Glazing Replacement & Weatherproofing Sealant Solutions",
-          extendedSummary: "Modern high-rise envelopes demand rigorous preventive and corrective maintenance to withstand extreme thermal expansion, intense UV radiation, and high wind loads in Saudi Arabia. Shourna Industrial specializes in structural glazing assessment, replacement of damaged double-glazed IGUs, expansion joint resealing with high-performance elastomeric silicones, and secure retrofitting of loose composite panels. Our certified diagnostic audits provide asset managers with actionable structural integrity reports compliant with municipal safety mandates and property insurance requirements.",
-          pillars: [
-            {
-              title: "Structural Glazing & IGU Replacement",
-              desc: "Safe removal and precision replacement of fractured double-glazed units at heights using robotic vacuum suction equipment.",
-              metric: "Heavy-Drop Glazing Rig",
-            },
-            {
-              title: "Weatherproofing & Joint Resealing",
-              desc: "Complete stripping of deteriorated joint fillers and tooling of high-movement structural silicones resistant to thermal shock.",
-              metric: "10-Year Seal Integrity",
-            },
-            {
-              title: "Thermal Audits & NDT Diagnosis",
-              desc: "Thermographic imaging, ultrasound flaw detection, and calibrated spray testing to pinpoint hidden envelope failures.",
-              metric: "Advanced Diagnostic NDT",
-            },
-            {
-              title: "Cladding Retrofit & Wind Load Anchors",
-              desc: "Fastener inspection, secondary bracket reinforcement, and panel retrofitting aligned with Civil Defense fire-safety regulations.",
-              metric: "SBC & Civil Defense Compliant",
-            },
-          ],
-          workflow: [
-            {
-              step: "01",
-              title: "Diagnostic Envelope Audit",
-              desc: "Comprehensive close-up visual and thermographic inspection documenting stress fractures, seal failures, and loose anchors.",
-            },
-            {
-              step: "02",
-              title: "Material Specification & Compatibility",
-              desc: "Adhesion and compatibility testing for replacement silicones and fasteners to prevent galvanic corrosion.",
-            },
-            {
-              step: "03",
-              title: "Precision High-Altitude Restoration",
-              desc: "Controlled de-glazing, replacement unit hoisting, structural sealant tooling, and calibrated water-hose field testing.",
-            },
-            {
-              step: "04",
-              title: "Engineering Sign-Off & Warranty Certificate",
-              desc: "Issuance of formal structural integrity certification, as-built maintenance log, and multi-year material warranty.",
-            },
-          ],
-          gallery: [
-            {
-              url: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=80",
-              title: "Cladding & Substructure Renovation",
-              caption: "Re-aligning and securing exterior composite louvers against high aerodynamic loads.",
-            },
-            {
-              url: "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1200&q=80",
-              title: "Structural Glazing & Expansion Joint Maintenance",
-              caption: "Complete renewal of structural silicone joints preventing thermal transfer and water leakage.",
-            },
-            {
-              url: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
-              title: "Precision Glass Replacement",
-              caption: "Overhead installation of high-efficiency solar-reflective double glazed glass panels.",
-            },
-          ],
-          specs: [
-            { label: "Governing Standards", value: "SBC 201/301 · ASTM C1193 Structural Sealant Specifications" },
-            { label: "Joint Sealant Chemistry", value: "High-Movement (+/-50%) Neutral-Cure Structural Silicone" },
-            { label: "Diagnostic Technologies", value: "FLIR Thermal Radiometry · High-Res Drone Imaging · Water Penetration Rigs" },
-            { label: "Glazing Rigging Capacity", value: "Hydraulic Vacuum Rigging handling up to 600kg per Unit" },
-            { label: "Emergency Response SLA", value: "24/7 Rapid Emergency Response for Loose Cladding or Broken Panes" },
-          ],
-          faq: [
-            {
-              q: "How do you handle emergency calls for shattered high-rise glass or loose cladding?",
-              a: "Our emergency rapid-response teams mobilize within hours to establish safety perimeters, secure fractured panes with containment film, and plan immediate replacement.",
-            },
-            {
-              q: "Why is proactive sealant joint replacement critical in the Gulf climate?",
-              a: "Intense ultraviolet exposure and thermal expansion degrade sealants over time, leading to hidden moisture intrusion, structural corrosion, and significant cooling energy loss.",
-            },
-          ],
-        },
-        {
           id: "agriculture",
-          num: "04",
+          num: "03",
           title: "Agricultural Services",
           description: "Land preparation, irrigation infrastructure and ongoing agronomic support for commercial and estate-scale farming operations.",
           bullets: [
@@ -1855,9 +1660,8 @@ export const content: Record<Locale, Translations> = {
       phonePlaceholder: "05XXXXXXXX",
       serviceLine: "Primary Service Line",
       serviceOptions: [
-        "Building Facades Cleaning",
+        "Facade Cleaning & Maintenance",
         "Integrated Execution for Industrial Facilities",
-        "Building Facades Maintenance",
         "Agricultural Services",
       ],
       location: "Project Location",

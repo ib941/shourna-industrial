@@ -4,11 +4,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Factory, Wrench, Sparkles, Sprout, CheckCircle2, ArrowRight, Shield, Clock, FileCheck } from "lucide-react";
-import { useProjectInquiry } from "@/components/ProjectInquiryContext";
 import { useLanguage } from "@/components/LanguageContext";
 
 export default function ServicesPage() {
-  const { openModal } = useProjectInquiry();
   const { t, isRTL } = useLanguage();
 
   const getIcon = (id: string) => {
@@ -16,8 +14,8 @@ export default function ServicesPage() {
       case "industrial":
         return <Factory className="w-8 h-8 text-[#00A3A6]" />;
       case "facade-maintenance":
-        return <Wrench className="w-8 h-8 text-[#00A3A6]" />;
       case "facade-cleaning":
+      case "facade-cleaning-maintenance":
         return <Sparkles className="w-8 h-8 text-[#00A3A6]" />;
       case "agriculture":
         return <Sprout className="w-8 h-8 text-[#74B743]" />;
@@ -157,13 +155,12 @@ export default function ServicesPage() {
                           <span>{isRTL ? "استعراض كامل تفاصيل الخدمة" : "View Independent Service Page"}</span>
                           <ArrowRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-180" : ""}`} />
                         </Link>
-                        <button
-                          type="button"
-                          onClick={() => openModal(svc.title)}
+                        <Link
+                          href="/contact"
                           className="px-6 py-3.5 border border-gray-300 text-gray-700 hover:border-[#00A3A6] hover:text-[#00A3A6] text-sm font-semibold transition-colors inline-flex items-center justify-center rounded-sm cursor-pointer"
                         >
                           {t.servicesPage.ctaCardButton}
-                        </button>
+                        </Link>
                       </div>
 
                     </div>
@@ -193,13 +190,12 @@ export default function ServicesPage() {
               </p>
             </div>
             <div className="shrink-0 w-full sm:w-auto">
-              <button
-                type="button"
-                onClick={() => openModal()}
-                className="w-full sm:w-auto px-8 py-4 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-base transition-colors shadow-lg cursor-pointer rounded-sm"
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto px-8 py-4 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-base transition-colors shadow-lg cursor-pointer rounded-sm inline-flex items-center justify-center"
               >
                 {t.servicesPage.bottomButton}
-              </button>
+              </Link>
             </div>
           </div>
         </div>

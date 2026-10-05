@@ -15,7 +15,6 @@ import {
   Sprout,
   ArrowRight,
 } from "lucide-react";
-import { useProjectInquiry } from "./ProjectInquiryContext";
 import { useLanguage } from "./LanguageContext";
 
 export default function Navbar() {
@@ -24,7 +23,6 @@ export default function Navbar() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(true);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname() || "/";
-  const { openModal } = useProjectInquiry();
   const { t, toggleLocale, isRTL } = useLanguage();
 
   // Close dropdown on route change
@@ -47,11 +45,11 @@ export default function Navbar() {
   const getServiceIcon = (id: string) => {
     switch (id) {
       case "facade-cleaning":
+      case "facade-maintenance":
+      case "facade-cleaning-maintenance":
         return <Sparkles className="w-5 h-5 text-[#00A3A6]" />;
       case "industrial":
         return <Factory className="w-5 h-5 text-[#00A3A6]" />;
-      case "facade-maintenance":
-        return <Wrench className="w-5 h-5 text-[#00A3A6]" />;
       case "agriculture":
         return <Sprout className="w-5 h-5 text-[#74B743]" />;
       default:
@@ -96,7 +94,7 @@ export default function Navbar() {
           </div>
 
           {/* Navigation Links with Services Dropdown */}
-          <nav className="hidden md:flex flex-row items-center gap-6 lg:gap-8 font-medium text-sm">
+          <nav className="hidden md:flex flex-1 max-w-2xl mx-auto flex-row items-center justify-evenly gap-4 font-medium text-sm">
             {/* Home Link */}
             <Link
               href="/"
@@ -146,7 +144,7 @@ export default function Navbar() {
                         {t.nav.servicesDropdownTitle || (isRTL ? "الخدمات التخصصية" : "Engineering Disciplines")}
                       </span>
                       <span className="text-[11px] font-mono text-[#00A3A6] font-semibold">
-                        4 {isRTL ? "خدمات" : "Services"}
+                        {t.servicesPage.items.length} {isRTL ? "خدمات" : "Services"}
                       </span>
                     </div>
 
@@ -212,18 +210,6 @@ export default function Navbar() {
               {t.nav.about}
             </Link>
 
-            {/* Projects Link */}
-            <Link
-              href="/projects"
-              className={`py-2 whitespace-nowrap relative transition-colors ${
-                isActive("/projects")
-                  ? "text-[#00A3A6] font-bold after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-[#00A3A6] after:scale-x-100"
-                  : "text-gray-800 hover:text-[#00A3A6] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-[#00A3A6] after:scale-x-0 hover:after:scale-x-100 after:transition-transform"
-              }`}
-            >
-              {t.nav.projects}
-            </Link>
-
             {/* Contact Link */}
             <Link
               href="/contact"
@@ -251,15 +237,14 @@ export default function Navbar() {
               <span>{t.nav.switchLang}</span>
             </button>
 
-            {/* Primary CTA button */}
-            <button
-              type="button"
-              onClick={() => openModal()}
+            {/* Primary CTA link */}
+            <Link
+              href="/contact"
               className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-sm bg-[#00A3A6] hover:bg-[#00878a] text-white text-xs sm:text-sm font-bold transition-all shadow-xs hover:shadow-md cursor-pointer group"
             >
               <span>{t.nav.discussProject}</span>
               <ArrowUpRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-[-90deg]" : ""} group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform`} />
-            </button>
+            </Link>
 
             {/* Mobile Menu Button */}
             <button
@@ -353,17 +338,6 @@ export default function Navbar() {
               {t.nav.about}
             </Link>
 
-            {/* Projects */}
-            <Link
-              href="/projects"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`px-3 py-2.5 text-base font-medium rounded-sm transition-colors text-start ${
-                isActive("/projects") ? "bg-[#00A3A6]/10 text-[#00A3A6] font-bold" : "text-gray-800 hover:bg-gray-50"
-              }`}
-            >
-              {t.nav.projects}
-            </Link>
-
             {/* Contact */}
             <Link
               href="/contact"
@@ -386,17 +360,14 @@ export default function Navbar() {
                 <span>{t.nav.switchLang}</span>
               </button>
 
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  openModal();
-                }}
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
                 className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-sm bg-[#00A3A6] text-white font-bold text-sm shadow-sm hover:bg-[#00878a] transition-colors"
               >
                 <span>{t.nav.discussProject}</span>
                 <ArrowUpRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-[-90deg]" : ""}`} />
-              </button>
+              </Link>
             </div>
           </div>
         </div>

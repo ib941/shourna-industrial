@@ -58,21 +58,10 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
     }
   };
 
-  const getPillarIcon = (index: number) => {
-    const icons = [
-      <Shield key="1" className="w-5 h-5 text-[#00A3A6]" />,
-      <Building2 key="2" className="w-5 h-5 text-[#74B743]" />,
-      <Layers key="3" className="w-5 h-5 text-[#00A3A6]" />,
-      <Award key="4" className="w-5 h-5 text-[#74B743]" />,
-    ];
-    return icons[index % icons.length];
-  };
-
   return (
     <div className="w-full bg-white text-gray-900 scroll-smooth">
       {/* 1. Hero Section */}
       <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-[#0a141d] text-white overflow-hidden border-b border-gray-800">
-        {/* Technical Grid Pattern */}
         <div
           className="absolute inset-0 opacity-15 pointer-events-none"
           style={{
@@ -82,13 +71,11 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
           }}
         />
 
-        {/* Ambient brand glow */}
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#00A3A6]/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[#74B743]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl text-start">
-            {/* Breadcrumb Navigation */}
             <div className="flex flex-wrap items-center gap-2 text-xs text-gray-400 mb-6 font-mono">
               <Link href="/" className="hover:text-[#00A3A6] transition-colors">
                 {t.servicesPage.breadcrumbHome}
@@ -101,7 +88,6 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
               <span className="text-[#00A3A6] font-semibold">{currentService.title}</span>
             </div>
 
-            {/* Service Number & Icon Tag */}
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-white/10 backdrop-blur-xs border border-white/20 text-xs font-bold text-gray-200 mb-5 rounded-none">
               <span className="w-2 h-2 rounded-full bg-[#74B743]" />
               <span className="font-mono text-[#00A3A6]">{currentService.num}</span>
@@ -109,31 +95,17 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
               <span>{t.servicesPage.breadcrumbCurrent}</span>
             </div>
 
-            {/* Main Title */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
               {currentService.title}
             </h1>
 
-            {/* Tagline / Subtitle */}
-            {currentService.tagline && (
-              <p className="mt-4 text-lg sm:text-xl font-medium text-[#74B743] leading-relaxed">
-                {currentService.tagline}
-              </p>
-            )}
-
-            {/* Original Provided Description (Preserved intact) */}
+            {/* Client's Hardcoded Hero Description */}
             <p className="mt-4 text-base sm:text-lg text-gray-200 leading-relaxed font-normal">
-              {currentService.description}
+              {isRTL 
+                ? "حلول متكاملة لتنظيف وصيانة واجهات المباني بمختلف أنواعها، لضمان استدامتها ومظهرها المتميز."
+                : "Integrated solutions for cleaning and maintaining building facades of all types, ensuring their sustainability and distinctive appearance."}
             </p>
 
-            {/* Complementary Extended Contextual Text */}
-            {currentService.extendedSummary && (
-              <p className="mt-3 text-sm sm:text-base text-gray-400 leading-relaxed">
-                {currentService.extendedSummary}
-              </p>
-            )}
-
-            {/* Action Buttons */}
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Link
                 href="/contact"
@@ -159,25 +131,6 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
               </Link>
             </div>
 
-            {/* Industrial Compliance Badges */}
-            <div className="mt-10 pt-6 border-t border-gray-800 flex flex-wrap items-center gap-6 text-xs text-gray-300">
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-[#00A3A6]" />
-                <span>{t.servicesPage.sbcBadge}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <FileCheck className="w-4 h-4 text-[#74B743]" />
-                <span>{t.servicesPage.irataBadge}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-[#00A3A6]" />
-                <span>{t.servicesPage.uptimeBadge}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <HardHat className="w-4 h-4 text-[#74B743]" />
-                <span>{isRTL ? "معايير السلامة المهنية الشاملة" : "Comprehensive HSE Protocols"}</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -198,12 +151,6 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
             <a href="#gallery" className="hover:text-[#00A3A6] transition-colors py-4 border-b-2 border-transparent hover:border-[#00A3A6]">
               {t.servicesPage.quickNavGallery || (isRTL ? "معرض الأعمال" : "Field Showcase")}
             </a>
-            <a href="#specifications" className="hover:text-[#00A3A6] transition-colors py-4 border-b-2 border-transparent hover:border-[#00A3A6]">
-              {t.servicesPage.quickNavSpecs || (isRTL ? "المواصفات" : "Specifications")}
-            </a>
-            <a href="#faq" className="hover:text-[#00A3A6] transition-colors py-4 border-b-2 border-transparent hover:border-[#00A3A6]">
-              {t.servicesPage.quickNavFaq || (isRTL ? "الأسئلة الشائعة" : "FAQ")}
-            </a>
           </div>
 
           <Link
@@ -221,7 +168,6 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
           <div className="bg-white border border-gray-200 shadow-sm overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
               
-              {/* Media Column */}
               <div className="lg:col-span-6 relative min-h-[380px] lg:min-h-full bg-gray-900 group">
                 <Image
                   src={currentService.image}
@@ -233,7 +179,6 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent lg:hidden" />
                 
-                {/* Floating Index Overlay */}
                 <div className="absolute top-6 end-6 px-4 py-2 bg-white/95 backdrop-blur-xs border border-gray-200 flex items-center gap-2 font-mono font-black text-xl text-[#00A3A6] shadow-sm">
                   <span>{currentService.num}</span>
                   <span className="text-gray-300">|</span>
@@ -248,7 +193,6 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                 </div>
               </div>
 
-              {/* Technical Scope Breakdown */}
               <div className="lg:col-span-6 p-8 sm:p-12 lg:p-14 text-start flex flex-col justify-between">
                 <div>
                   <div className="w-14 h-14 bg-gray-50 border border-gray-200 flex items-center justify-center mb-6">
@@ -256,7 +200,7 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                   </div>
 
                   <span className="text-xs font-bold text-[#00A3A6] uppercase tracking-wider mb-2 block">
-                    {t.servicesPage.scopeHeading}
+                    {isRTL ? "نطاق الأعمال" : "Scope of Work"}
                   </span>
 
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-4">
@@ -264,16 +208,21 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                   </h2>
 
                   <p className="text-base text-gray-600 leading-relaxed mb-8">
-                    {currentService.description}
+                    {isRTL 
+                      ? "تقدم شركة شورنا الصناعية خدمات نظافة واجهات شاملة تغطي:" 
+                      : "Shourna Industrial Company offers comprehensive facade cleaning services covering:"}
                   </p>
 
-                  {/* Execution Bullets (Preserved intact) */}
                   <div className="space-y-4 pt-6 border-t border-gray-100">
-                    <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-4">
-                      {isRTL ? "مخرجات التنفيذ والاعتماد الميداني:" : "Scope Deliverables & Field Compliance:"}
-                    </h3>
                     <ul className="space-y-3.5">
-                      {currentService.bullets.map((bullet, idx) => (
+                      {[
+                        isRTL ? "نظافة الواجهات الزجاجية" : "Glass facade cleaning",
+                        isRTL ? "نظافة واجهات المباني والأبراج" : "Building and tower facade cleaning",
+                        isRTL ? "نظافة واجهات الكلادينج" : "Cladding facade cleaning",
+                        isRTL ? "نظافة واجهات الحجر" : "Stone facade cleaning",
+                        isRTL ? "نظافة واجهات الرخام" : "Marble facade cleaning",
+                        isRTL ? "تنظيف عميق للمباني السكنية والتجارية" : "Deep cleaning for residential and commercial buildings"
+                      ].map((bullet, idx) => (
                         <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-gray-800">
                           <CheckCircle2 className="w-5 h-5 text-[#74B743] shrink-0 mt-0.5" />
                           <span className="font-medium leading-relaxed">{bullet}</span>
@@ -283,7 +232,6 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                   </div>
                 </div>
 
-                {/* Instant Site Survey / Contact Trigger */}
                 <div className="mt-10 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                   <Link
                     href="/contact"
@@ -300,265 +248,197 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                     <span>{t.servicesPage.siteSurveyButton}</span>
                   </Link>
                 </div>
-
               </div>
-
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. Operational Pillars & Technical Capabilities */}
-      {currentService.pillars && currentService.pillars.length > 0 && (
-        <section id="capabilities" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-gray-200">
-          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-12 text-start">
-              <span className="inline-block px-3 py-1 bg-[#00A3A6]/10 text-xs font-bold text-[#00A3A6] tracking-wider uppercase mb-3">
-                {t.servicesPage.pillarsBadge || (isRTL ? "القدرات الهندسية" : "Engineering Capabilities")}
-              </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
-                {t.servicesPage.pillarsHeading || (isRTL ? "الركائز التشغيلية والتنفيذية" : "Operational Pillars & Technical Capabilities")}
-              </h2>
+      {/* 4. Operational Pillars & Technical Capabilities (Hardcoded to 2 cards only) */}
+      <section id="capabilities" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-gray-200">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-12 text-start">
+            <span className="inline-block px-3 py-1 bg-[#00A3A6]/10 text-xs font-bold text-[#00A3A6] tracking-wider uppercase mb-3">
+              {t.servicesPage.pillarsBadge || (isRTL ? "القدرات الهندسية" : "Engineering Capabilities")}
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
+              {t.servicesPage.pillarsHeading || (isRTL ? "الركائز التشغيلية والتنفيذية" : "Operational Pillars & Technical Capabilities")}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-gray-50/70 border border-gray-200 p-8 hover:border-[#00A3A6] hover:bg-white hover:shadow-md transition-all duration-300 flex flex-col justify-between text-start">
+              <div>
+                <div className="flex items-center justify-between mb-5">
+                  <div className="w-12 h-12 bg-white border border-gray-200 flex items-center justify-center shadow-xs">
+                    <Award className="w-5 h-5 text-[#00A3A6]" />
+                  </div>
+                  <span className="inline-flex items-center px-3 py-1 bg-[#00A3A6]/10 text-xs font-bold font-mono text-[#00A3A6]">
+                    Corporate SLA Tier
+                  </span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
+                  {isRTL ? "عقود صيانة دورية واتفاقيات مستوى الخدمة (SLA)" : "Periodic Maintenance Contracts (SLA)"}
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                  {isRTL 
+                    ? "برامج لتنظيف وصيانة دورية مجدولة، مع تقارير تصوير رقمية وتوثيق هندسي دوري لسلامة الألواح والواجهات." 
+                    : "Scheduled cleaning and maintenance programs with digital photo reports and engineering documentation."}
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-gray-200/60 flex items-center gap-2 text-xs font-mono text-gray-500">
+                <span className="w-1.5 h-1.5 rounded-none bg-[#74B743]" />
+                <span>{isRTL ? "معيار تنفيذي معتمد" : "Verified Operational Standard"}</span>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {currentService.pillars.map((pillar, idx) => (
-                <div
-                  key={idx}
-                  className="bg-gray-50/70 border border-gray-200 p-8 hover:border-[#00A3A6] hover:bg-white hover:shadow-md transition-all duration-300 flex flex-col justify-between text-start"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-5">
-                      <div className="w-12 h-12 bg-white border border-gray-200 flex items-center justify-center shadow-xs">
-                        {getPillarIcon(idx)}
-                      </div>
-                      {pillar.metric && (
-                        <span className="inline-flex items-center px-3 py-1 bg-[#00A3A6]/10 text-xs font-bold font-mono text-[#00A3A6]">
-                          {pillar.metric}
-                        </span>
-                      )}
-                    </div>
-
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
-                      {pillar.title}
-                    </h3>
-
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                      {pillar.desc}
-                    </p>
+            <div className="bg-gray-50/70 border border-gray-200 p-8 hover:border-[#00A3A6] hover:bg-white hover:shadow-md transition-all duration-300 flex flex-col justify-between text-start">
+              <div>
+                <div className="flex items-center justify-between mb-5">
+                  <div className="w-12 h-12 bg-white border border-gray-200 flex items-center justify-center shadow-xs">
+                    <Layers className="w-5 h-5 text-[#00A3A6]" />
                   </div>
-
-                  <div className="mt-6 pt-4 border-t border-gray-200/60 flex items-center gap-2 text-xs font-mono text-gray-500">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#74B743]" />
-                    <span>{isRTL ? "معيار تنفيذي معتمد" : "Verified Operational Standard"}</span>
-                  </div>
+                  <span className="inline-flex items-center px-3 py-1 bg-[#00A3A6]/10 text-xs font-bold font-mono text-[#00A3A6]">
+                    Spot-Free 100%
+                  </span>
                 </div>
-              ))}
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
+                  {isRTL ? "الغسيل بالماء النقي المنزوع الأيونات (DI/RO)" : "Deionized Pure Water Washing (DI/RO)"}
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                  {isRTL 
+                    ? "محطات تحلية وضخ متنقلة تنتج مياهاً خالية من الشوائب تضمن جفاف الزجاج بنقاء بلوري بدون أي علامات أو رواسب." 
+                    : "Mobile desalination units producing impurity-free water ensuring crystal clear glass drying without water spots."}
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-gray-200/60 flex items-center gap-2 text-xs font-mono text-gray-500">
+                <span className="w-1.5 h-1.5 rounded-none bg-[#74B743]" />
+                <span>{isRTL ? "معيار تنفيذي معتمد" : "Verified Operational Standard"}</span>
+              </div>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      {/* 5. Project Lifecycle & Quality Protocol (Workflow) */}
-      {currentService.workflow && currentService.workflow.length > 0 && (
-        <section id="methodology" className="py-16 sm:py-20 lg:py-24 bg-gray-900 text-white border-b border-gray-800">
-          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-14 text-start">
-              <span className="inline-block px-3 py-1 bg-[#00A3A6]/20 text-xs font-bold text-[#00A3A6] tracking-wider uppercase mb-3">
-                {t.servicesPage.workflowBadge || (isRTL ? "منهجية إدارة المشاريع" : "Project Lifecycle Rigor")}
-              </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
-                {t.servicesPage.workflowHeading || (isRTL ? "مراحل التنفيذ وضمان الجودة" : "Execution Lifecycle & Quality Protocol")}
-              </h2>
-              <p className="mt-3 text-base text-gray-300 leading-relaxed">
-                {t.servicesPage.workflowSubheading || (isRTL ? "بروتوكول تنفيذي متكامل يضمن سلامة المنشأة ودقة الإنجاز وتسليم المشاريع في الموعد المحدد." : "A multidisciplinary operational workflow ensuring structural safety, timeline adherence, and verifiable quality sign-offs.")}
+      {/* 5. Client's New Methodology Section (Hardcoded) */}
+      <section id="methodology" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-gray-200">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-14 text-start">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
+              {isRTL ? "منهجية العمل" : "Our Methodology"}
+            </h2>
+            <div className="w-16 h-1 bg-[#00A3A6] mt-4"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="p-6 border border-gray-200 bg-gray-50 hover:border-[#00A3A6] transition-colors rounded-none flex flex-col gap-3 text-start">
+              <span className="font-mono text-xs font-bold text-[#00A3A6]">1.</span>
+              <h3 className="text-lg font-bold text-[#00A3A6]">{isRTL ? "المعاينة والتقييم" : "Inspection & Assessment"}</h3>
+              <p className="text-sm text-gray-700 leading-relaxed font-medium">
+                {isRTL ? "زيارة الموقع ودراسة حالة الواجهة ونوع المادة (زجاج، كلادينج، حجر، رخام)." : "Site visit and study of the facade condition and material type."}
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {currentService.workflow.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white/5 border border-white/10 p-6 flex flex-col justify-between hover:border-[#00A3A6] hover:bg-white/10 transition-all text-start"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-2xl font-black text-[#00A3A6]">
-                        {item.step}
-                      </span>
-                      <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold text-gray-300">
-                        {idx + 1}
-                      </span>
-                    </div>
-
-                    <h3 className="text-base sm:text-lg font-bold text-white mb-3">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-2 text-xs font-mono text-[#74B743]">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>{isRTL ? "مرحلة تدقيق معتمدة" : "Stage Sign-Off"}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 6. Multi-Image Visual Showcase & Field Documentation */}
-      {currentService.gallery && currentService.gallery.length > 0 && (
-        <section id="gallery" className="py-16 sm:py-20 lg:py-24 bg-gray-50/70 border-b border-gray-200">
-          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-12 text-start">
-              <span className="inline-block px-3 py-1 bg-[#00A3A6]/10 text-xs font-bold text-[#00A3A6] tracking-wider uppercase mb-3">
-                {t.servicesPage.galleryBadge || (isRTL ? "التوثيق الميداني" : "Field Documentation")}
-              </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
-                {t.servicesPage.galleryHeading || (isRTL ? "شواهد من بيئة العمل والمعدات المتقدمة" : "Operational Environment & Technical Fleet")}
-              </h2>
-              <p className="mt-3 text-base text-gray-600 leading-relaxed">
-                {t.servicesPage.gallerySubheading || (isRTL ? "لقطات توثيقية حية تبرز جاهزية طواقم شاورنا والتقنيات الهندسية المستخدمة في مواقع العمل بالمملكة." : "High-resolution photographic documentation highlighting Shourna's specialized teams and modern equipment across Saudi job sites.")}
+            <div className="p-6 border border-gray-200 bg-gray-50 hover:border-[#00A3A6] transition-colors rounded-none flex flex-col gap-3 text-start">
+              <span className="font-mono text-xs font-bold text-[#00A3A6]">2.</span>
+              <h3 className="text-lg font-bold text-[#00A3A6]">{isRTL ? "تحديد الطريقة" : "Method Selection"}</h3>
+              <p className="text-sm text-gray-700 leading-relaxed font-medium">
+                {isRTL ? "تحديد أفضل طريقة تنظيف." : "Determining the best cleaning method."}
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {currentService.gallery.map((img, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white border border-gray-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow group flex flex-col text-start"
-                >
-                  <div className="relative aspect-[16/10] w-full bg-gray-900 overflow-hidden">
-                    <Image
-                      src={img.url}
-                      alt={img.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 start-3 end-3 flex items-center justify-between text-white font-mono text-xs">
-                      <span className="px-2 py-1 bg-black/60 backdrop-blur-xs font-bold text-[#00A3A6]">
-                        {currentService.num}.{idx + 1}
-                      </span>
-                    </div>
-                  </div>
+            <div className="p-6 border border-gray-200 bg-gray-50 hover:border-[#00A3A6] transition-colors rounded-none flex flex-col gap-3 text-start">
+              <span className="font-mono text-xs font-bold text-[#00A3A6]">3.</span>
+              <h3 className="text-lg font-bold text-[#00A3A6]">{isRTL ? "عرض السعر" : "Quotation"}</h3>
+              <p className="text-sm text-gray-700 leading-relaxed font-medium">
+                {isRTL ? "نقدّم عرض سعر مجاني بعد معاينة الموقع ميدانيًا أو عن طريق الصور." : "Providing a free quotation after site inspection or via photos."}
+              </p>
+            </div>
 
-                  <div className="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2">
-                        {img.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                        {img.caption}
-                      </p>
-                    </div>
+            <div className="p-6 border border-gray-200 bg-gray-50 hover:border-[#00A3A6] transition-colors rounded-none flex flex-col gap-3 text-start">
+              <span className="font-mono text-xs font-bold text-[#00A3A6]">4.</span>
+              <h3 className="text-lg font-bold text-[#00A3A6]">{isRTL ? "التخطيط والتجهيز" : "Planning & Preparation"}</h3>
+              <p className="text-sm text-gray-700 leading-relaxed font-medium">
+                {isRTL ? "اختيار المعدات المناسبة (أنظمة الوصول بالحبال) وتجهيز فريق العمل ومواد التنظيف الآمنة." : "Selecting suitable equipment and preparing the team and safe cleaning materials."}
+              </p>
+            </div>
 
-                    <div className="mt-5 pt-3 border-t border-gray-100 flex items-center gap-2 text-xs font-mono text-gray-400">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#00A3A6]" />
-                      <span>{t.nav.brand} · {isRTL ? "توثيق ميداني" : "Field Archive"}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            <div className="p-6 border border-gray-200 bg-gray-50 hover:border-[#00A3A6] transition-colors rounded-none flex flex-col gap-3 text-start">
+              <span className="font-mono text-xs font-bold text-[#00A3A6]">5.</span>
+              <h3 className="text-lg font-bold text-[#00A3A6]">{isRTL ? "التنفيذ" : "Execution"}</h3>
+              <p className="text-sm text-gray-700 leading-relaxed font-medium">
+                {isRTL ? "تنفيذ أعمال التنظيف وفق معايير السلامة المعتمدة، مع الحفاظ على سلامة المبنى والعاملين والمحيط." : "Executing cleaning operations according to approved safety standards."}
+              </p>
+            </div>
+
+            <div className="p-6 border border-gray-200 bg-gray-50 hover:border-[#00A3A6] transition-colors rounded-none flex flex-col gap-3 text-start">
+              <span className="font-mono text-xs font-bold text-[#00A3A6]">6.</span>
+              <h3 className="text-lg font-bold text-[#00A3A6]">{isRTL ? "الفحص والتسليم" : "Inspection & Handover"}</h3>
+              <p className="text-sm text-gray-700 leading-relaxed font-medium">
+                {isRTL ? "مراجعة جودة النتيجة النهائية وتسليم الموقع نظيفًا وجاهزًا." : "Reviewing the quality of the final result and handing over the clean site."}
+              </p>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      {/* 7. Technical Specifications & Regulatory Matrix */}
-      {currentService.specs && currentService.specs.length > 0 && (
-        <section id="specifications" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-gray-200">
-          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-12 text-start">
-              <span className="inline-block px-3 py-1 bg-[#00A3A6]/10 text-xs font-bold text-[#00A3A6] tracking-wider uppercase mb-3">
-                {t.servicesPage.specsBadge || (isRTL ? "المعايير المعتمدة" : "Governing Standards")}
-              </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
-                {t.servicesPage.specsHeading || (isRTL ? "مصفوفة المواصفات والامتثال التنظيمي" : "Technical Specifications & Regulatory Matrix")}
-              </h2>
-            </div>
+      {/* 6. Multi-Image Visual Showcase & Field Documentation (Hardcoded for 9 Images) */}
+      <section id="gallery" className="py-16 sm:py-20 lg:py-24 bg-gray-50/70 border-b border-gray-200">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-12 text-start">
+            <span className="inline-block px-3 py-1 bg-[#00A3A6]/10 text-xs font-bold text-[#00A3A6] tracking-wider uppercase mb-3">
+              التوثيق الميداني
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
+              شواهد من بيئة العمل والمعدات المتقدمة
+            </h2>
+            <p className="mt-3 text-base text-gray-600 leading-relaxed">
+              لقطات توثيقية حية تبرز جاهزية طواقم شورنا والتقنيات الهندسية المستخدمة في مواقع العمل بالمملكة.
+            </p>
+          </div>
 
-            <div className="border border-gray-200 divide-y divide-gray-200 bg-gray-50/50 shadow-xs">
-              {currentService.specs.map((spec, idx) => (
-                <div
-                  key={idx}
-                  className="grid grid-cols-1 md:grid-cols-12 p-6 items-center gap-4 text-start hover:bg-white transition-colors"
-                >
-                  <div className="md:col-span-4 flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-[#00A3A6] shrink-0" />
-                    <span className="text-sm font-bold text-gray-900 uppercase tracking-wide">
-                      {spec.label}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {[
+              { src: "/images/gallery-1.jpg", title: "تنظيف الواجهات الزجاجية", caption: "استخدام أنظمة السقالات الآمنة للوصول الدقيق" },
+              { src: "/images/gallery-2.jpg", title: "أعمال التنظيف الليلية", caption: "مرونة في التنفيذ لعدم إعاقة الحركة التجارية" },
+              { src: "/images/gallery-3.jpg", title: "صيانة الواجهات التجارية", caption: "عمليات التنظيف باستخدام رافعات هيدروليكية متقدمة" },
+              { src: "/images/gallery-4.jpg", title: "تنظيف واجهات المستشفيات", caption: "مستشفى دار الشفاء - دقة ومعايير صحية صارمة" },
+              { src: "/images/gallery-5.jpg", title: "تنظيف الأبراج الشاهقة", caption: "تلميع الواجهات الزجاجية بالكامل للأبراج" },
+              { src: "/images/gallery-6.jpg", title: "صيانة المجمعات الطبية", caption: "مجمع الهنوف الطبي - تنظيف وحماية ألواح الكلادينج" },
+              { src: "/images/gallery-7.jpg", title: "أنظمة التنظيف المعلقة", caption: "استخدام المنصات المعلقة (Cradles) للوصول الآمن" },
+              { src: "/images/gallery-8.jpg", title: "معدات الرفع المتقدمة", caption: "استخدام آليات حديثة لضمان كفاءة وسرعة الإنجاز" },
+              { src: "/images/gallery-9.jpg", title: "تنظيف دقيق للواجهات", caption: "إزالة الرواسب بفعالية مع الحفاظ على المواد الأصلية" }
+            ].map((img, idx) => (
+              <div key={idx} className="bg-white border border-gray-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow group flex flex-col text-start">
+                <div className="relative aspect-[4/3] w-full bg-gray-900 overflow-hidden border-b border-gray-200">
+                  <Image
+                    src={img.src}
+                    alt={img.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 start-3 end-3 flex items-center justify-between text-white font-mono text-xs">
+                    <span className="px-2.5 py-1 bg-[#00A3A6] text-white font-bold rounded-none">
+                      {String(idx + 1).padStart(2, '0')}
                     </span>
                   </div>
-                  <div className="md:col-span-8">
-                    <p className="text-sm sm:text-base font-medium text-gray-700">
-                      {spec.value}
-                    </p>
+                </div>
+
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-base font-bold text-gray-900 mb-1.5">{img.title}</h3>
+                    <p className="text-xs text-gray-600 leading-relaxed">{img.caption}</p>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      {/* 8. Frequently Asked Questions (FAQ) */}
-      {currentService.faq && currentService.faq.length > 0 && (
-        <section id="faq" className="py-16 sm:py-20 lg:py-24 bg-gray-50/70 border-b border-gray-200">
-          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-12 text-start">
-              <span className="inline-block px-3 py-1 bg-[#00A3A6]/10 text-xs font-bold text-[#00A3A6] tracking-wider uppercase mb-3">
-                {t.servicesPage.faqBadge || (isRTL ? "استفسارات العملاء" : "Client Inquiries")}
-              </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
-                {t.servicesPage.faqHeading || (isRTL ? "الأسئلة الفنية المتكررة" : "Frequently Asked Technical Questions")}
-              </h2>
-            </div>
-
-            <div className="space-y-4 max-w-4xl mx-auto">
-              {currentService.faq.map((item, idx) => {
-                const isOpen = openFaqIndex === idx;
-                return (
-                  <div
-                    key={idx}
-                    className="border border-gray-200 bg-white transition-colors"
-                  >
-                    <button
-                      type="button"
-                      onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                      className="w-full p-6 text-start flex items-center justify-between gap-4 font-bold text-gray-900 hover:text-[#00A3A6] cursor-pointer"
-                    >
-                      <span className="text-base sm:text-lg flex items-center gap-3">
-                        <HelpCircle className="w-5 h-5 text-[#00A3A6] shrink-0" />
-                        <span>{item.q}</span>
-                      </span>
-                      {isOpen ? (
-                        <ChevronUp className="w-5 h-5 text-[#00A3A6] shrink-0" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5 text-gray-400 shrink-0" />
-                      )}
-                    </button>
-
-                    {isOpen && (
-                      <div className="px-6 pb-6 pt-2 text-sm sm:text-base text-gray-600 leading-relaxed border-t border-gray-100 text-start">
-                        {item.a}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 9. Browse Other Engineering Disciplines (Preserving New Order) */}
+      {/* 9. Browse Other Engineering Disciplines */}
       <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-gray-200">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -581,25 +461,31 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
             </Link>
           </div>
 
-          {/* Cards for the other 2 services */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {otherServices.map((svc) => (
+            {otherServices.map((svc) => {
+              const isIdle = svc.id === "industrial" || svc.id === "agriculture" || svc.title === "تنفيذ متكامل للمنشآت الصناعية" || svc.title === "الخدمات الزراعية";
+              
+              return (
               <Link
                 key={svc.id}
-                href={`/services/${svc.id}`}
-                className="group bg-gray-50/60 border border-gray-200 p-7 flex flex-col justify-between hover:bg-white hover:border-[#00A3A6] hover:shadow-lg transition-all duration-300 text-start"
+                href={isIdle ? "#" : `/services/${svc.id}`}
+                className={`group bg-gray-50/60 border border-gray-200 p-7 flex flex-col justify-between transition-all duration-300 text-start ${
+                  isIdle 
+                    ? "opacity-60 grayscale cursor-not-allowed pointer-events-none" 
+                    : "hover:bg-white hover:border-[#00A3A6] hover:shadow-lg"
+                }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <div className="w-12 h-12 bg-white border border-gray-200 flex items-center justify-center group-hover:bg-[#00A3A6]/10 group-hover:border-[#00A3A6]/30 transition-colors">
-                      {getServiceIcon(svc.id, "w-6 h-6 text-[#00A3A6]")}
+                    <div className={`w-12 h-12 bg-white border border-gray-200 flex items-center justify-center transition-colors ${isIdle ? "" : "group-hover:bg-[#00A3A6]/10 group-hover:border-[#00A3A6]/30"}`}>
+                      {getServiceIcon(svc.id, `w-6 h-6 ${isIdle ? "text-gray-400" : "text-[#00A3A6]"}`)}
                     </div>
-                    <span className="font-mono text-xs font-bold text-gray-400 group-hover:text-[#00A3A6] transition-colors">
+                    <span className={`font-mono text-xs font-bold transition-colors ${isIdle ? "text-gray-400" : "text-gray-400 group-hover:text-[#00A3A6]"}`}>
                       {svc.num}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#00A3A6] transition-colors mb-3">
+                  <h3 className={`text-lg font-bold transition-colors mb-3 ${isIdle ? "text-gray-500" : "text-gray-900 group-hover:text-[#00A3A6]"}`}>
                     {svc.title}
                   </h3>
 
@@ -608,12 +494,12 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-gray-200/70 flex items-center justify-between text-xs font-bold text-[#00A3A6] group-hover:text-[#00878a]">
-                  <span>{t.servicesOverview.detailsLink}</span>
-                  <ArrowRight className={`w-3.5 h-3.5 ${isRTL ? "rtl:rotate-180 group-hover:-translate-x-1" : "group-hover:translate-x-1"} transition-transform`} />
+                <div className={`mt-6 pt-4 border-t border-gray-200/70 flex items-center justify-between text-xs font-bold ${isIdle ? "text-gray-400" : "text-[#00A3A6] group-hover:text-[#00878a]"}`}>
+                  <span>{isIdle ? (isRTL ? "قريباً" : "Coming Soon") : t.servicesOverview.detailsLink}</span>
+                  {!isIdle && <ArrowRight className={`w-3.5 h-3.5 ${isRTL ? "rtl:rotate-180 group-hover:-translate-x-1" : "group-hover:translate-x-1"} transition-transform`} />}
                 </div>
               </Link>
-            ))}
+            )})}
           </div>
 
         </div>

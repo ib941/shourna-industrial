@@ -10,7 +10,6 @@ import {
   Sprout,
   CheckCircle2,
   ArrowRight,
-  ArrowLeft,
   Shield,
   Clock,
   FileCheck,
@@ -40,8 +39,6 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
     t.servicesPage.items.find((item) => item.id === slug) ||
     t.servicesPage.items[0];
 
-  // Other services in their current reordered sequence
-  const otherServices = t.servicesPage.items.filter((item) => item.id !== slug);
 
   const getServiceIcon = (id: string, className = "w-7 h-7 text-[#00A3A6]") => {
     switch (id) {
@@ -115,13 +112,6 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                 <ArrowRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-180" : ""}`} />
               </Link>
 
-              <Link
-                href="/services"
-                className="px-6 py-4 border border-white/30 bg-white/10 backdrop-blur-xs hover:bg-white/20 text-white font-semibold text-sm sm:text-base rounded-sm inline-flex items-center justify-center gap-2 transition-colors"
-              >
-                {isRTL ? <ArrowRight className="w-4 h-4" /> : <ArrowLeft className="w-4 h-4" />}
-                <span>{t.servicesPage.backToServices || (isRTL ? "العودة إلى كافة الخدمات" : "Back to All Services")}</span>
-              </Link>
 
               <Link
                 href="/contact"
@@ -438,72 +428,7 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
         </div>
       </section>
 
-      {/* 9. Browse Other Engineering Disciplines */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-gray-200">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 text-start">
-            <div>
-              <span className="inline-block px-3 py-1 bg-[#00A3A6]/10 text-xs font-bold text-[#00A3A6] tracking-wider uppercase mb-3">
-                {t.servicesOverview.badge}
-              </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#00A3A6] tracking-tight">
-                {t.servicesPage.otherServicesHeading || (isRTL ? "خدمات تخصصية أخرى" : "Other Engineering Disciplines")}
-              </h2>
-            </div>
 
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 text-sm font-bold text-[#00A3A6] hover:text-[#00878a] transition-colors"
-            >
-              <span>{t.servicesOverview.exploreAll}</span>
-              <ArrowRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-180" : ""}`} />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {otherServices.map((svc) => {
-              const isIdle = svc.id === "industrial" || svc.id === "agriculture" || svc.title === "تنفيذ متكامل للمنشآت الصناعية" || svc.title === "الخدمات الزراعية";
-              
-              return (
-              <Link
-                key={svc.id}
-                href={isIdle ? "#" : `/services/${svc.id}`}
-                className={`group bg-gray-50/60 border border-gray-200 p-7 flex flex-col justify-between transition-all duration-300 text-start ${
-                  isIdle 
-                    ? "opacity-60 grayscale cursor-not-allowed pointer-events-none" 
-                    : "hover:bg-white hover:border-[#00A3A6] hover:shadow-lg"
-                }`}
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className={`w-12 h-12 bg-white border border-gray-200 flex items-center justify-center transition-colors ${isIdle ? "" : "group-hover:bg-[#00A3A6]/10 group-hover:border-[#00A3A6]/30"}`}>
-                      {getServiceIcon(svc.id, `w-6 h-6 ${isIdle ? "text-gray-400" : "text-[#00A3A6]"}`)}
-                    </div>
-                    <span className={`font-mono text-xs font-bold transition-colors ${isIdle ? "text-gray-400" : "text-gray-400 group-hover:text-[#00A3A6]"}`}>
-                      {svc.num}
-                    </span>
-                  </div>
-
-                  <h3 className={`text-lg font-bold transition-colors mb-3 ${isIdle ? "text-gray-500" : "text-gray-900 group-hover:text-[#00A3A6]"}`}>
-                    {svc.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-gray-600 line-clamp-3 leading-relaxed">
-                    {svc.description}
-                  </p>
-                </div>
-
-                <div className={`mt-6 pt-4 border-t border-gray-200/70 flex items-center justify-between text-xs font-bold ${isIdle ? "text-gray-400" : "text-[#00A3A6] group-hover:text-[#00878a]"}`}>
-                  <span>{isIdle ? (isRTL ? "قريباً" : "Coming Soon") : t.servicesOverview.detailsLink}</span>
-                  {!isIdle && <ArrowRight className={`w-3.5 h-3.5 ${isRTL ? "rtl:rotate-180 group-hover:-translate-x-1" : "group-hover:translate-x-1"} transition-transform`} />}
-                </div>
-              </Link>
-            )})}
-          </div>
-
-        </div>
-      </section>
 
       {/* 10. Bottom Consultation Strip */}
       <section className="py-16 lg:py-20 bg-gray-900 text-white">
@@ -521,9 +446,9 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
               </p>
               
               <div className="mt-6 flex flex-wrap items-center gap-6 text-xs text-gray-300 font-mono">
-                <a href="tel:+966574525139" className="hover:text-[#00A3A6] flex items-center gap-2">
+                <a href="tel:0544740936" className="hover:text-[#00A3A6] flex items-center gap-2">
                   <Phone className="w-4 h-4 text-[#00A3A6]" />
-                  <span>+966 57 452 5139</span>
+                  <span dir="ltr">0544740936</span>
                 </a>
                 <a href="mailto:info@shourna.com" className="hover:text-[#00A3A6] flex items-center gap-2">
                   <Mail className="w-4 h-4 text-[#74B743]" />

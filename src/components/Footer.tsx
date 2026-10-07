@@ -10,10 +10,9 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-gray-900 border-t border-gray-800 text-gray-300 text-sm">
-      {/* Standard desktop container */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           
           {/* Brand Info & Logo */}
           <div className="lg:col-span-2 text-start">
@@ -31,18 +30,6 @@ export default function Footer() {
             <p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-sm font-normal">
               {t.footer.description}
             </p>
-
-            <div className="mt-5 flex flex-wrap items-center gap-2">
-              <span className="text-[11px] font-bold text-gray-300 px-2.5 py-1 bg-gray-800 border border-gray-700 rounded-none">
-                {t.footer.sbcBadge}
-              </span>
-              <span className="text-[11px] font-bold text-[#74B743] px-2.5 py-1 bg-gray-800 border border-gray-700 rounded-none">
-                {t.footer.irataBadge}
-              </span>
-              <span className="text-[11px] font-bold text-[#00A3A6] px-2.5 py-1 bg-gray-800 border border-gray-700 rounded-none">
-                {t.footer.cleanovaBadge}
-              </span>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -57,11 +44,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
-                  {t.footer.services}
-                </Link>
-              </li>
-              <li>
                 <Link href="/about" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
                   {t.footer.about}
                 </Link>
@@ -69,30 +51,6 @@ export default function Footer() {
               <li>
                 <Link href="/contact" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
                   {t.footer.contact}
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div className="text-start">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4 border-b border-gray-800 pb-2">
-              {t.footer.servicesTitle}
-            </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm">
-              <li>
-                <Link href="/services/facade-cleaning-maintenance" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
-                  {t.footer.service1}
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/industrial" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
-                  {t.footer.service2}
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/agriculture" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
-                  {t.footer.service3}
                 </Link>
               </li>
             </ul>
@@ -109,11 +67,11 @@ export default function Footer() {
                 <span>{t.footer.address}</span>
               </div>
               <a
-                href={`tel:${t.footer.phone.replace(/[^0-9+]/g, '')}`}
+                href="tel:0544740936"
                 className="flex flex-row items-center gap-2.5 hover:text-[#00A3A6] transition-colors group"
               >
                 <Phone className="w-4 h-4 text-[#00A3A6] shrink-0 group-hover:scale-110 transition-transform" />
-                <span dir="ltr" className="tabular-nums">{t.footer.phone}</span>
+                <span dir="ltr" className="tabular-nums">0544740936</span>
               </a>
               <a
                 href={`mailto:${t.footer.email}`}

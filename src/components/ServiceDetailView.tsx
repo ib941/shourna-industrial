@@ -372,32 +372,70 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
         </div>
       </section>
 
-      {/* 6. Multi-Image Visual Showcase & Field Documentation (Hardcoded for 9 Images) */}
+      {/* 6. Multi-Image Visual Showcase & Field Documentation (Hardcoded for 9 Images - Bilingual) */}
       <section id="gallery" className="py-16 sm:py-20 lg:py-24 bg-gray-50/70 border-b border-gray-200">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12 text-start">
             <span className="inline-block px-3 py-1 bg-[#00A3A6]/10 text-xs font-bold text-[#00A3A6] tracking-wider uppercase mb-3">
-              التوثيق الميداني
+              {isRTL ? "التوثيق الميداني" : "Field Documentation"}
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
-              شواهد من بيئة العمل والمعدات المتقدمة
+              {isRTL ? "شواهد من بيئة العمل والمعدات المتقدمة" : "Operational Environment & Technical Fleet"}
             </h2>
             <p className="mt-3 text-base text-gray-600 leading-relaxed">
-              لقطات توثيقية حية تبرز جاهزية طواقم شورنا والتقنيات الهندسية المستخدمة في مواقع العمل بالمملكة.
+              {isRTL 
+                ? "لقطات توثيقية حية تبرز جاهزية طواقم شورنا والتقنيات الهندسية المستخدمة في مواقع العمل بالمملكة." 
+                : "High-resolution photographic documentation highlighting Shourna's specialized teams and modern equipment across Saudi job sites."}
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
-              { src: "/images/gallery-1.jpg", title: "تنظيف الواجهات الزجاجية", caption: "استخدام أنظمة السقالات الآمنة للوصول الدقيق" },
-              { src: "/images/gallery-2.jpg", title: "أعمال التنظيف الليلية", caption: "مرونة في التنفيذ لعدم إعاقة الحركة التجارية" },
-              { src: "/images/gallery-3.jpg", title: "صيانة الواجهات التجارية", caption: "عمليات التنظيف باستخدام رافعات هيدروليكية متقدمة" },
-              { src: "/images/gallery-4.jpg", title: "تنظيف واجهات المستشفيات", caption: "مستشفى دار الشفاء - دقة ومعايير صحية صارمة" },
-              { src: "/images/gallery-5.jpg", title: "تنظيف الأبراج الشاهقة", caption: "تلميع الواجهات الزجاجية بالكامل للأبراج" },
-              { src: "/images/gallery-6.jpg", title: "صيانة المجمعات الطبية", caption: "مجمع الهنوف الطبي - تنظيف وحماية ألواح الكلادينج" },
-              { src: "/images/gallery-7.jpg", title: "أنظمة التنظيف المعلقة", caption: "استخدام المنصات المعلقة (Cradles) للوصول الآمن" },
-              { src: "/images/gallery-8.jpg", title: "معدات الرفع المتقدمة", caption: "استخدام آليات حديثة لضمان كفاءة وسرعة الإنجاز" },
-              { src: "/images/gallery-9.jpg", title: "تنظيف دقيق للواجهات", caption: "إزالة الرواسب بفعالية مع الحفاظ على المواد الأصلية" }
+              { 
+                src: "/images/gallery-1.jpg", 
+                title: isRTL ? "تنظيف الواجهات الزجاجية" : "Glass Facade Cleaning", 
+                caption: isRTL ? "استخدام أنظمة السقالات الآمنة للوصول الدقيق" : "Using safe scaffolding systems for precise access" 
+              },
+              { 
+                src: "/images/gallery-2.jpg", 
+                title: isRTL ? "أعمال التنظيف الليلية" : "Night Cleaning Operations", 
+                caption: isRTL ? "مرونة في التنفيذ لعدم إعاقة الحركة التجارية" : "Flexible execution to avoid disrupting commercial activity" 
+              },
+              { 
+                src: "/images/gallery-3.jpg", 
+                title: isRTL ? "صيانة الواجهات التجارية" : "Commercial Facade Maintenance", 
+                caption: isRTL ? "عمليات التنظيف باستخدام رافعات هيدروليكية متقدمة" : "Cleaning operations using advanced hydraulic lifts" 
+              },
+              { 
+                src: "/images/gallery-4.jpg", 
+                title: isRTL ? "تنظيف واجهات المستشفيات" : "Hospital Facade Cleaning", 
+                caption: isRTL ? "مستشفى دار الشفاء - دقة ومعايير صحية صارمة" : "Dar Alshefa Hospital - strict health standards and precision" 
+              },
+              { 
+                src: "/images/gallery-5.jpg", 
+                title: isRTL ? "تنظيف الأبراج الشاهقة" : "High-Rise Tower Cleaning", 
+                caption: isRTL ? "تلميع الواجهات الزجاجية بالكامل للأبراج" : "Complete polishing of glass facades for towers" 
+              },
+              { 
+                src: "/images/gallery-6.jpg", 
+                title: isRTL ? "صيانة المجمعات الطبية" : "Medical Complex Maintenance", 
+                caption: isRTL ? "مجمع الهنوف الطبي - تنظيف وحماية ألواح الكلادينج" : "Al Hanouf Medical Complex - cladding panel cleaning and protection" 
+              },
+              { 
+                src: "/images/gallery-7.jpg", 
+                title: isRTL ? "أنظمة التنظيف المعلقة" : "Suspended Cleaning Systems", 
+                caption: isRTL ? "استخدام المنصات المعلقة (Cradles) للوصول الآمن" : "Using suspended platforms (cradles) for safe access" 
+              },
+              { 
+                src: "/images/gallery-8.jpg", 
+                title: isRTL ? "معدات الرفع المتقدمة" : "Advanced Lifting Equipment", 
+                caption: isRTL ? "استخدام آليات حديثة لضمان كفاءة وسرعة الإنجاز" : "Using modern machinery to ensure efficiency and speed" 
+              },
+              { 
+                src: "/images/gallery-9.jpg", 
+                title: isRTL ? "تنظيف دقيق للواجهات" : "Precision Facade Cleaning", 
+                caption: isRTL ? "إزالة الرواسب بفعالية مع الحفاظ على المواد الأصلية" : "Effective residue removal while preserving original materials" 
+              }
             ].map((img, idx) => (
               <div key={idx} className="bg-white border border-gray-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow group flex flex-col text-start">
                 <div className="relative aspect-[4/3] w-full bg-gray-900 overflow-hidden border-b border-gray-200">

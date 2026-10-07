@@ -7,7 +7,6 @@ import { useLanguage } from "./LanguageContext";
 export default function Hero() {
   const { t, isRTL } = useLanguage();
 
-  // Filter out the other services so ONLY Facade Cleaning remains
   const activeServices = t.servicesOverview.cards.filter(
     (service: any) =>
       service.id !== "industrial" &&
@@ -31,8 +30,8 @@ export default function Hero() {
           </p>
           <p className="text-base text-gray-700 mb-3 font-medium">
             {isRTL 
-              ? "تقدم شركة شورنا الصناعية خدمات نظافة واجهات شاملة تغطي:" 
-              : "Shourna Industrial Company offers comprehensive facade cleaning services covering:"}
+              ? "تقدم شركة شورنا للصيانة والنظافة خدمات نظافة واجهات شاملة تغطي:" 
+              : "Shourna Maintenance & Cleaning Company offers comprehensive facade cleaning services covering:"}
           </p>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-6 text-gray-600 text-sm">
             {[
@@ -51,7 +50,6 @@ export default function Hero() {
           </ul>
         </div>
 
-        {/* Single Service Card Layout */}
         <div className="max-w-md">
           {activeServices.map((service: any) => {
             return (

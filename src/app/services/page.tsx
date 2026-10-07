@@ -155,12 +155,14 @@ export default function ServicesPage() {
                           <span>{isRTL ? "استعراض كامل تفاصيل الخدمة" : "View Independent Service Page"}</span>
                           <ArrowRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-180" : ""}`} />
                         </Link>
-                        <Link
-                          href="/contact"
-                          className="px-6 py-3.5 border border-gray-300 text-gray-700 hover:border-[#00A3A6] hover:text-[#00A3A6] text-sm font-semibold transition-colors inline-flex items-center justify-center rounded-sm cursor-pointer"
+                        <a
+                          href="https://wa.me/966544740936"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-6 py-3.5 bg-emerald-50 border border-[#25D366] text-emerald-800 hover:bg-[#25D366] hover:text-white text-sm font-bold transition-all inline-flex items-center justify-center rounded-sm cursor-pointer shadow-xs"
                         >
                           {t.servicesPage.ctaCardButton}
-                        </Link>
+                        </a>
                       </div>
 
                     </div>
@@ -190,12 +192,14 @@ export default function ServicesPage() {
               </p>
             </div>
             <div className="shrink-0 w-full sm:w-auto">
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto px-8 py-4 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-base transition-colors shadow-lg cursor-pointer rounded-sm inline-flex items-center justify-center"
+              <a
+                href="https://wa.me/966544740936"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-base transition-colors shadow-lg cursor-pointer rounded-sm inline-flex items-center justify-center gap-2"
               >
                 {t.servicesPage.bottomButton}
-              </Link>
+              </a>
             </div>
           </div>
         </div>

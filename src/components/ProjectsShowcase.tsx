@@ -76,13 +76,15 @@ export default function ProjectsShowcase() {
               </div>
 
               <div className="p-6 pt-0">
-                <Link
-                  href="/contact"
-                  className="w-full pt-4 border-t border-gray-700/70 flex items-center justify-between text-xs font-bold text-[#00A3A6] group-hover:text-white transition-colors cursor-pointer"
+                <a
+                  href="https://wa.me/966544740936"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full pt-4 border-t border-gray-700/70 flex items-center justify-between text-xs font-bold text-[#25D366] hover:text-[#74B743] transition-colors cursor-pointer"
                 >
                   <span>{t.projectsShowcase.requestSimilar}</span>
                   <ArrowUpRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-[-90deg]" : ""}`} />
-                </Link>
+                </a>
               </div>
             </div>
           ))}

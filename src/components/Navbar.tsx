@@ -6,8 +6,8 @@ import { usePathname } from "next/navigation";
 import {
   Menu,
   X,
-  ArrowUpRight,
   Globe,
+  PhoneCall,
 } from "lucide-react";
 import { useLanguage } from "./LanguageContext";
 
@@ -16,7 +16,6 @@ export default function Navbar() {
   const pathname = usePathname() || "/";
   const { t, toggleLocale, isRTL } = useLanguage();
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [pathname]);
@@ -54,7 +53,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Navigation Links (No Services Dropdown) */}
+          {/* Navigation Links */}
           <nav className="hidden md:flex flex-1 max-w-2xl mx-auto flex-row items-center justify-evenly gap-4 font-medium text-sm">
             <Link
               href="/"
@@ -78,37 +77,57 @@ export default function Navbar() {
               {t.nav.about}
             </Link>
 
-            <Link
-              href="/contact"
-              className={`py-2 whitespace-nowrap relative transition-colors ${
-                isActive("/contact")
-                  ? "text-[#00A3A6] font-bold after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-[#00A3A6] after:scale-x-100"
-                  : "text-gray-800 hover:text-[#00A3A6] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-[#00A3A6] after:scale-x-0 hover:after:scale-x-100 after:transition-transform"
-              }`}
+            {/* Direct WhatsApp Link instead of Contact Page */}
+            <a
+              href="https://wa.me/966544740936"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-2 whitespace-nowrap relative transition-colors text-gray-800 hover:text-[#25D366] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-[#25D366] after:scale-x-0 hover:after:scale-x-100 after:transition-transform"
             >
-              {t.nav.contact}
-            </Link>
+              {isRTL ? "تواصل معنا" : "Contact"}
+            </a>
           </nav>
 
-          {/* Language Toggle & CTA Button */}
-          <div className="flex flex-row items-center gap-3 shrink-0">
+          {/* Language Toggle & Massive Phone CTA Button */}
+          <div className="flex flex-row items-center gap-2 sm:gap-3 shrink-0">
             <button
               type="button"
               onClick={toggleLocale}
-              className="inline-flex items-center gap-1.5 px-3 py-2 border border-gray-300 text-xs sm:text-sm font-semibold text-gray-700 bg-white hover:text-[#00A3A6] hover:border-[#00A3A6] transition-colors rounded-sm shadow-xs cursor-pointer"
-              aria-label={t.nav.switchLang}
+              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border border-gray-300 text-xs sm:text-sm font-semibold text-gray-700 bg-white hover:text-[#00A3A6] hover:border-[#00A3A6] transition-colors rounded-sm shadow-xs cursor-pointer"
             >
               <Globe className="w-3.5 h-3.5 text-[#00A3A6]" />
               <span>{t.nav.switchLang}</span>
             </button>
 
-            <Link
-              href="/contact"
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-sm bg-[#00A3A6] hover:bg-[#00878a] text-white text-xs sm:text-sm font-bold transition-all shadow-xs hover:shadow-md cursor-pointer group"
+            {/* Mobile Immediate Call/WhatsApp Button */}
+            <a
+              href="https://wa.me/966544740936"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sm:hidden inline-flex items-center gap-1.5 px-3 py-2 rounded-sm bg-[#25D366] hover:bg-[#1ebd5c] text-white font-black text-xs shadow-sm transition-all"
+              aria-label="0544740936"
             >
-              <span>{t.nav.discussProject}</span>
-              <ArrowUpRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-[-90deg]" : ""} group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform`} />
-            </Link>
+              <PhoneCall className="w-3.5 h-3.5 animate-pulse" />
+              <span dir="ltr" className="tracking-wider">0544740936</span>
+            </a>
+
+            {/* Giant Direct Phone / WhatsApp CTA for Desktop & Tablets */}
+            <a
+              href="https://wa.me/966544740936"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-2.5 px-6 py-2.5 rounded-sm bg-[#25D366] hover:bg-[#1ebd5c] text-white transition-all shadow-md hover:shadow-lg cursor-pointer group ring-2 ring-[#25D366]/40"
+            >
+              <PhoneCall className="w-5 h-5 group-hover:scale-110 transition-transform animate-pulse" />
+              <span className="flex flex-col text-start">
+                <span className="text-[10px] font-semibold uppercase opacity-90 leading-tight">
+                  {isRTL ? "واتساب واتصال مباشر" : "WhatsApp & Direct Call"}
+                </span>
+                <span dir="ltr" className="text-base sm:text-lg font-black tracking-widest leading-tight">
+                  0544740936
+                </span>
+              </span>
+            </a>
 
             <button
               type="button"
@@ -145,15 +164,14 @@ export default function Navbar() {
               {t.nav.about}
             </Link>
 
-            <Link
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`px-3 py-2.5 text-base font-medium rounded-sm transition-colors text-start ${
-                isActive("/contact") ? "bg-[#00A3A6]/10 text-[#00A3A6] font-bold" : "text-gray-800 hover:bg-gray-50"
-              }`}
+            <a
+              href="https://wa.me/966544740936"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-2.5 text-base font-medium rounded-sm transition-colors text-start text-gray-800 hover:bg-gray-50 hover:text-[#25D366]"
             >
-              {t.nav.contact}
-            </Link>
+              {isRTL ? "تواصل معنا" : "Contact"}
+            </a>
 
             <div className="pt-3 border-t border-gray-100 flex flex-col gap-2.5">
               <button
@@ -165,14 +183,15 @@ export default function Navbar() {
                 <span>{t.nav.switchLang}</span>
               </button>
 
-              <Link
-                href="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-sm bg-[#00A3A6] text-white font-bold text-sm shadow-sm hover:bg-[#00878a] transition-colors"
+              <a
+                href="https://wa.me/966544740936"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-sm bg-[#25D366] text-white shadow-sm hover:bg-[#1ebd5c] transition-colors"
               >
-                <span>{t.nav.discussProject}</span>
-                <ArrowUpRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-[-90deg]" : ""}`} />
-              </Link>
+                <PhoneCall className="w-5 h-5" />
+                <span dir="ltr" className="font-black text-lg tracking-widest">0544740936</span>
+              </a>
             </div>
           </div>
         </div>

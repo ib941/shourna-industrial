@@ -87,13 +87,15 @@ export default function AboutPage() {
               </p>
 
               <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <Link
-                  href="/contact"
-                  className="px-8 py-3.5 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-sm transition-all shadow-xs rounded-sm inline-flex items-center justify-center gap-2 cursor-pointer"
+                <a
+                  href="https://wa.me/966544740936"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-sm transition-all shadow-md rounded-sm inline-flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>{t.aboutPage.discussButton}</span>
                   <ArrowRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-180" : ""}`} />
-                </Link>
+                </a>
                 <Link
                   href="/services"
                   className="px-6 py-3.5 border border-gray-300 text-gray-700 hover:border-[#00A3A6] hover:text-[#00A3A6] font-semibold text-sm transition-colors rounded-sm inline-flex items-center justify-center"
@@ -207,15 +209,15 @@ export default function AboutPage() {
 
                 <div className="space-y-4 text-sm text-gray-800">
                   <a
-                    href={`tel:${t.aboutPage.directPhone.replace(/[^0-9+]/g, '')}`}
-                    className="flex items-center gap-3 group hover:text-[#00A3A6] transition-colors"
+                    href="tel:0544740936"
+                    className="flex items-center gap-3 p-3 bg-emerald-50 border border-emerald-200 rounded-sm group hover:border-[#25D366] transition-colors"
                   >
-                    <div className="w-9 h-9 bg-[#00A3A6]/10 text-[#00A3A6] flex items-center justify-center shrink-0 group-hover:bg-[#00A3A6] group-hover:text-white transition-colors">
-                      <Phone className="w-4 h-4" />
+                    <div className="w-10 h-10 bg-[#25D366] text-white flex items-center justify-center shrink-0 rounded-sm shadow-xs group-hover:scale-105 transition-transform">
+                      <Phone className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="block text-xs text-gray-500 font-bold">{t.aboutPage.directPhoneLabel}</span>
-                      <span dir="ltr" className="text-base font-bold tabular-nums text-gray-900 group-hover:text-[#00A3A6] transition-colors">{t.aboutPage.directPhone}</span>
+                      <span className="block text-xs text-gray-600 font-bold">{t.aboutPage.directPhoneLabel}</span>
+                      <span dir="ltr" className="text-lg font-black tabular-nums text-emerald-800">{t.aboutPage.directPhone}</span>
                     </div>
                   </a>
 
@@ -251,12 +253,14 @@ export default function AboutPage() {
                 <p className="text-xs text-gray-600 leading-relaxed mb-6">
                   {t.aboutPage.instantStartDesc}
                 </p>
-                <Link
-                  href="/contact"
-                  className="w-full py-4 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-base transition-colors shadow-md cursor-pointer rounded-sm inline-flex items-center justify-center"
+                <a
+                  href="https://wa.me/966544740936"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-4 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-base transition-colors shadow-md cursor-pointer rounded-sm inline-flex items-center justify-center gap-2"
                 >
                   {t.aboutPage.instantStartButton}
-                </Link>
+                </a>
               </div>
 
             </div>

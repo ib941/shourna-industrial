@@ -49,9 +49,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-400 hover:text-[#00A3A6] transition-colors">
+                <a
+                  href="https://wa.me/966544740936"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-[#25D366] transition-colors"
+                >
                   {t.footer.contact}
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -61,18 +66,40 @@ export default function Footer() {
             <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4 border-b border-gray-800 pb-2">
               {t.footer.contactTitle}
             </h4>
-            <div className="space-y-3.5 text-xs sm:text-sm text-gray-400">
-              <div className="flex flex-row items-start gap-2.5">
+            <div className="space-y-4 text-xs sm:text-sm text-gray-400">
+              {/* Highlighted Big Phone & WhatsApp Block */}
+              <div className="p-4 bg-gray-800/80 border border-gray-700 rounded-sm space-y-3">
+                <span className="text-[11px] font-bold text-[#25D366] block uppercase tracking-wider">
+                  {isRTL ? "خدمة العملاء والواتساب 24/7" : "Customer Service & WhatsApp"}
+                </span>
+                <a
+                  href="https://wa.me/966544740936"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 text-white hover:text-[#25D366] transition-colors group"
+                >
+                  <div className="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <span dir="ltr" className="text-lg sm:text-xl font-black text-white tracking-widest tabular-nums group-hover:text-[#25D366]">
+                    0544740936
+                  </span>
+                </a>
+                <a
+                  href="https://wa.me/966544740936"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-3 py-2 rounded-sm bg-[#25D366] hover:bg-[#1ebd5c] text-white font-bold text-xs transition-colors shadow-xs"
+                >
+                  <span>{t.footer.requestSurvey}</span>
+                  <ArrowUpRight className={`w-3.5 h-3.5 ${isRTL ? "rtl:rotate-[-90deg]" : ""}`} />
+                </a>
+              </div>
+
+              <div className="flex flex-row items-start gap-2.5 pt-1">
                 <MapPin className="w-4 h-4 text-[#74B743] shrink-0 mt-0.5" />
                 <span>{t.footer.address}</span>
               </div>
-              <a
-                href="tel:0544740936"
-                className="flex flex-row items-center gap-2.5 hover:text-[#00A3A6] transition-colors group"
-              >
-                <Phone className="w-4 h-4 text-[#00A3A6] shrink-0 group-hover:scale-110 transition-transform" />
-                <span dir="ltr" className="tabular-nums">0544740936</span>
-              </a>
               <a
                 href={`mailto:${t.footer.email}`}
                 className="flex flex-row items-center gap-2.5 hover:text-[#00A3A6] transition-colors group"
@@ -80,15 +107,6 @@ export default function Footer() {
                 <Mail className="w-4 h-4 text-[#00A3A6] shrink-0 group-hover:scale-110 transition-transform" />
                 <span>{t.footer.email}</span>
               </a>
-              <div className="pt-2">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-[#00A3A6]/20 border border-[#00A3A6]/40 text-[#00A3A6] hover:bg-[#00A3A6] hover:text-white transition-all text-xs font-bold cursor-pointer"
-                >
-                  <span>{t.footer.requestSurvey}</span>
-                  <ArrowUpRight className={`w-3.5 h-3.5 ${isRTL ? "rtl:rotate-[-90deg]" : ""}`} />
-                </Link>
-              </div>
             </div>
           </div>
 

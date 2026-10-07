@@ -49,12 +49,14 @@ export default function CorporateSection() {
                 <span>{t.corporate.readMore}</span>
                 <ArrowRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-180" : ""}`} />
               </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 border border-gray-300 text-gray-700 hover:border-[#00A3A6] hover:text-[#00A3A6] text-sm font-semibold transition-colors rounded-sm cursor-pointer"
+              <a
+                href="https://wa.me/966544740936"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-50 border border-[#25D366] text-emerald-800 hover:bg-[#25D366] hover:text-white text-sm font-bold transition-all rounded-sm cursor-pointer shadow-xs"
               >
                 {t.corporate.requestConsultation}
-              </Link>
+              </a>
             </div>
           </div>
 

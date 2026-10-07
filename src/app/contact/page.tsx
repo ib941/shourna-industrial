@@ -1,45 +1,28 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
-import { Phone, MessageCircle, Send, CheckCircle2 } from "lucide-react";
+import { Phone, MessageCircle, MapPin, Mail, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/components/LanguageContext";
 
 export default function ContactPage() {
   const { t, isRTL } = useLanguage();
 
-  const [formData, setFormData] = useState({
-    fullName: "",
-    phone: "",
-    scope: "",
-  });
-
-  const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 700);
-  };
-
   return (
     <div className="w-full bg-white text-gray-900">
-      {/* 1. Industrial Header Section */}
+      {/* 1. Header Section */}
       <section className="relative w-full py-20 lg:py-28 bg-[#0b1720] text-white overflow-hidden border-b border-gray-800">
         <div
           className="absolute inset-0 opacity-15 pointer-events-none"
           style={{
-            backgroundImage: "linear-gradient(to right, rgba(0, 163, 166, 0.2) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 163, 166, 0.2) 1px, transparent 1px)",
+            backgroundImage:
+              "linear-gradient(to right, rgba(0, 163, 166, 0.2) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 163, 166, 0.2) 1px, transparent 1px)",
             backgroundSize: "40px 40px",
           }}
         />
 
         <div className="absolute top-1/4 right-10 w-96 h-96 bg-[#00A3A6]/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 left-10 w-80 h-80 bg-[#74B743]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 left-10 w-80 h-80 bg-[#25D366]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl text-start">
@@ -49,10 +32,12 @@ export default function ContactPage() {
                 {t.contactPage.breadcrumbHome}
               </Link>
               <span>/</span>
-              <span className="text-[#00A3A6] font-semibold">{t.contactPage.breadcrumbCurrent}</span>
+              <span className="text-[#00A3A6] font-semibold">
+                {t.contactPage.breadcrumbCurrent}
+              </span>
             </div>
 
-            <span className="text-[#74B743] font-bold text-xs sm:text-sm tracking-wider uppercase">
+            <span className="text-[#25D366] font-bold text-xs sm:text-sm tracking-wider uppercase">
               {t.contactPage.eyebrow}
             </span>
 
@@ -67,149 +52,145 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* 2. Contact Details & Inquiry Form */}
-      <section className="py-20 lg:py-28 bg-gray-50/60 border-b border-gray-200">
+      {/* 2. Direct Contact Hub (No Forms - 100% Direct Action) */}
+      <section className="py-16 lg:py-24 bg-gray-50/70 border-b border-gray-200">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-[#00A3A6] font-bold text-xs uppercase tracking-wider">
+              {isRTL ? "خيارات التواصل المباشر والفوري" : "Direct & Instant Communication"}
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">
+              {isRTL ? "تواصل معنا مباشرة بدون أي انتظار" : "Get in Touch Directly Without Delay"}
+            </h2>
+            <p className="mt-3 text-base sm:text-lg text-gray-600">
+              {isRTL
+                ? "يمكنك فتح محادثة واتساب فورية أو الاتصال الهاتفي المباشر لطلب المعاينة والخدمة فوراً."
+                : "Open an immediate WhatsApp conversation or call directly to request service and site survey."}
+            </p>
+          </div>
+
+          {/* Massive Action Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
             
-            {/* Left Info Column */}
-            <div className="lg:col-span-5 space-y-8 text-start mt-6">
-              {/* Contact Cards */}
-              <div className="space-y-4">
-                <a
-                  href="tel:0544740936"
-                  className="flex items-center gap-4 p-5 bg-white border border-gray-200 shadow-xs hover:border-[#00A3A6] transition-colors group"
-                >
-                  <div className="w-12 h-12 bg-gray-50 border border-gray-200 flex items-center justify-center shrink-0 group-hover:bg-[#00A3A6]/10 transition-colors">
-                    <Phone className="w-5 h-5 text-[#00A3A6]" />
-                  </div>
-                  <div>
-                    <span className="block text-xs font-bold text-gray-500 uppercase tracking-wider">
-                      {isRTL ? "الاتصال المباشر" : "Direct Contact"}
-                    </span>
-                    <span dir="ltr" className="text-lg font-bold text-gray-900 tabular-nums">
-                      0544740936
-                    </span>
-                  </div>
-                </a>
-
-                <a
-                  href="https://wa.me/966544740936"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-5 bg-white border border-gray-200 shadow-xs hover:border-[#74B743] transition-colors group"
-                >
-                  <div className="w-12 h-12 bg-gray-50 border border-gray-200 flex items-center justify-center shrink-0 group-hover:bg-[#74B743]/15 transition-colors">
-                    <MessageCircle className="w-5 h-5 text-[#74B743]" />
-                  </div>
-                  <div>
-                    <span className="block text-xs font-bold text-gray-500 uppercase tracking-wider">
-                      {isRTL ? "واتساب" : "WhatsApp"}
-                    </span>
-                    <span dir="ltr" className="text-lg font-bold text-gray-900 tabular-nums">
-                      0544740936
-                    </span>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            {/* Right Form Column */}
-            <div className="lg:col-span-7 bg-white border border-gray-200 shadow-md p-8 sm:p-10 lg:p-12 text-start">
-              <div className="border-b border-gray-100 pb-6 mb-6">
-                <h3 className="text-2xl font-bold text-gray-900">
-                  {isRTL ? "تفاصيل واستفسار المشروع" : "Project Details & Inquiry"}
-                </h3>
+            {/* Card 1: WhatsApp Primary Action */}
+            <div className="bg-white border-2 border-[#25D366] p-8 sm:p-10 shadow-lg hover:shadow-xl transition-all duration-300 rounded-sm flex flex-col justify-between text-start relative overflow-hidden group">
+              <div className="absolute top-0 end-0 bg-[#25D366] text-white text-[11px] font-bold px-4 py-1 uppercase tracking-wider rounded-bl-sm">
+                {isRTL ? "الرد الفوري" : "Fastest Response"}
               </div>
 
-              {submitted ? (
-                <div className="py-12 text-center flex flex-col items-center">
-                  <div className="w-16 h-16 bg-[#74B743]/15 text-[#74B743] flex items-center justify-center mb-4">
-                    <CheckCircle2 className="w-9 h-9" />
-                  </div>
-                  <h4 className="text-2xl font-bold text-gray-900">
-                    {t.contactPage.successTitle}
-                  </h4>
-                  <p className="mt-3 text-gray-600 max-w-md text-sm leading-relaxed">
-                    {t.contactPage.successMessage}
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSubmitted(false);
-                      setFormData({
-                        fullName: "",
-                        phone: "",
-                        scope: "",
-                      });
-                    }}
-                    className="mt-6 px-8 py-3 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-sm transition-colors rounded-sm cursor-pointer"
-                  >
-                    {t.contactPage.another}
-                  </button>
+              <div>
+                <div className="w-16 h-16 rounded-full bg-[#25D366]/10 text-[#25D366] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <MessageCircle className="w-9 h-9" />
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                        {isRTL ? "الاسم الكامل" : "Full Name"} *
-                      </label>
-                      <input
-                        required
-                        type="text"
-                        value={formData.fullName}
-                        onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                        className="w-full px-4 py-3 rounded-none border border-gray-300 text-sm text-gray-900 focus:outline-hidden focus:border-[#00A3A6]"
-                      />
-                    </div>
 
-                    <div>
-                      <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                        {isRTL ? "رقم الجوال" : "Phone Number"} *
-                      </label>
-                      <input
-                        required
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 rounded-none border border-gray-300 text-sm text-gray-900 tabular-nums focus:outline-hidden focus:border-[#00A3A6]"
-                      />
-                    </div>
-                  </div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2">
+                  {isRTL ? "محادثة فورية عبر واتساب" : "Direct WhatsApp Chat"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isRTL
+                    ? "أرسل تفاصيل موقعك أو متطلبات العمل وسيقوم فريقنا بالرد الفوري وترتيب المعاينة."
+                    : "Send your project requirements or site details and our team will respond immediately."}
+                </p>
 
-                  <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                      {isRTL ? "تفاصيل المشروع" : "Project Details"}
-                    </label>
-                    <textarea
-                      rows={4}
-                      value={formData.scope}
-                      onChange={(e) => setFormData({ ...formData, scope: e.target.value })}
-                      className="w-full px-4 py-3 rounded-none border border-gray-300 text-sm text-gray-900 focus:outline-hidden focus:border-[#00A3A6]"
-                    />
-                  </div>
+                <div className="p-4 bg-gray-50 border border-gray-200 rounded-sm mb-8">
+                  <span className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">
+                    {isRTL ? "رقم الواتساب المعتمد" : "WhatsApp Number"}
+                  </span>
+                  <span dir="ltr" className="text-2xl sm:text-3xl font-black text-gray-900 tracking-wider tabular-nums">
+                    0544740936
+                  </span>
+                </div>
+              </div>
 
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="w-full py-4 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-base transition-all shadow-md cursor-pointer flex items-center justify-center gap-2 rounded-sm disabled:opacity-50"
-                    >
-                      {loading ? (
-                        <span>{t.contactPage.submitting}</span>
-                      ) : (
-                        <>
-                          <Send className={`w-5 h-5 ${isRTL ? "rtl:rotate-180" : ""}`} />
-                          <span>{t.contactPage.submit}</span>
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </form>
-              )}
+              <a
+                href="https://wa.me/966544740936"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-4 bg-[#25D366] hover:bg-[#1ebd5c] text-white font-bold text-base sm:text-lg transition-all shadow-md hover:shadow-lg rounded-sm inline-flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <MessageCircle className="w-5 h-5" />
+                <span>{isRTL ? "بدء محادثة واتساب الآن" : "Start WhatsApp Chat Now"}</span>
+                <ArrowUpRight className={`w-5 h-5 ${isRTL ? "rtl:rotate-[-90deg]" : ""}`} />
+              </a>
             </div>
+
+            {/* Card 2: Direct Call Primary Action */}
+            <div className="bg-white border-2 border-[#00A3A6] p-8 sm:p-10 shadow-lg hover:shadow-xl transition-all duration-300 rounded-sm flex flex-col justify-between text-start relative overflow-hidden group">
+              <div className="absolute top-0 end-0 bg-[#00A3A6] text-white text-[11px] font-bold px-4 py-1 uppercase tracking-wider rounded-bl-sm">
+                {isRTL ? "مكالمة هاتفية" : "Phone Call"}
+              </div>
+
+              <div>
+                <div className="w-16 h-16 rounded-full bg-[#00A3A6]/10 text-[#00A3A6] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Phone className="w-9 h-9" />
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2">
+                  {isRTL ? "الاتصال الهاتفي المباشر" : "Direct Phone Call"}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                  {isRTL
+                    ? "اتصل بنا مباشرة للتحدث مع المهندس المختص وتحديد موعد الزيارة الميدانية."
+                    : "Call us directly to speak with an engineering specialist and arrange a site visit."}
+                </p>
+
+                <div className="p-4 bg-gray-50 border border-gray-200 rounded-sm mb-8">
+                  <span className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">
+                    {isRTL ? "رقم الاتصال المباشر" : "Direct Phone Number"}
+                  </span>
+                  <span dir="ltr" className="text-2xl sm:text-3xl font-black text-gray-900 tracking-wider tabular-nums">
+                    0544740936
+                  </span>
+                </div>
+              </div>
+
+              <a
+                href="tel:0544740936"
+                className="w-full py-4 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-base sm:text-lg transition-all shadow-md hover:shadow-lg rounded-sm inline-flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <Phone className="w-5 h-5" />
+                <span>{isRTL ? "اتصل بنا الآن (0544740936)" : "Call Now (0544740936)"}</span>
+              </a>
+            </div>
+
+          </div>
+
+          {/* Location & Email Details (Working hours removed per user request) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            
+            {/* Headquarters Location */}
+            <div className="p-6 bg-white border border-gray-200 rounded-sm shadow-xs flex items-center gap-5 text-start">
+              <div className="w-14 h-14 rounded-full bg-[#74B743]/15 text-[#74B743] flex items-center justify-center shrink-0">
+                <MapPin className="w-7 h-7" />
+              </div>
+              <div>
+                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wider">
+                  {t.contactPage.addressLabel}
+                </span>
+                <span className="text-base sm:text-lg font-bold text-gray-900 mt-0.5 block">
+                  {t.contactPage.address}
+                </span>
+              </div>
+            </div>
+
+            {/* Email Address */}
+            <a
+              href={`mailto:${t.contactPage.email}`}
+              className="p-6 bg-white border border-gray-200 rounded-sm shadow-xs flex items-center gap-5 text-start hover:border-[#00A3A6] transition-colors group"
+            >
+              <div className="w-14 h-14 rounded-full bg-[#00A3A6]/10 text-[#00A3A6] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <Mail className="w-7 h-7" />
+              </div>
+              <div>
+                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wider">
+                  {t.contactPage.emailLabel}
+                </span>
+                <span className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-[#00A3A6] transition-colors mt-0.5 block">
+                  {t.contactPage.email}
+                </span>
+              </div>
+            </a>
 
           </div>
 

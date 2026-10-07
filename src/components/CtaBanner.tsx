@@ -28,17 +28,17 @@ export default function CtaBanner() {
               {t.cta.subheading}
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-6 text-xs sm:text-sm text-gray-700 font-semibold">
+            <div className="mt-6 flex flex-wrap items-center gap-6 text-sm sm:text-base text-gray-800 font-bold">
               <a
-                href={`tel:${t.cta.phone.replace(/[^0-9+]/g, '')}`}
-                className="flex items-center gap-2 hover:text-[#00A3A6] transition-colors group"
+                href="tel:0544740936"
+                className="flex items-center gap-2 text-[#00A3A6] hover:text-[#00878a] transition-colors group"
               >
-                <PhoneCall className="w-4 h-4 text-[#00A3A6] group-hover:scale-110 transition-transform" />
+                <PhoneCall className="w-5 h-5 text-[#00A3A6] group-hover:scale-110 transition-transform" />
                 <span dir="ltr" className="tabular-nums">{t.cta.phone}</span>
               </a>
               <a
                 href={`mailto:${t.cta.email}`}
-                className="flex items-center gap-2 hover:text-[#00A3A6] transition-colors group"
+                className="flex items-center gap-2 text-gray-600 hover:text-[#00A3A6] transition-colors group font-semibold text-sm"
               >
                 <Mail className="w-4 h-4 text-[#74B743] group-hover:scale-110 transition-transform" />
                 <span>{t.cta.email}</span>
@@ -47,13 +47,15 @@ export default function CtaBanner() {
           </div>
 
           <div className="shrink-0 w-full sm:w-auto">
-            <Link
-              href="/contact"
-              className="w-full sm:w-auto bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold px-8 py-4 rounded-sm inline-flex items-center justify-center gap-3 transition-all shadow-md cursor-pointer text-base"
+            <a
+              href="https://wa.me/966544740936"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto bg-[#25D366] hover:bg-[#20ba59] text-white font-bold px-8 py-4 rounded-sm inline-flex items-center justify-center gap-3 transition-all shadow-md cursor-pointer text-base"
             >
               <span>{t.cta.button}</span>
               <ArrowRight className={`w-5 h-5 ${isRTL ? "rtl:rotate-180" : ""}`} />
-            </Link>
+            </a>
           </div>
 
         </div>

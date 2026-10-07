@@ -104,21 +104,24 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <Link
-                href="/contact"
-                className="px-8 py-4 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-sm sm:text-base rounded-sm inline-flex items-center justify-center gap-2 transition-all shadow-md shadow-[#00A3A6]/25 cursor-pointer"
+              <a
+                href="https://wa.me/966544740936"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-[#25D366] hover:bg-[#1ebd5c] text-white font-bold text-sm sm:text-base rounded-sm inline-flex items-center justify-center gap-2 transition-all shadow-md shadow-[#25D366]/25 cursor-pointer"
               >
                 <span>{t.servicesPage.ctaCardButton}</span>
                 <ArrowRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-180" : ""}`} />
-              </Link>
+              </a>
 
-
-              <Link
-                href="/contact"
-                className="px-6 py-4 border border-gray-700 bg-black/40 hover:bg-black/60 text-gray-300 hover:text-white text-sm sm:text-base font-semibold rounded-sm inline-flex items-center justify-center gap-2 transition-colors"
+              <a
+                href="https://wa.me/966544740936"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-4 border border-gray-700 bg-black/40 hover:bg-black/60 text-gray-300 hover:text-white text-sm sm:text-base font-semibold rounded-sm inline-flex items-center justify-center gap-2 transition-colors cursor-pointer"
               >
                 <span>{t.servicesPage.siteSurveyButton}</span>
-              </Link>
+              </a>
             </div>
 
           </div>
@@ -143,12 +146,14 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
             </a>
           </div>
 
-          <Link
-            href="/contact"
-            className="px-4 py-2 bg-[#00A3A6] hover:bg-[#00878a] text-white text-xs font-bold rounded-xs transition-colors cursor-pointer inline-flex items-center"
+          <a
+            href="https://wa.me/966544740936"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 bg-[#25D366] hover:bg-[#1ebd5c] text-white text-xs font-bold rounded-xs transition-colors cursor-pointer inline-flex items-center"
           >
             {t.servicesPage.ctaCardButton}
-          </Link>
+          </a>
         </div>
       </nav>
 
@@ -199,8 +204,8 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
 
                   <p className="text-base text-gray-600 leading-relaxed mb-8">
                     {isRTL 
-                      ? "تقدم شركة شورنا الصناعية خدمات نظافة واجهات شاملة تغطي:" 
-                      : "Shourna Industrial Company offers comprehensive facade cleaning services covering:"}
+                      ? "تقدم شركة شورنا للصيانة والنظافة خدمات نظافة واجهات شاملة تغطي:" 
+                      : "Shourna Maintenance & Cleaning Company offers comprehensive facade cleaning services covering:"}
                   </p>
 
                   <div className="space-y-4 pt-6 border-t border-gray-100">
@@ -223,20 +228,24 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                 </div>
 
                 <div className="mt-10 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                  <Link
-                    href="/contact"
-                    className="px-7 py-3.5 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-sm transition-all shadow-xs hover:shadow-md cursor-pointer inline-flex items-center justify-center gap-2 rounded-sm"
+                  <a
+                    href="https://wa.me/966544740936"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-7 py-3.5 bg-[#25D366] hover:bg-[#1ebd5c] text-white font-bold text-sm transition-all shadow-xs hover:shadow-md cursor-pointer inline-flex items-center justify-center gap-2 rounded-sm"
                   >
                     <span>{t.servicesPage.ctaCardButton}</span>
                     <ArrowRight className={`w-4 h-4 ${isRTL ? "rtl:rotate-180" : ""}`} />
-                  </Link>
+                  </a>
 
-                  <Link
-                    href="/contact"
-                    className="px-6 py-3.5 border border-gray-300 text-gray-700 hover:border-[#00A3A6] hover:text-[#00A3A6] text-sm font-semibold transition-colors inline-flex items-center justify-center rounded-sm"
+                  <a
+                    href="https://wa.me/966544740936"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-3.5 border border-gray-300 text-gray-700 hover:border-[#25D366] hover:text-[#25D366] text-sm font-semibold transition-colors inline-flex items-center justify-center rounded-sm cursor-pointer"
                   >
                     <span>{t.servicesPage.siteSurveyButton}</span>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -494,14 +503,14 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                 </a>
               </div>
             </div>
-            <div className="shrink-0 w-full sm:w-auto">
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto px-8 py-4 bg-[#00A3A6] hover:bg-[#00878a] text-white font-bold text-base transition-colors shadow-lg cursor-pointer rounded-sm inline-flex items-center justify-center"
+              <a
+                href="https://wa.me/966544740936"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-base transition-colors shadow-lg cursor-pointer rounded-sm inline-flex items-center justify-center gap-2"
               >
                 <span>{t.servicesPage.bottomButton}</span>
-              </Link>
-            </div>
+              </a>
           </div>
         </div>
       </section>

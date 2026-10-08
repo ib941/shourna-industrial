@@ -89,44 +89,25 @@ export default function Navbar() {
           </nav>
 
           {/* Language Toggle & Massive Phone CTA Button */}
-          <div className="flex flex-row items-center gap-2 sm:gap-3 shrink-0">
+          <div className="flex flex-row items-center gap-3 shrink-0">
             <button
               type="button"
               onClick={toggleLocale}
-              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-2 border border-gray-300 text-xs sm:text-sm font-semibold text-gray-700 bg-white hover:text-[#00A3A6] hover:border-[#00A3A6] transition-colors rounded-sm shadow-xs cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-2 border border-gray-300 text-xs sm:text-sm font-semibold text-gray-700 bg-white hover:text-[#00A3A6] hover:border-[#00A3A6] transition-colors rounded-sm shadow-xs cursor-pointer"
             >
               <Globe className="w-3.5 h-3.5 text-[#00A3A6]" />
-              <span>{t.nav.switchLang}</span>
+              <span className="hidden sm:inline-block">{t.nav.switchLang}</span>
             </button>
 
-            {/* Mobile Immediate Call/WhatsApp Button */}
+            {/* Giant Direct Phone CTA - Hidden on Mobile */}
             <a
               href="https://wa.me/966544740936"
               target="_blank"
               rel="noopener noreferrer"
-              className="sm:hidden inline-flex items-center gap-1.5 px-3 py-2 rounded-sm bg-[#25D366] hover:bg-[#1ebd5c] text-white font-black text-xs shadow-sm transition-all"
-              aria-label="0544740936"
+              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-sm bg-[#25D366] hover:bg-[#1ebd5c] text-white transition-all shadow-xs hover:shadow-md cursor-pointer group"
             >
-              <PhoneCall className="w-3.5 h-3.5 animate-pulse" />
-              <span dir="ltr" className="tracking-wider">0544740936</span>
-            </a>
-
-            {/* Giant Direct Phone / WhatsApp CTA for Desktop & Tablets */}
-            <a
-              href="https://wa.me/966544740936"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-2.5 px-6 py-2.5 rounded-sm bg-[#25D366] hover:bg-[#1ebd5c] text-white transition-all shadow-md hover:shadow-lg cursor-pointer group ring-2 ring-[#25D366]/40"
-            >
-              <PhoneCall className="w-5 h-5 group-hover:scale-110 transition-transform animate-pulse" />
-              <span className="flex flex-col text-start">
-                <span className="text-[10px] font-semibold uppercase opacity-90 leading-tight">
-                  {isRTL ? "واتساب واتصال مباشر" : "WhatsApp & Direct Call"}
-                </span>
-                <span dir="ltr" className="text-base sm:text-lg font-black tracking-widest leading-tight">
-                  0544740936
-                </span>
-              </span>
+              <PhoneCall className="w-4 h-4" />
+              <span dir="ltr" className="text-sm sm:text-base font-black tracking-widest">0544740936</span>
             </a>
 
             <button

@@ -103,13 +103,13 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
             </p>
 
             {/* Action Buttons */}
-            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full">
+            <div className="mt-8 flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 rtl:space-x-reverse w-full">
               {/* Primary: Phone Dialer */}
               <a
                 href="tel:0544740936"
-                className="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-[#1ebd5c] text-white font-bold text-sm sm:text-base rounded-sm inline-flex items-center justify-center gap-2 transition-all shadow-md shadow-[#25D366]/25 cursor-pointer"
+                className="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-[#1ebd5c] text-white font-bold text-sm sm:text-base rounded-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-[#25D366]/25 cursor-pointer"
               >
-                <Phone className="w-5 h-5" />
+                <Phone className="w-5 h-5 shrink-0" />
                 <span dir="ltr">{isRTL ? "اتصل الآن | 0544740936" : "Call Now | 0544740936"}</span>
               </a>
 
@@ -118,7 +118,7 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                 href="https://wa.me/966544740936"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-4 border border-gray-700 bg-black/40 hover:bg-black/60 text-gray-300 hover:text-white text-sm sm:text-base font-semibold rounded-sm inline-flex items-center justify-center gap-2 transition-colors"
+                className="w-full sm:w-auto px-6 py-4 border-2 border-[#25D366] bg-white hover:bg-[#25D366]/10 text-[#25D366] text-sm sm:text-base font-bold rounded-sm flex items-center justify-center gap-2 transition-colors cursor-pointer"
               >
                 <span>{isRTL ? "طلب الخدمة عبر واتساب" : "Request via WhatsApp"}</span>
               </a>
@@ -227,13 +227,13 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                   </div>
                 </div>
 
-                <div className="mt-10 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full">
+                <div className="mt-10 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 rtl:space-x-reverse w-full">
                   {/* Primary: Phone Dialer */}
                   <a
                     href="tel:0544740936"
-                    className="w-full sm:w-auto px-7 py-3.5 bg-[#25D366] hover:bg-[#1ebd5c] text-white font-bold text-sm transition-all shadow-xs hover:shadow-md cursor-pointer inline-flex items-center justify-center gap-2 rounded-sm"
+                    className="w-full sm:w-auto px-7 py-3.5 bg-[#25D366] hover:bg-[#1ebd5c] text-white font-bold text-sm transition-all shadow-xs hover:shadow-md cursor-pointer flex items-center justify-center gap-2 rounded-sm"
                   >
-                    <Phone className="w-4 h-4" />
+                    <Phone className="w-4 h-4 shrink-0" />
                     <span dir="ltr">{isRTL ? "اتصل الآن | 0544740936" : "Call Now | 0544740936"}</span>
                   </a>
 
@@ -242,7 +242,7 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                     href="https://wa.me/966544740936"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto px-6 py-3.5 border border-gray-300 text-gray-700 hover:border-[#25D366] hover:text-[#25D366] text-sm font-semibold transition-colors inline-flex items-center justify-center rounded-sm"
+                    className="w-full sm:w-auto px-6 py-3.5 border border-gray-700 bg-black/40 hover:bg-black/60 text-gray-300 hover:text-white text-sm font-semibold transition-colors cursor-pointer flex items-center justify-center rounded-sm"
                   >
                     <span>{isRTL ? "طلب الخدمة عبر واتساب" : "Request via WhatsApp"}</span>
                   </a>

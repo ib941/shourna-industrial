@@ -98,7 +98,7 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
 
             {/* Client's Hardcoded Hero Description */}
             <p className="mt-4 text-base sm:text-lg text-gray-200 leading-relaxed font-normal">
-              {isRTL 
+              {isRTL
                 ? "حلول متكاملة لتنظيف وصيانة واجهات المباني بمختلف أنواعها، لضمان استدامتها ومظهرها المتميز."
                 : "Integrated solutions for cleaning and maintaining building facades of all types, ensuring their sustainability and distinctive appearance."}
             </p>
@@ -162,7 +162,7 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white border border-gray-200 shadow-sm overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-              
+
               <div className="lg:col-span-6 relative min-h-[380px] lg:min-h-full bg-gray-900 group">
                 <Image
                   src={currentService.image}
@@ -173,7 +173,7 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                   className="object-cover object-center brightness-100 group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent lg:hidden" />
-                
+
                 <div className="absolute top-6 end-6 px-4 py-2 bg-white/95 backdrop-blur-xs border border-gray-200 flex items-center gap-2 font-mono font-black text-xl text-[#00A3A6] shadow-sm">
                   <span>{currentService.num}</span>
                   <span className="text-gray-300">|</span>
@@ -203,8 +203,8 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                   </h2>
 
                   <p className="text-base text-gray-600 leading-relaxed mb-8">
-                    {isRTL 
-                      ? "تقدم شركة شورنا للصيانة والنظافة خدمات نظافة واجهات شاملة تغطي:" 
+                    {isRTL
+                      ? "تقدم شركة شورنا للصيانة والنظافة خدمات نظافة واجهات شاملة تغطي:"
                       : "Shourna Maintenance & Cleaning Company offers comprehensive facade cleaning services covering:"}
                   </p>
 
@@ -280,8 +280,8 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                   {isRTL ? "عقود صيانة دورية واتفاقيات مستوى الخدمة (SLA)" : "Periodic Maintenance Contracts (SLA)"}
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  {isRTL 
-                    ? "برامج لتنظيف وصيانة دورية مجدولة، مع تقارير تصوير رقمية وتوثيق هندسي دوري لسلامة الألواح والواجهات." 
+                  {isRTL
+                    ? "برامج لتنظيف وصيانة دورية مجدولة، مع تقارير تصوير رقمية وتوثيق هندسي دوري لسلامة الألواح والواجهات."
                     : "Scheduled cleaning and maintenance programs with digital photo reports and engineering documentation."}
                 </p>
               </div>
@@ -305,8 +305,8 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                   {isRTL ? "الغسيل بالماء النقي المنزوع الأيونات (DI/RO)" : "Deionized Pure Water Washing (DI/RO)"}
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  {isRTL 
-                    ? "محطات تحلية وضخ متنقلة تنتج مياهاً خالية من الشوائب تضمن جفاف الزجاج بنقاء بلوري بدون أي علامات أو رواسب." 
+                  {isRTL
+                    ? "محطات تحلية وضخ متنقلة تنتج مياهاً خالية من الشوائب تضمن جفاف الزجاج بنقاء بلوري بدون أي علامات أو رواسب."
                     : "Mobile desalination units producing impurity-free water ensuring crystal clear glass drying without water spots."}
                 </p>
               </div>
@@ -392,58 +392,58 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
               {isRTL ? "شواهد من بيئة العمل والمعدات المتقدمة" : "Operational Environment & Technical Fleet"}
             </h2>
             <p className="mt-3 text-base text-gray-600 leading-relaxed">
-              {isRTL 
-                ? "لقطات توثيقية حية تبرز جاهزية طواقم شورنا والتقنيات الهندسية المستخدمة في مواقع العمل بالمملكة." 
+              {isRTL
+                ? "لقطات توثيقية حية تبرز جاهزية طواقم شورنا والتقنيات الهندسية المستخدمة في مواقع العمل بالمملكة."
                 : "High-resolution photographic documentation highlighting Shourna's specialized teams and modern equipment across Saudi job sites."}
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
-              { 
-                src: "/images/gallery-1.jpg", 
-                title: isRTL ? "تنظيف الواجهات الزجاجية" : "Glass Facade Cleaning", 
-                caption: isRTL ? "استخدام أنظمة السقالات الآمنة للوصول الدقيق" : "Using safe scaffolding systems for precise access" 
+              {
+                src: "/images/gallery-1.jpg",
+                title: isRTL ? "تنظيف الواجهات الزجاجية" : "Glass Facade Cleaning",
+                caption: isRTL ? "استخدام أنظمة السقالات الآمنة للوصول الدقيق" : "Using safe scaffolding systems for precise access"
               },
-              { 
-                src: "/images/gallery-2.jpg", 
-                title: isRTL ? "أعمال التنظيف الليلية" : "Night Cleaning Operations", 
-                caption: isRTL ? "مرونة في التنفيذ لعدم إعاقة الحركة التجارية" : "Flexible execution to avoid disrupting commercial activity" 
+              {
+                src: "/images/gallery-2.jpg",
+                title: isRTL ? "أعمال التنظيف الليلية" : "Night Cleaning Operations",
+                caption: isRTL ? "مرونة في التنفيذ لعدم إعاقة الحركة التجارية" : "Flexible execution to avoid disrupting commercial activity"
               },
-              { 
-                src: "/images/gallery-3.jpg", 
-                title: isRTL ? "صيانة الواجهات التجارية" : "Commercial Facade Maintenance", 
-                caption: isRTL ? "عمليات التنظيف باستخدام رافعات هيدروليكية متقدمة" : "Cleaning operations using advanced hydraulic lifts" 
+              {
+                src: "/images/gallery-3.jpg",
+                title: isRTL ? "صيانة الواجهات التجارية" : "Commercial Facade Maintenance",
+                caption: isRTL ? "عمليات التنظيف باستخدام رافعات هيدروليكية متقدمة" : "Cleaning operations using advanced hydraulic lifts"
               },
-              { 
-                src: "/images/gallery-4.jpg", 
-                title: isRTL ? "تنظيف واجهات المستشفيات" : "Hospital Facade Cleaning", 
-                caption: isRTL ? "مستشفى دار الشفاء - دقة ومعايير صحية صارمة" : "Dar Alshefa Hospital - strict health standards and precision" 
+              {
+                src: "/images/gallery-4.jpg",
+                title: isRTL ? "تنظيف واجهات المستشفيات" : "Hospital Facade Cleaning",
+                caption: isRTL ? "مستشفى دار الشفاء - دقة ومعايير صحية صارمة" : "Dar Alshefa Hospital - strict health standards and precision"
               },
-              { 
-                src: "/images/gallery-5.jpg", 
-                title: isRTL ? "تنظيف الأبراج الشاهقة" : "High-Rise Tower Cleaning", 
-                caption: isRTL ? "تلميع الواجهات الزجاجية بالكامل للأبراج" : "Complete polishing of glass facades for towers" 
+              {
+                src: "/images/gallery-5.jpg",
+                title: isRTL ? "تنظيف الأبراج الشاهقة" : "High-Rise Tower Cleaning",
+                caption: isRTL ? "تلميع الواجهات الزجاجية بالكامل للأبراج" : "Complete polishing of glass facades for towers"
               },
-              { 
-                src: "/images/gallery-6.jpg", 
-                title: isRTL ? "صيانة المجمعات الطبية" : "Medical Complex Maintenance", 
-                caption: isRTL ? "مجمع الهنوف الطبي - تنظيف وحماية ألواح الكلادينج" : "Al Hanouf Medical Complex - cladding panel cleaning and protection" 
+              {
+                src: "/images/gallery-6.jpg",
+                title: isRTL ? "صيانة المجمعات الطبية" : "Medical Complex Maintenance",
+                caption: isRTL ? "مجمع الهنوف الطبي - تنظيف وحماية ألواح الكلادينج" : "Al Hanouf Medical Complex - cladding panel cleaning and protection"
               },
-              { 
-                src: "/images/gallery-7.jpg", 
-                title: isRTL ? "أنظمة التنظيف المعلقة" : "Suspended Cleaning Systems", 
-                caption: isRTL ? "استخدام المنصات المعلقة (Cradles) للوصول الآمن" : "Using suspended platforms (cradles) for safe access" 
+              {
+                src: "/images/gallery-7.jpg",
+                title: isRTL ? "أنظمة التنظيف المعلقة" : "Suspended Cleaning Systems",
+                caption: isRTL ? "استخدام المنصات المعلقة (Cradles) للوصول الآمن" : "Using suspended platforms (cradles) for safe access"
               },
-              { 
-                src: "/images/gallery-8.jpg", 
-                title: isRTL ? "معدات الرفع المتقدمة" : "Advanced Lifting Equipment", 
-                caption: isRTL ? "استخدام آليات حديثة لضمان كفاءة وسرعة الإنجاز" : "Using modern machinery to ensure efficiency and speed" 
+              {
+                src: "/images/gallery-8.jpg",
+                title: isRTL ? "معدات الرفع المتقدمة" : "Advanced Lifting Equipment",
+                caption: isRTL ? "استخدام آليات حديثة لضمان كفاءة وسرعة الإنجاز" : "Using modern machinery to ensure efficiency and speed"
               },
-              { 
-                src: "/images/gallery-9.jpg", 
-                title: isRTL ? "تنظيف دقيق للواجهات" : "Precision Facade Cleaning", 
-                caption: isRTL ? "إزالة الرواسب بفعالية مع الحفاظ على المواد الأصلية" : "Effective residue removal while preserving original materials" 
+              {
+                src: "/images/gallery-9.jpg",
+                title: isRTL ? "تنظيف دقيق للواجهات" : "Precision Facade Cleaning",
+                caption: isRTL ? "إزالة الرواسب بفعالية مع الحفاظ على المواد الأصلية" : "Effective residue removal while preserving original materials"
               }
             ].map((img, idx) => (
               <div key={idx} className="bg-white border border-gray-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow group flex flex-col text-start">
@@ -491,7 +491,7 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
               <p className="mt-3 text-gray-300 text-sm sm:text-base leading-relaxed">
                 {t.servicesPage.bottomDesc}
               </p>
-              
+
               <div className="mt-6 flex flex-wrap items-center gap-6 text-xs text-gray-300 font-mono">
                 <a href="tel:0544740936" className="hover:text-[#00A3A6] flex items-center gap-2">
                   <Phone className="w-4 h-4 text-[#00A3A6]" />
@@ -503,14 +503,14 @@ export default function ServiceDetailView({ slug }: ServiceDetailViewProps) {
                 </a>
               </div>
             </div>
-              <a
-                href="https://wa.me/966544740936"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-base transition-colors shadow-lg cursor-pointer rounded-sm inline-flex items-center justify-center gap-2"
-              >
-                <span>{t.servicesPage.bottomButton}</span>
-              </a>
+            <a
+              href="https://wa.me/966544740936"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-base transition-colors shadow-lg cursor-pointer rounded-sm inline-flex items-center justify-center gap-2"
+            >
+              <span>{t.servicesPage.bottomButton}</span>
+            </a>
           </div>
         </div>
       </section>

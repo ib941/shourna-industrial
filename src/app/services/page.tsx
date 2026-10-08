@@ -36,7 +36,7 @@ export default function ServicesPage() {
             backgroundSize: "40px 40px",
           }}
         />
-        
+
         {/* Subtle radial glow of brand deep teal & leaf green */}
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#00A3A6]/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[#74B743]/15 rounded-full blur-3xl pointer-events-none" />
@@ -81,7 +81,7 @@ export default function ServicesPage() {
       {/* 2. Services Detailed Showcase */}
       <section className="py-20 lg:py-28 bg-gray-50/60">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="space-y-16 lg:space-y-24">
             {t.servicesPage.items.map((svc, index) => {
               const isEven = index % 2 === 1;
@@ -92,7 +92,7 @@ export default function ServicesPage() {
                   className="bg-white border border-gray-200 shadow-sm rounded-none overflow-hidden transition-all duration-300 hover:border-[#00A3A6] hover:shadow-lg"
                 >
                   <div className={`grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch ${isEven ? "lg:flex-row-reverse" : ""}`}>
-                    
+
                     {/* Visual Media Column */}
                     <div className={`lg:col-span-5 relative min-h-[300px] lg:min-h-full bg-gray-900 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
                       <Image
@@ -103,7 +103,7 @@ export default function ServicesPage() {
                         className="object-cover object-center opacity-90 hover:scale-105 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-transparent lg:hidden" />
-                      
+
                       {/* Industrial numbering overlay */}
                       <div className="absolute top-6 end-6 w-14 h-14 bg-white/90 backdrop-blur-xs border border-gray-200 flex items-center justify-center font-mono font-black text-2xl text-[#00A3A6]">
                         {svc.num}

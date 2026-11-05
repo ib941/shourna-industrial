@@ -29,6 +29,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ar" dir="rtl" className={`${tajawal.variable} h-full antialiased`}>
+      <head>
+        <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MGGSWRMQ"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());`,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-white text-gray-900 font-sans tabular-nums selection:bg-[#00A3A6] selection:text-white">
         <LanguageProvider>
           {/* Persistent Navbar across all pages */}
